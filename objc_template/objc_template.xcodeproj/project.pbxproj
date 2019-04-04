@@ -1387,7 +1387,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-objc_template/Pods-objc_template-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-objc_template/Pods-objc_template-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1398,7 +1398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-objc_template/Pods-objc_template-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-objc_template/Pods-objc_template-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A7A513F404D1A6266F642A34 /* [CP] Check Pods Manifest.lock */ = {
@@ -1736,6 +1736,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = objc_template/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1767,6 +1768,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = objc_template/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
