@@ -1,0 +1,35 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'objc_template' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for objc_template
+
+  pod 'Toast'
+  pod 'YYText'
+  pod 'SSZipArchive'
+  pod 'SDWebImage'
+  pod 'Masonry'
+  pod 'MJExtension'
+  pod 'MBProgressHUD'
+  pod 'KVOController'
+  pod 'IQKeyboardManager'
+  pod 'SDCycleScrollView'
+  pod 'UITableView+FDTemplateLayoutCell'
+  pod 'MBProgressHUD'
+  pod 'AFNetworking', '~> 3.0'
+
+  target 'objc_templateTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'Kiwi'
+  end
+
+  target 'objc_templateUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

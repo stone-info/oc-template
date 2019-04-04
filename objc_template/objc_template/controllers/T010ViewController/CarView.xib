@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9mM-rC-FSe" customClass="CarView">
+            <rect key="frame" x="0.0" y="0.0" width="443" height="273"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afw-gJ-372">
+                    <rect key="frame" x="10" y="10" width="150" height="150"/>
+                    <color key="backgroundColor" red="0.63921568630000003" green="0.85098039219999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="g6p-nn-xkK"/>
+                        <constraint firstAttribute="width" constant="150" id="uFb-Tg-Lzz"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEO-5w-rao">
+                    <rect key="frame" x="170" y="10" width="263" height="153"/>
+                    <color key="backgroundColor" red="0.0" green="0.626" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <string key="text">titletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitlev</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="sub-title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqo-f7-JtV">
+                    <rect key="frame" x="170" y="173" width="263" height="14.5"/>
+                    <color key="backgroundColor" red="1" green="0.50588235290000005" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aj-wR-o7d">
+                    <rect key="frame" x="333" y="197.5" width="100" height="30"/>
+                    <color key="backgroundColor" red="0.2470588235" green="0.54901960780000003" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="CcH-Ml-GYR"/>
+                        <constraint firstAttribute="height" constant="30" id="x2Z-nb-UAD"/>
+                    </constraints>
+                    <state key="normal" title="click me">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Sqo-f7-JtV" firstAttribute="top" secondItem="FEO-5w-rao" secondAttribute="bottom" constant="10" id="3FE-Ir-9Vc"/>
+                <constraint firstItem="Sqo-f7-JtV" firstAttribute="leading" secondItem="afw-gJ-372" secondAttribute="trailing" constant="10" id="3NM-ZJ-xBl"/>
+                <constraint firstItem="FEO-5w-rao" firstAttribute="top" secondItem="9mM-rC-FSe" secondAttribute="top" constant="10" id="4wd-Hd-QVV"/>
+                <constraint firstAttribute="trailing" secondItem="Sqo-f7-JtV" secondAttribute="trailing" constant="10" id="7i8-nQ-b20"/>
+                <constraint firstItem="afw-gJ-372" firstAttribute="top" secondItem="FEO-5w-rao" secondAttribute="top" id="AqX-Fk-B3Z"/>
+                <constraint firstAttribute="trailing" secondItem="FEO-5w-rao" secondAttribute="trailing" constant="10" id="G5D-vu-yKN"/>
+                <constraint firstAttribute="trailing" secondItem="1aj-wR-o7d" secondAttribute="trailing" constant="10" id="WQA-Vp-WXE"/>
+                <constraint firstItem="afw-gJ-372" firstAttribute="leading" secondItem="9mM-rC-FSe" secondAttribute="leading" constant="10" id="Yy8-oN-fwr"/>
+                <constraint firstItem="1aj-wR-o7d" firstAttribute="top" secondItem="Sqo-f7-JtV" secondAttribute="bottom" constant="10" id="jYz-ZW-Krm"/>
+                <constraint firstItem="FEO-5w-rao" firstAttribute="leading" secondItem="afw-gJ-372" secondAttribute="trailing" constant="10" id="tA8-bJ-wcz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mButton" destination="1aj-wR-o7d" id="i05-PP-Oa8"/>
+                <outlet property="mImageView" destination="afw-gJ-372" id="MFv-ko-pXU"/>
+            </connections>
+            <point key="canvasLocation" x="270.5" y="-564.5"/>
+        </view>
+    </objects>
+</document>
