@@ -325,7 +325,16 @@
 <!--    <false/>-->
 <!--  </dict>-->
 
-  
+  <dict>
+    <key>title</key>
+    <string>noob test</string>
+    <key>controllerName</key>
+    <string>T041ViewController</string>
+    <key>xib</key>
+    <false/>
+    <key>storyboard</key>
+    <false/>
+  </dict>
 
 </array>
 </plist>
