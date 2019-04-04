@@ -12,6 +12,7 @@
 		68AF80CD0F415E158DCB3637 /* T008ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF8BD8A5EEC54BA584D039 /* T008ViewController.m */; };
 		68AF868F69FB454BBB7192BE /* T007ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF87859566B62E68CF8D28 /* T007ViewController.m */; };
 		68AF870372CDB2C92BBD00E1 /* button-template.json in Resources */ = {isa = PBXBuildFile; fileRef = 68AF8BC5DEB48BA0D7157EAF /* button-template.json */; };
+		68AF898AF3BAD55D20B81C95 /* default.txt in Resources */ = {isa = PBXBuildFile; fileRef = 68AF8804756104A94D9CC3CE /* default.txt */; };
 		8E103891224E9D6800868467 /* T023ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E10388F224E9D6800868467 /* T023ViewController.m */; };
 		8E103892224E9D6800868467 /* T023ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E103890224E9D6800868467 /* T023ViewController.xib */; };
 		8E103896224EA66D00868467 /* T024ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E103894224EA66D00868467 /* T024ViewController.m */; };
@@ -190,6 +191,7 @@
 		5E34E083E2654465D32FD255 /* Pods-objc_template.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_template.debug.xcconfig"; path = "Pods/Target Support Files/Pods-objc_template/Pods-objc_template.debug.xcconfig"; sourceTree = "<group>"; };
 		6505B157F0DBE0E6893A46DA /* Pods-objc_template.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_template.release.xcconfig"; path = "Pods/Target Support Files/Pods-objc_template/Pods-objc_template.release.xcconfig"; sourceTree = "<group>"; };
 		68AF87859566B62E68CF8D28 /* T007ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = T007ViewController.m; sourceTree = "<group>"; };
+		68AF8804756104A94D9CC3CE /* default.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = default.txt; sourceTree = "<group>"; };
 		68AF8B57523A3F62FD02D7EB /* T007ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T007ViewController.h; sourceTree = "<group>"; };
 		68AF8BA0D97E80D0CE2B1CD8 /* T008ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T008ViewController.h; sourceTree = "<group>"; };
 		68AF8BC5DEB48BA0D7157EAF /* button-template.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "button-template.json"; sourceTree = "<group>"; };
@@ -1131,6 +1133,7 @@
 		8E10FE00224E409A00B8FC37 /* decorators */ = {
 			isa = PBXGroup;
 			children = (
+				68AF8804756104A94D9CC3CE /* default.txt */,
 			);
 			path = decorators;
 			sourceTree = "<group>";
@@ -1337,6 +1340,7 @@
 				68AF870372CDB2C92BBD00E1 /* button-template.json in Resources */,
 				8E103947224FE9CE00868467 /* T031ViewController.xib in Resources */,
 				8E10FD50224D3DC800B8FC37 /* CarView.xib in Resources */,
+				68AF898AF3BAD55D20B81C95 /* default.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
