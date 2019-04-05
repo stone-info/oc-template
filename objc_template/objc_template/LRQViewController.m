@@ -6,29 +6,29 @@
 //  Copyright © 2019 stone. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LRQViewController.h"
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface LRQViewController () <UITableViewDelegate, UITableViewDataSource>
 /** tableView */
 @property (nonatomic, weak) UITableView                                       *tableView;
 @property (strong, nonatomic) NSArray<NSDictionary<NSString *, NSString *> *> *dataList;
 
 @end
 
-@implementation ViewController
+@implementation LRQViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
-
+  
   // 获取info字典
-  NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+  NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"lrq_data" ofType:@"plist"];
   NSArray  *dataList   = [NSArray arrayWithContentsOfFile:bundlePath];
-
+  
   dataList = (NSMutableArray *) [[dataList reverseObjectEnumerator] allObjects];
   // NSLog(@"dataList = %@", dataList);
   self.dataList = dataList;
-
+  
   // note:=== table view build === 2019-03-27 ====================================/
   if (@available(iOS 11.0, *)) {
     // 取消自动调整内边距
@@ -52,24 +52,24 @@
     [self.view addSubview:tableView];
     [self addObserver];
     [self addRequest];
-
+    
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
       make.edges.insets(UIEdgeInsetsZero);
       // make.center.mas_equalTo(self.view);
-
+      
       /** full */
       // make.top.mas_equalTo(self.view.mas_top).offset(0);
       // make.left.mas_equalTo(self.view.mas_left).offset(0);
       // make.right.mas_equalTo(self.view.mas_right).offset(0);
       // make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
-
+      
       /** width & height */
       // make.width.mas_equalTo(100);
       // make.height.mas_equalTo(100);
       // make.size.mas_equalTo(100);
     }];
   }
-
+  
   // auto push
   // {
   //   NSDictionary<NSString *, NSString *> *dictionary = self.dataList.firstObject;
@@ -115,36 +115,36 @@
 
 /** 初始化 tableView */
 - (void)setupInit:(UITableView *)tableView {
-
+  
   // MARK: - 设置代理
   {
     tableView.delegate   = self;
     tableView.dataSource = self;
   }
-
+  
   // MARK: - 消除底部分割线
   if (tableView.style == UITableViewStylePlain) {
     tableView.tableFooterView = UIView.new;
   }
-
+  
   // MARK: - 分割线设置
   {
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     // tableView.separatorColor = [UIColor greenColor];
   }
-
+  
   // MARK: - 滚动条是否隐藏
   {
     //   tableView.showsVerticalScrollIndicator = NO;
   }
-
+  
   // MARK: - 设置tableHeaderView
   {
     //   UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     //   tableView.tableHeaderView = tableHeaderView;
   }
-
+  
   // MARK: - 注册
   { /**
      * cell xib 注册 & class 注册
@@ -194,7 +194,7 @@
 
 /** 组数 */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+  
   return 1;
 }
 
@@ -222,15 +222,15 @@
 
 /** 自定义 cell */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+  
   UITableViewCell *cell = DequeueForCell(tableView, UITableViewCell);
   // SNOldTableViewCell * cell = [SNOldTableViewCell cellWithTableView:tableView];
-
+  
   cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(0xF2CDA7, 1.0) : HexRGBA(0xEA9950, 1.0);
   cell.selectionStyle              = tableView.isEditing ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
-
+  
   NSUInteger i = self.dataList.count - (NSUInteger) indexPath.row - 1;
-
+  
   cell.textLabel.text = kStringFormat(@"%03ld-%@", i, self.dataList[(NSUInteger) indexPath.row][@"title"]);
   cell.textLabel.font = kPingFangSCRegular(12);
   // 应用场景, 点击能闪烁一下...没用...
@@ -242,13 +242,13 @@
     // selectedBackgroundView.backgroundColor = [UIColor blueColor];
     // cell.selectedBackgroundView            = selectedBackgroundView;
   }
-
+  
   // 应用场景, 没用, 偷懒的时候用一下
   {
     // cell.accessoryView = [[UISwitch alloc] init]; //优先级高于cell.accessoryType, 即两个同时设置只有accessoryView起作用
     // cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   }
-
+  
   // 应用场景, 设置cell背景图片的时候
   {
     // UIView *bgView = [[UIView alloc] init];
@@ -257,7 +257,7 @@
     // cell.contentView.backgroundColor 优先级高于 cell.backgroundView 优先级高于 backgroundColor
     // cell.backgroundColor = [UIColor orangeColor];
   }
-
+  
   return cell;
 }
 
@@ -265,13 +265,13 @@
 
 /** 选中一行 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+  
   NSLog(@"%s", __func__);
-
+  
   NSDictionary<NSString *, NSString *> *dictionary = self.dataList[(NSUInteger) indexPath.row];
-
+  
   UIViewController *viewController;
-
+  
   if (dictionary[@"xib"] && [dictionary[@"xib"] boolValue] == YES) {
     /** 根据xib 获取 viewController */
     viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] initWithNibName:dictionary[@"controllerName"] bundle:nil];
@@ -281,21 +281,21 @@
   } else {
     viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] init];
   }
-
+  
   if (viewController.view.backgroundColor) {
     // 有颜色
   } else {
     viewController.view.backgroundColor = UIColor.whiteColor;
   }
-
+  
   NSLog(@"viewController = %@", viewController);
   viewController.view.backgroundColor = UIColor.whiteColor;
-
+  
   NSUInteger i = self.dataList.count - (NSUInteger) indexPath.row - 1;
-
+  
   viewController.title = kStringFormat(@"%03ld-%@", i, dictionary[@"title"]);
   [self.navigationController pushViewController:viewController animated:YES];
-
+  
   // 点击删除 单行
   // {
   //
@@ -320,14 +320,14 @@
   //     [NSIndexPath indexPathForRow:1 inSection:0]
   //   ]                     withRowAnimation:UITableViewRowAnimationAutomatic];
   // }
-
+  
   // [tableView cellForRowAtIndexPath:indexPath];
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 /** 取消 选中 */
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+  
   NSLog(@"%s", __func__);
 }
 
@@ -368,20 +368,20 @@
 // sn_note:========= 滑动删除 方法2: 自定义方法(实现此方法 系统方法失效) ============================ stone 🐳 ===========/
 
 - (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+  
   UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
-                                                             title:@"删除"
-                                                             handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                                               NSLog(@"action = %@", action);
-
-                                                             }];
+                                                                          title:@"删除"
+                                                                        handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                                                          NSLog(@"action = %@", action);
+                                                                          
+                                                                        }];
   UITableViewRowAction *addAction    = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
-                                                             title:@"添加"
-                                                             handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                                               NSLog(@"action = %@", action);
-
-                                                             }];
-
+                                                                          title:@"添加"
+                                                                        handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                                                          NSLog(@"action = %@", action);
+                                                                          
+                                                                        }];
+  
   return @[deleteAction, addAction];
 }
 

@@ -11,11 +11,11 @@ const moment    = require('moment')
 // let output = '/Users/stone/git_repository/objective_c_template/objc_template/objc_template/controllers'
 // let date = moment().format('YYYY/MM/DD') //2014-09-24 23:36:09
 
-async function makeTestFolderAndFile (output, date, user, range) {
+async function makeTestFolderAndFile (output, date, user, range, prefix) {
 
   for (let i = range[0]; i <= range[range.length - 1]; i++) {
 
-    let folderName = `T${sprintf('%03d', i)}`
+    let folderName = `${prefix}${sprintf('%03d', i)}`
     let dirPath    = `${output}/${folderName}`
     let { stdout } = await execa.shell(`mkdir -p ${dirPath}`)
 

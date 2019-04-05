@@ -11,7 +11,7 @@
 
 @interface T038ViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UITableView    *tableView;
 @property (nonatomic, strong) NSMutableArray *allDatas;
 @property (nonatomic, strong) NSMutableArray *selectedDatas;
 
@@ -49,9 +49,17 @@
   UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithTitle:@"全选" style:UIBarButtonItemStylePlain target:self action:@selector(selectAll:)];
   self.navigationItem.rightBarButtonItems = @[rightItem, rightItem1];
 
-  UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(edit:)];
-  self.navigationItem.leftBarButtonItem = leftItem;
+  {
+    UIBarButtonItem *leftItem1 = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
+    UIBarButtonItem *leftItem2 = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(edit:)];
+    self.navigationItem.leftBarButtonItems = @[leftItem1, leftItem2];;
+  }
+
   [self setUpTableView];
+}
+
+- (void)back:(UIBarButtonItem *)item {
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)edit:(UIBarButtonItem *)item {
