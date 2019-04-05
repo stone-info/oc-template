@@ -11,7 +11,7 @@
 
 @implementation SNTextField
 + (instancetype)makeTextField {
-  return self.new;;
+  return [self makeTextFieldWithOptions:@{@"borderColor": HexRGBA(@"#CCCCCC", 1.0), @"borderWidth": @1}];;
 }
 
 + (instancetype)makeTextFieldWithOptions:(NSDictionary *)options {

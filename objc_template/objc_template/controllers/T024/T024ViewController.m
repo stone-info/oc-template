@@ -56,7 +56,7 @@
     /** 分割线 */
     // @"separatorStyle"              : @(UITableViewCellSeparatorStyleNone),
     // @"separatorInset"              : sn.valueWithUIEdgeInsets(UIEdgeInsetsZero),
-    // @"separatorColor"              : HexRGBA(0xCCCCCC, 1.0),
+    // @"separatorColor"              : HexRGBA(@"#CCCCCC", 1.0),
     // @"showsVerticalScrollIndicator": @(NO),
 
     /** section header height */
@@ -143,7 +143,7 @@ heightForFooterInSection:(NSInteger)section {
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
   UITableViewCell *cell = sn.dequeueForCell(tableView, UITableViewCell.class);
-  cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(0xF2CDA7, 1.0) : HexRGBA(0xEA9950, 1.0);
+  cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(@"#F2CDA7", 1.0) : HexRGBA(@"#EA9950", 1.0);
   cell.selectionStyle              = tableView.isEditing ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
 
   return cell;

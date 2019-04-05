@@ -16,7 +16,7 @@
 @implementation SNButton
 
 + (instancetype)makeButton {
-  return [self makeButtonWithOptions:@{@"borderColor": HexRGBA(0xCCCCCC, 1.0), @"borderWidth": @1}];;
+  return [self makeButtonWithOptions:@{@"borderColor": HexRGBA(@"#CCCCCC", 1.0), @"borderWidth": @1}];;
 }
 
 + (instancetype)makeButtonWithOptions:(NSDictionary *)options {

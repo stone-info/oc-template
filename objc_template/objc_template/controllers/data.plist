@@ -305,7 +305,7 @@
 
   <dict>
     <key>title</key>
-    <string>???</string>
+    <string>宏测试...</string>
     <key>controllerName</key>
     <string>T037ViewController</string>
     <key>xib</key>
@@ -313,6 +313,7 @@
     <key>storyboard</key>
     <false/>
   </dict>
+
 
   <dict>
     <key>title</key>
@@ -325,16 +326,28 @@
     <false/>
   </dict>
 
-  <!--<dict>-->
-    <!--<key>title</key>-->
-    <!--<string>noob test</string>-->
-    <!--<key>controllerName</key>-->
-    <!--<string>T041ViewController</string>-->
-    <!--<key>xib</key>-->
-    <!--<false/>-->
-    <!--<key>storyboard</key>-->
-    <!--<false/>-->
-  <!--</dict>-->
+  <dict>
+    <key>title</key>
+    <string>ReactiveCocoa test</string>
+    <key>controllerName</key>
+    <string>T039ViewController</string>
+    <key>xib</key>
+    <false/>
+    <key>storyboard</key>
+    <false/>
+  </dict>
+
+  <dict>
+    <key>title</key>
+    <string>color test</string>
+    <key>controllerName</key>
+    <string>T040ViewController</string>
+    <key>xib</key>
+    <false/>
+    <key>storyboard</key>
+    <false/>
+  </dict>
+
 
 </array>
 </plist>

@@ -29,15 +29,14 @@
 /*当前机型是否iPhoneX系列*/
 #define iPhoneXSeries (iPhoneX || iPhoneXR || iPhoneXsMax)
 
-CGFloat kStatusBarHeight           = 0;
-CGFloat kStatusNavigationBarHeight = 0;
-CGFloat kCurrentSystemVersionFloat = 0;
-CGFloat kSafeAreaBottomHeight            = 0;
-CGFloat kSafeAreaContainerViewHeight            = 0;
+CGFloat kStatusBarHeight             = 0;
+CGFloat kStatusNavigationBarHeight   = 0;
+CGFloat kCurrentSystemVersionFloat   = 0;
+CGFloat kSafeAreaBottomHeight        = 0;
+CGFloat kSafeAreaContainerViewHeight = 0;
 
 const CGFloat kNavigationBarHeight = 44;
 const CGFloat kTabBarHeight        = 49;
-
 
 const CGFloat SNhHeaderHeight          = 0;
 const CGFloat SNhFooterHeight          = 0;
@@ -48,10 +47,6 @@ NSString *const SNhKeyPathContentOffset = @"contentOffset";
 NSString *const SNhKeyPathContentInset  = @"contentInset";
 NSString *const SNhKeyPathContentSize   = @"contentSize";
 NSString *const SNhKeyPathPanState      = @"state";
-
-UIImage *kImageWithName(NSString *name) {
-  return [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-}
 
 @implementation SNConst
 

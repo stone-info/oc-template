@@ -34,11 +34,11 @@
   //   // [self.navigationController.navigationBar setBackgroundImage:UIImage.new forBarMetrics:UIBarMetricsDefault];
   //   // nav title 颜色
   //   self.navigationController.navigationBar.titleTextAttributes = @{
-  //     NSForegroundColorAttributeName: HexRGBA(0xFFC1C1, 1.0),
+  //     NSForegroundColorAttributeName: HexRGBA(@"#FFC1C1", 1.0),
   //     NSFontAttributeName           : kPingFangSCMedium(12)
   //   };
   //   // nav 按钮颜色
-  //   self.navigationController.navigationBar.tintColor           = HexRGBA(0x4FB753, 1.0);
+  //   self.navigationController.navigationBar.tintColor           = HexRGBA(@"#4FB753", 1.0);
   //   // tabBar 背景色
   //   self.tabBarController.tabBar.backgroundColor                = UIColor.whiteColor;
   //   // tabBar 分割线隐藏
@@ -182,7 +182,7 @@
   SNImageView *imageView = [SNImageView makeImageViewWithOptions:@{
     @"borderRadius"   : @4.F,
     @"masksToBounds"  : @(YES),
-    @"backgroundColor": HexRGBA(0xCCCCCC, 1.0),
+    @"backgroundColor": HexRGBA(@"#CCCCCC", 1.0),
     @"contentMode"    : @(UIViewContentModeScaleToFill),
     // imageView需要这步操作, 因为layer.contents
     // 光栅化

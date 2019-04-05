@@ -24,14 +24,14 @@
     @"titleNormal"               : @"普通按钮",
     @"titleColorNormal"          : UIColor.blackColor,
     @"titleHighlighted"          : @"高亮按钮",
-    @"titleColorHighlighted"     : HexRGBA(0xFFC1C1, 1.0),
+    @"titleColorHighlighted"     : HexRGBA(@"#FFC1C1", 1.0),
 
     @"imageNormal"               : [UIImage imageNamed:@"player_btn_pause_normal"],
     @"imageHighlighted"          : [UIImage imageNamed:@"player_btn_pause_highlight"],
     @"backgroundImageNormal"     : [UIImage imageNamed:@"buttongreen"],
     @"backgroundImageHighlighted": [UIImage imageNamed:@"buttongreen_highlighted"],
 
-    @"borderColor"               : HexRGBA(0xcccccc, 1.0),
+    @"borderColor"               : HexRGBA(@"#cccccc", 1.0),
     @"borderWidth"               : @1.0,
     @"masksToBounds"             : @YES,
     @"borderRadius"              : @4.f,

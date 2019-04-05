@@ -308,12 +308,12 @@ NSLog(@"时间差 %f", CFAbsoluteTimeGetCurrent() - start); \
   [hud hideAnimated:YES afterDelay:3.f];\
 }
 
-#define kShadow(view)  view.layer.shadowColor  = HexRGBA(0xa0a0a0, 1.0).CGColor; \
+#define kShadow(view)  view.layer.shadowColor  = HexRGBA(@"0xa0a0a0", 1.0).CGColor; \
   view.layer.shadowOffset = CGSizeMake(0, 0);\
   view.layer.shadowOpacity = 1;\
   view.layer.shadowRadius  = 1;
 
-#define kBorder(view)  view.layer.borderColor  = HexRGBA(0xcccccc, 1.0).CGColor; \
+#define kBorder(view)  view.layer.borderColor  = HexRGBA(@"0xcccccc", 1.0).CGColor; \
   view.layer.borderWidth   = 1.0;\
   view.layer.masksToBounds = YES;
 
@@ -358,7 +358,7 @@ NSLog(@"时间差 %f", CFAbsoluteTimeGetCurrent() - start); \
 //=****** 设置角度 ****************** stone ***
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 //由角度获取弧度
-#define kDegreesToRadian(angle) (M_PI * (angle) / 180.0)
+// #define kDegreesToRadian(angle) (M_PI * (angle) / 180.0)
 //有弧度获取角度
 #define kRadianToDegrees(radian) (radian*180.0)/(M_PI)
 
@@ -396,7 +396,7 @@ self.transform = CGAffineTransformTranslate(self.transform, offsetX, offsetY);
 
 #define checkNull(__X__)        (__X__) == nil || [(__X__) isEqual:[NSNull null]] || [(__X__) isEqual:@"null"] ? @"" : [NSString stringWithFormat:@"%@", (__X__)]
 
-#define SNGuideLine ({CGFloat centerX = rect.size.width * 0.5;CGFloat centerY = rect.size.height * 0.5;CGFloat height  = rect.size.height;CGFloat width  = rect.size.width;UIBezierPath *path = [UIBezierPath bezierPath];[HexRGBA(0xFFC1C1, 1.0) setStroke];[path moveToPoint:CGPointMake(centerX, 0)];[path addLineToPoint:CGPointMake(centerX, height)];[path moveToPoint:CGPointMake(0, centerY)];[path addLineToPoint:CGPointMake(width, centerY)];[path stroke];})
+#define SNGuideLine ({CGFloat centerX = rect.size.width * 0.5;CGFloat centerY = rect.size.height * 0.5;CGFloat height  = rect.size.height;CGFloat width  = rect.size.width;UIBezierPath *path = [UIBezierPath bezierPath];[HexRGBA(@"0xFFC1C1", 1.0) setStroke];[path moveToPoint:CGPointMake(centerX, 0)];[path addLineToPoint:CGPointMake(centerX, height)];[path moveToPoint:CGPointMake(0, centerY)];[path addLineToPoint:CGPointMake(width, centerY)];[path stroke];})
 
 // animationWithKeyPath的值：
 // transform.scale = 比例轉換
@@ -423,7 +423,7 @@ self.transform = CGAffineTransformTranslate(self.transform, offsetX, offsetY);
 // shadowOffset
 // shadowOpacity
 // shadowRadius
-#define SNTransformScale @"transform.scale"
+#define SNTransformScale  @"transform.scale"
 #define SNTransformScaleX @"transform.scale.x"
 #define SNTransformScaleY @"transform.scale.y"
 #define SNTransformoRotationZ @"transform.rotation.z"
@@ -483,23 +483,23 @@ self.transform = CGAffineTransformTranslate(self.transform, offsetX, offsetY);
 // #define MAS_SHORTHAND_GLOBALS
 // #import "Masonry.h"
 //sn_note:========= UITableView 常用宏 ============================ stone 🐳 ===========/
-#define registerForCellFromNib(TableViewName, NibClassName) ([TableViewName registerNib:[UINib nibWithNibName:NSStringFromClass([NibClassName class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([NibClassName class])])
-
-#define registerForHeaderFooterViewFromNib(TableViewName, NibClassName) ([TableViewName registerNib:[UINib nibWithNibName:NSStringFromClass([NibClassName class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([NibClassName class])])
-
-#define registerForCellFromClass(TableViewName, ClassName) ([TableViewName registerClass:[ClassName class] forCellReuseIdentifier:NSStringFromClass([ClassName class])])
-
-#define registerForHeaderFooterViewFromClass(TableViewName, ClassName) ([TableViewName registerClass:[ClassName class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([ClassName class])])
-
-#define DequeueForCell(ClassName) ([tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ClassName class])])
-
-#define DequeueForHeaderFooterView(ClassName) ([tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([ClassName class])])
-
-#define CellDifferentColor(CELL) CELL.contentView.backgroundColor = indexPath.row % 2 == 0 ? [UIColor colorWithRed:247 / 255.0 green:206 / 255.0 blue:166 / 255.0 alpha:1.0] : [UIColor colorWithRed:242 / 255.0 green:154 / 255.0 blue:76 / 255.0 alpha:1.0]
-
-//sn_note:========= UICollectionView 常用宏 ============================ stone 🐳 ===========/
-#define registerForCollectionCellFromNib(CollectionViewName, NibClassName) ([CollectionViewName registerNib:[UINib nibWithNibName:NSStringFromClass([NibClassName class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([NibClassName class])])
-#define registerForCollectionCellFromClass(CollectionViewName, ClassName) ([CollectionViewName registerClass:[ClassName class] forCellWithReuseIdentifier:NSStringFromClass([ClassName class])])
+// #define registerForCellFromNib(TableViewName, NibClassName) ([TableViewName registerNib:[UINib nibWithNibName:NSStringFromClass([NibClassName class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([NibClassName class])])
+//
+// #define registerForHeaderFooterViewFromNib(TableViewName, NibClassName) ([TableViewName registerNib:[UINib nibWithNibName:NSStringFromClass([NibClassName class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([NibClassName class])])
+//
+// #define registerForCellFromClass(TableViewName, ClassName) ([TableViewName registerClass:[ClassName class] forCellReuseIdentifier:NSStringFromClass([ClassName class])])
+//
+// #define registerForHeaderFooterViewFromClass(TableViewName, ClassName) ([TableViewName registerClass:[ClassName class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([ClassName class])])
+//
+// #define DequeueForCell(ClassName) ([tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ClassName class])])
+//
+// #define DequeueForHeaderFooterView(ClassName) ([tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([ClassName class])])
+//
+// #define CellDifferentColor(CELL) CELL.contentView.backgroundColor = indexPath.row % 2 == 0 ? [UIColor colorWithRed:247 / 255.0 green:206 / 255.0 blue:166 / 255.0 alpha:1.0] : [UIColor colorWithRed:242 / 255.0 green:154 / 255.0 blue:76 / 255.0 alpha:1.0]
+//
+// //sn_note:========= UICollectionView 常用宏 ============================ stone 🐳 ===========/
+// #define registerForCollectionCellFromNib(CollectionViewName, NibClassName) ([CollectionViewName registerNib:[UINib nibWithNibName:NSStringFromClass([NibClassName class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([NibClassName class])])
+// #define registerForCollectionCellFromClass(CollectionViewName, ClassName) ([CollectionViewName registerClass:[ClassName class] forCellWithReuseIdentifier:NSStringFromClass([ClassName class])])
 #define DequeueForCollectionCell(ClassName) ([collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ClassName class]) forIndexPath:indexPath])
 
 

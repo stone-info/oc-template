@@ -38,7 +38,7 @@
   SNImageView* imageView = [SNImageView makeImageViewWithOptions:@{
     // @"borderRadius"   : @4.F,
     // @"masksToBounds"  : @(YES),
-    // @"backgroundColor": HexRGBA(0xCCCCCC, 1.0),
+    // @"backgroundColor": HexRGBA(@"#CCCCCC", 1.0),
     // @"contentMode"    : @(UIViewContentModeScaleToFill),
     // // imageView需要这步操作, 因为layer.contents
     // // 光栅化
@@ -60,7 +60,7 @@
 
   SNScrollView* scrollView = [SNScrollView makeScrollViewWithOptions:@{
     @"backgroundColor" : [UIColor whiteColor],
-    @"borderColor" : HexRGBA(0xCCCCCC, 1.0),
+    @"borderColor" : HexRGBA(@"#CCCCCC", 1.0),
     @"borderWidth" : @1.0,
     @"borderRadius" : @4.f,
     @"masksToBounds" : @YES,

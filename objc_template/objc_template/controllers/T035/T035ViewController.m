@@ -25,7 +25,7 @@
     @"text"           : @"When you are old and grey and full of sleep, 当你老了，头发花白，睡意沉沉，\n"
                         "And nodding by the fire，take down this book, 倦坐在炉边，取下这本书来",
     @"textAlignment"  : @(NSTextAlignmentCenter),
-    @"borderColor"    : HexRGBA(0xcccccc, 1.0),
+    @"borderColor"    : HexRGBA(@"#cccccc", 1.0),
     @"borderWidth"    : @1.0,
     //    @"masksToBounds" : @YES,
     @"lineHeight"     : @30,

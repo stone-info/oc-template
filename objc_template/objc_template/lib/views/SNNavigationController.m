@@ -21,7 +21,7 @@ static UIColor *navigationBarBackgroundColor = nil;
 @implementation SNNavigationController
 
 + (void)load {
-  navigationBarBackgroundColor = HexRGBA(0xCCCCCC, 1.0);
+  navigationBarBackgroundColor = HexRGBA(@"#cccccc", 1.0);
   // UINavigationBar *navBar = [UINavigationBar appearanceWhenContainedIn:self, nil];
 
   // 只要是通过模型设置,都是通过富文本设置

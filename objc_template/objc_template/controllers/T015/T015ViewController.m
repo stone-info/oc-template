@@ -118,7 +118,7 @@
   {/**
     * cell xib 注册 & class 注册
     */
-   {registerForCellFromNib(tableView, T015TableViewCell);
+   {registerForCellFromNib(tableView, T015TableViewCell.class);
   // registerForCellFromClass(tableView, UITableViewCell);
 }
 /**
@@ -176,7 +176,7 @@
 - (UIView*)tableView:(UITableView*)tableView
     viewForHeaderInSection:(NSInteger)section {
   UITableViewHeaderFooterView* headerView =
-      DequeueForHeaderFooterView(tableView,UITableViewHeaderFooterView);
+      dequeueForHeaderFooterView(tableView,UITableViewHeaderFooterView.class);
   // SNHeaderView * headerView = [SNHeaderView
   // headerViewWithTableView:tableView];
   return headerView;
@@ -197,11 +197,11 @@
 /** 自定义 cell */
 - (UITableViewCell*)tableView:(UITableView*)tableView
         cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-  T015TableViewCell* cell = DequeueForCell(tableView,T015TableViewCell);
+  T015TableViewCell* cell = dequeueForCell(tableView,T015TableViewCell.class);
   // SNOldTableViewCell * cell = [SNOldTableViewCell cellWithTableView:tableView];
 
   cell.contentView.backgroundColor =
-      indexPath.row % 2 == 0 ? HexRGBA(0xF2CDA7, 1.0) : HexRGBA(0xEA9950, 1.0);
+      indexPath.row % 2 == 0 ? HexRGBA(@"#F2CDA7", 1.0) : HexRGBA(@"#EA9950", 1.0);
   cell.selectionStyle = tableView.isEditing
                             ? UITableViewCellSelectionStyleDefault
                             : UITableViewCellSelectionStyleNone;
@@ -210,8 +210,8 @@
   {
       // 关闭选中效果, 一旦关闭系统的选中效果所有失效.
       // // cell.selectionStyle = UITableViewCellSelectionStyleNone;
-      // cell.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(0xF2CDA7, 1.0)
-      // : HexRGBA(0xEA9950, 1.0);
+      // cell.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(@"#F2CDA7", 1.0)
+      // : HexRGBA(@"#EA9950", 1.0);
       // UIView *selectedBackgroundView = [[UIView alloc] init];
       // selectedBackgroundView.backgroundColor = [UIColor blueColor];
       // cell.selectedBackgroundView            = selectedBackgroundView;

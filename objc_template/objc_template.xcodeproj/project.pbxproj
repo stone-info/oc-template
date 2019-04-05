@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		032633182256472A0039CF6C /* T041ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032633172256472A0039CF6C /* T041ViewController.m */; };
-		03337D8F22EA2A31198DCA97 /* libPods-objc_templateUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B215342010BB303AE326B2AC /* libPods-objc_templateUITests.a */; };
-		20E9EC0903B913028B55B571 /* libPods-objc_template.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02223E5FE9BF7D0E9EE4ED43 /* libPods-objc_template.a */; };
+		4D1C421E8DBE3ADD316442CA /* Pods_objc_templateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BDB41BCC39FB269D47E23C /* Pods_objc_templateUITests.framework */; };
 		68AF80CD0F415E158DCB3637 /* T008ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF8BD8A5EEC54BA584D039 /* T008ViewController.m */; };
 		68AF868F69FB454BBB7192BE /* T007ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF87859566B62E68CF8D28 /* T007ViewController.m */; };
 		68AF870372CDB2C92BBD00E1 /* button-template.json in Resources */ = {isa = PBXBuildFile; fileRef = 68AF8BC5DEB48BA0D7157EAF /* button-template.json */; };
@@ -237,11 +236,16 @@
 		8EEE035922574BE9000F91B1 /* L015ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE033522574BE9000F91B1 /* L015ViewController.m */; };
 		8EEE035A22574BE9000F91B1 /* L016ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE033922574BE9000F91B1 /* L016ViewController.m */; };
 		8EEE035B22574BE9000F91B1 /* L008ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE033C22574BE9000F91B1 /* L008ViewController.m */; };
+		8EEE035E22576761000F91B1 /* UIView+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE035D22576761000F91B1 /* UIView+Base.m */; };
+		8EEE03612257D96A000F91B1 /* T039SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE03602257D96A000F91B1 /* T039SecondViewController.m */; };
+		8EEE03642257EFF5000F91B1 /* SNGlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE03632257EFF5000F91B1 /* SNGlobalFunctions.m */; };
+		8EEE03672258028D000F91B1 /* SNHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE03662258028D000F91B1 /* SNHexColor.m */; };
 		8EF84C5722501CCF005C8F3A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF84C5622501CCF005C8F3A /* libz.tbd */; };
 		8EF84C5A225027F9005C8F3A /* SNHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF84C59225027F9005C8F3A /* SNHTTPManager.m */; };
 		8EF84C5D225030FE005C8F3A /* SomeHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF84C5C225030FE005C8F3A /* SomeHTTPManager.m */; };
 		8EF84C612250EB89005C8F3A /* SNTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF84C602250EB89005C8F3A /* SNTemplate.m */; };
-		A9A1ED85072C05E394AFD80A /* libPods-objc_templateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE92908DFE2BAFDF4F4A2573 /* libPods-objc_templateTests.a */; };
+		B639783C4385808D928B62F4 /* Pods_objc_templateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB980F9A2BD82D94B53B5318 /* Pods_objc_templateTests.framework */; };
+		D0EDB03EC8B080504D30ED26 /* Pods_objc_template.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5461B5312A75E94FFB7797C5 /* Pods_objc_template.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,12 +266,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02223E5FE9BF7D0E9EE4ED43 /* libPods-objc_template.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-objc_template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		032633162256472A0039CF6C /* T041ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = T041ViewController.h; sourceTree = "<group>"; };
 		032633172256472A0039CF6C /* T041ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = T041ViewController.m; sourceTree = "<group>"; };
 		165D8F4B987E3F0C3EF99B71 /* Pods-objc_templateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_templateUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-objc_templateUITests/Pods-objc_templateUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5461B5312A75E94FFB7797C5 /* Pods_objc_template.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_objc_template.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E34E083E2654465D32FD255 /* Pods-objc_template.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_template.debug.xcconfig"; path = "Pods/Target Support Files/Pods-objc_template/Pods-objc_template.debug.xcconfig"; sourceTree = "<group>"; };
 		6505B157F0DBE0E6893A46DA /* Pods-objc_template.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_template.release.xcconfig"; path = "Pods/Target Support Files/Pods-objc_template/Pods-objc_template.release.xcconfig"; sourceTree = "<group>"; };
+		67BDB41BCC39FB269D47E23C /* Pods_objc_templateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_objc_templateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68AF87859566B62E68CF8D28 /* T007ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = T007ViewController.m; sourceTree = "<group>"; };
 		68AF8804756104A94D9CC3CE /* default.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = default.txt; sourceTree = "<group>"; };
 		68AF8B57523A3F62FD02D7EB /* T007ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T007ViewController.h; sourceTree = "<group>"; };
@@ -673,6 +678,14 @@
 		8EEE033922574BE9000F91B1 /* L016ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = L016ViewController.m; sourceTree = "<group>"; };
 		8EEE033B22574BE9000F91B1 /* L008ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L008ViewController.h; sourceTree = "<group>"; };
 		8EEE033C22574BE9000F91B1 /* L008ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = L008ViewController.m; sourceTree = "<group>"; };
+		8EEE035C22576761000F91B1 /* UIView+Base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Base.h"; sourceTree = "<group>"; };
+		8EEE035D22576761000F91B1 /* UIView+Base.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Base.m"; sourceTree = "<group>"; };
+		8EEE035F2257D96A000F91B1 /* T039SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = T039SecondViewController.h; sourceTree = "<group>"; };
+		8EEE03602257D96A000F91B1 /* T039SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = T039SecondViewController.m; sourceTree = "<group>"; };
+		8EEE03622257EFF5000F91B1 /* SNGlobalFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNGlobalFunctions.h; sourceTree = "<group>"; };
+		8EEE03632257EFF5000F91B1 /* SNGlobalFunctions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNGlobalFunctions.m; sourceTree = "<group>"; };
+		8EEE03652258028D000F91B1 /* SNHexColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNHexColor.h; sourceTree = "<group>"; };
+		8EEE03662258028D000F91B1 /* SNHexColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNHexColor.m; sourceTree = "<group>"; };
 		8EF84C5622501CCF005C8F3A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		8EF84C58225027F9005C8F3A /* SNHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNHTTPManager.h; sourceTree = "<group>"; };
 		8EF84C59225027F9005C8F3A /* SNHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNHTTPManager.m; sourceTree = "<group>"; };
@@ -682,8 +695,7 @@
 		8EF84C602250EB89005C8F3A /* SNTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNTemplate.m; sourceTree = "<group>"; };
 		9A6F97C497FDB574224BF342 /* Pods-objc_templateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_templateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-objc_templateTests/Pods-objc_templateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A49F173781C4A875F402AA27 /* Pods-objc_templateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_templateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-objc_templateUITests/Pods-objc_templateUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B215342010BB303AE326B2AC /* libPods-objc_templateUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-objc_templateUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE92908DFE2BAFDF4F4A2573 /* libPods-objc_templateTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-objc_templateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB980F9A2BD82D94B53B5318 /* Pods_objc_templateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_objc_templateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29399CC3F4FDEA18F20948E /* Pods-objc_templateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_templateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-objc_templateTests/Pods-objc_templateTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -694,7 +706,7 @@
 			files = (
 				8EF84C5722501CCF005C8F3A /* libz.tbd in Frameworks */,
 				8E10FCE8224C25B900B8FC37 /* libxml2.tbd in Frameworks */,
-				20E9EC0903B913028B55B571 /* libPods-objc_template.a in Frameworks */,
+				D0EDB03EC8B080504D30ED26 /* Pods_objc_template.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,7 +714,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9A1ED85072C05E394AFD80A /* libPods-objc_templateTests.a in Frameworks */,
+				B639783C4385808D928B62F4 /* Pods_objc_templateTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,7 +722,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03337D8F22EA2A31198DCA97 /* libPods-objc_templateUITests.a in Frameworks */,
+				4D1C421E8DBE3ADD316442CA /* Pods_objc_templateUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,9 +743,9 @@
 			children = (
 				8EF84C5622501CCF005C8F3A /* libz.tbd */,
 				8E10FCE7224C25B900B8FC37 /* libxml2.tbd */,
-				02223E5FE9BF7D0E9EE4ED43 /* libPods-objc_template.a */,
-				CE92908DFE2BAFDF4F4A2573 /* libPods-objc_templateTests.a */,
-				B215342010BB303AE326B2AC /* libPods-objc_templateUITests.a */,
+				5461B5312A75E94FFB7797C5 /* Pods_objc_template.framework */,
+				BB980F9A2BD82D94B53B5318 /* Pods_objc_templateTests.framework */,
+				67BDB41BCC39FB269D47E23C /* Pods_objc_templateUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -793,6 +805,8 @@
 			children = (
 				8E1038E6224ED3EB00868467 /* T039ViewController.h */,
 				8E1038E7224ED3EB00868467 /* T039ViewController.m */,
+				8EEE035F2257D96A000F91B1 /* T039SecondViewController.h */,
+				8EEE03602257D96A000F91B1 /* T039SecondViewController.m */,
 			);
 			path = T039;
 			sourceTree = "<group>";
@@ -1115,6 +1129,8 @@
 		8E10FD0A224C2FFA00B8FC37 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				8EEE035C22576761000F91B1 /* UIView+Base.h */,
+				8EEE035D22576761000F91B1 /* UIView+Base.m */,
 				8E10FE06224E41D700B8FC37 /* SNTextField.h */,
 				8E10FE07224E41D700B8FC37 /* SNTextField.m */,
 				8EEBBDE0225002DA006E8C10 /* SNNavigationBar.h */,
@@ -1157,10 +1173,14 @@
 			children = (
 				8E10FCAA224C24DE00B8FC37 /* SN.h */,
 				8E10FCAB224C24DE00B8FC37 /* SN.m */,
-				8E10FCAF224C255400B8FC37 /* SNRegex.h */,
-				8E10FCAE224C255400B8FC37 /* SNRegex.m */,
+				8EEE03622257EFF5000F91B1 /* SNGlobalFunctions.h */,
+				8EEE03632257EFF5000F91B1 /* SNGlobalFunctions.m */,
+				8EEE03652258028D000F91B1 /* SNHexColor.h */,
+				8EEE03662258028D000F91B1 /* SNHexColor.m */,
 				8E10FCBA224C256900B8FC37 /* SNConst.h */,
 				8E10FCC0224C256900B8FC37 /* SNConst.m */,
+				8E10FCAF224C255400B8FC37 /* SNRegex.h */,
+				8E10FCAE224C255400B8FC37 /* SNRegex.m */,
 				8E10FCBC224C256900B8FC37 /* GDataXMLNode.h */,
 				8E10FCCD224C256B00B8FC37 /* GDataXMLNode.m */,
 				8E10392F224F776A00868467 /* SNInit.h */,
@@ -2173,7 +2193,7 @@
 				8E10FC6D224C245400B8FC37 /* Sources */,
 				8E10FC6E224C245400B8FC37 /* Frameworks */,
 				8E10FC6F224C245400B8FC37 /* Resources */,
-				A56B9750F059A2F7C0273A7A /* [CP] Copy Pods Resources */,
+				4A3D4E4F157E3742FB3A0BC8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2192,6 +2212,7 @@
 				8E10FC85224C245500B8FC37 /* Sources */,
 				8E10FC86224C245500B8FC37 /* Frameworks */,
 				8E10FC87224C245500B8FC37 /* Resources */,
+				287915334495948F7DDBD9C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2340,6 +2361,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		287915334495948F7DDBD9C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-objc_templateTests/Pods-objc_templateTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kiwi/Kiwi.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kiwi.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-objc_templateTests/Pods-objc_templateTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		49E8C258CDF2CE9EF8A7FD0D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2362,7 +2405,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A56B9750F059A2F7C0273A7A /* [CP] Copy Pods Resources */ = {
+		4A3D4E4F157E3742FB3A0BC8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2370,18 +2413,42 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-objc_template/Pods-objc_template-resources.sh",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-objc_template/Pods-objc_template-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
+				"${BUILT_PRODUCTS_DIR}/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework",
+				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITableView_FDTemplateLayoutCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-objc_template/Pods-objc_template-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-objc_template/Pods-objc_template-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A7A513F404D1A6266F642A34 /* [CP] Check Pods Manifest.lock */ = {
@@ -2499,6 +2566,7 @@
 				8EEE01A62254DDB6000F91B1 /* DataTableViewCell.m in Sources */,
 				8EEE034522574BE9000F91B1 /* L003ViewController.m in Sources */,
 				8E10FD2A224CF67E00B8FC37 /* SNButton.m in Sources */,
+				8EEE03672258028D000F91B1 /* SNHexColor.m in Sources */,
 				8EEE02342257464E000F91B1 /* T049ViewController.m in Sources */,
 				8EEE025C2257464E000F91B1 /* T067ViewController.m in Sources */,
 				8EEE02382257464E000F91B1 /* T046ViewController.m in Sources */,
@@ -2554,6 +2622,7 @@
 				8E10FCE3224C256C00B8FC37 /* NSArray+ArrayExtentsion.m in Sources */,
 				8E10FDEA224E086800B8FC37 /* ScrollViewHorizontalLayoutWithXibAndMasonryViewController.m in Sources */,
 				8EEE023E2257464E000F91B1 /* T052ViewController.m in Sources */,
+				8EEE035E22576761000F91B1 /* UIView+Base.m in Sources */,
 				8E10390E224ED3ED00868467 /* T040ViewController.m in Sources */,
 				8EEE02532257464E000F91B1 /* T063ViewController.m in Sources */,
 				8E10FCD4224C256C00B8FC37 /* SNOldTableView.m in Sources */,
@@ -2578,6 +2647,8 @@
 				8E10FCDE224C256C00B8FC37 /* UIBezierPath+LineColor.m in Sources */,
 				8E10FD04224C2AE900B8FC37 /* T006ViewController.m in Sources */,
 				8E10FE0C224E4EC900B8FC37 /* T019ViewController.m in Sources */,
+				8EEE03612257D96A000F91B1 /* T039SecondViewController.m in Sources */,
+				8EEE03642257EFF5000F91B1 /* SNGlobalFunctions.m in Sources */,
 				8E10FDF0224E086800B8FC37 /* ScrollViewVerticalLayoutWithMasonryViewController.m in Sources */,
 				8E103910224ED3ED00868467 /* T032ViewController.m in Sources */,
 				8EEE023D2257464E000F91B1 /* T077ViewController.m in Sources */,

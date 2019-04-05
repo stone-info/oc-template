@@ -6,7 +6,6 @@
 //  Copyright © 2019 stone. All rights reserved.
 //
 
-#import <Kiwi/KWValue.h>
 #import "SNLabel.h"
 #import "SNAttributesHandler.h"
 
@@ -81,7 +80,7 @@
 }
 
 + (instancetype)makeLabel {
-  return [self makeLabelWithOptions:@{@"borderColor": HexRGBA(0xCCCCCC, 1.0), @"borderWidth": @1}];;
+  return [self makeLabelWithOptions:@{@"borderColor": HexRGBA(@"#CCCCCC", 1.0), @"borderWidth": @1}];;
 }
 
 + (instancetype)makeLabelWithOptions:(NSDictionary *)options {
@@ -94,13 +93,13 @@
     view = [[SNLabel alloc] init];
   }
 
-  FBKVOController *KVOController = [FBKVOController controllerWithObserver:self];
-  self.KVOController = KVOController;
-  [self.KVOController observe:view keyPath:@"attributedText" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld block:^(id observer, id object, NSDictionary *change) {
-    NSLog(@"observer = %@", observer);
-    NSLog(@"object = %@", object);
-    NSLog(@"change = %@", change);
-  }];
+  // FBKVOController *KVOController = [FBKVOController controllerWithObserver:self];
+  // self.KVOController = KVOController;
+  // [self.KVOController observe:view keyPath:@"attributedText" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld block:^(id observer, id object, NSDictionary *change) {
+  //   NSLog(@"observer = %@", observer);
+  //   NSLog(@"object = %@", object);
+  //   NSLog(@"change = %@", change);
+  // }];
 
   for (NSString *key in options) {
     id obj = options[key];
@@ -204,7 +203,7 @@
 //     if ([SN.getClassName(options[@"borderColor"]) containsString:@"Color"]) {
 //       label.layer.borderColor = [options[@"borderColor"] CGColor];
 //     } else {
-//       label.layer.borderColor = HexRGBA(0xcccccc, 1.0).CGColor;
+//       label.layer.borderColor = HexRGBA(@"#cccccc", 1.0).CGColor;
 //     }
 //   }
 //

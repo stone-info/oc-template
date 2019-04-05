@@ -11,7 +11,7 @@
 
 @interface T013ViewController ()
 /** mButton */
-@property(weak, nonatomic) UIButton* mButton;
+@property (weak, nonatomic) UIButton *mButton;
 @end
 
 @implementation T013ViewController
@@ -25,35 +25,33 @@
     // @"backgroundImageNormal"     : [UIImage resizableImageWithLocalImageName:@"chat_send_nor"],
     @"backgroundImageNormal": sn.resizableImageWithImageName(@"chat_send_nor"),
 
-    @"borderColor"          : HexRGBA(0xcccccc, 1.0),
+    @"borderColor"          : HexRGBA(@"#cccccc", 1.0),
     @"borderWidth"          : @1.0,
     @"masksToBounds"        : @YES,
     @"borderRadius"         : @4.f,
     @"action"               : ^void(SNButton *sender) {
       NSLog(@"sn.randomString = %@", sn.randomString);
-}
-,
-}];
-// chat_send_nor
+    },
+  }];
+  // chat_send_nor
 
-kBorder(button)
 
-    [self.view addSubview:button];
-// chat_send_nor
-[button mas_makeConstraints:^(MASConstraintMaker* make) {
-  // make.left.mas_equalTo(self.view.mas_left).offset(0);
-  // make.right.mas_equalTo(self.view.mas_right).offset(0);
-  // make.top.mas_equalTo(self.view.mas_top).offset(0);
-  // make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
-  make.center.equalTo(button.superview);
-  make.width.mas_equalTo(250);
-  make.height.mas_equalTo(250);
-}];
+  [self.view addSubview:button];
+  // chat_send_nor
+  [button mas_makeConstraints:^(MASConstraintMaker *make) {
+    // make.left.mas_equalTo(self.view.mas_left).offset(0);
+    // make.right.mas_equalTo(self.view.mas_right).offset(0);
+    // make.top.mas_equalTo(self.view.mas_top).offset(0);
+    // make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
+    make.center.equalTo(button.superview);
+    make.width.mas_equalTo(250);
+    make.height.mas_equalTo(250);
+  }];
 
-self.mButton = button;
+  self.mButton = button;
 }
 
-- (void)btnClicked:(UIButton*)sender {
+- (void)btnClicked:(UIButton *)sender {
   NSLog(@"%s", __func__);
 }
 

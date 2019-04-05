@@ -27,7 +27,7 @@ static int       i = 1;
   SNImageView *imageView = [SNImageView makeImageViewWithOptions:@{
     @"borderRadius"   : @4.F,
     @"masksToBounds"  : @(YES),
-    @"backgroundColor": HexRGBA(0xCCCCCC, 1.0),
+    @"backgroundColor": HexRGBA(@"#CCCCCC", 1.0),
     @"contentMode"    : @(UIViewContentModeScaleToFill),
     // imageView需要这步操作, 因为layer.contents
     // 光栅化
@@ -46,7 +46,7 @@ static int       i = 1;
     @"textColor"      : [UIColor blackColor],
     @"font"           : [UIFont fontWithName:@"PingFangSC-Regular" size:14],
     @"text"           : kStringFormat(@"abc0%02d", i),
-    @"borderColor"    : HexRGBA(0xcccccc, 1.0),
+    @"borderColor"    : HexRGBA(@"#cccccc", 1.0),
     @"borderWidth"    : @1.0,
     @"masksToBounds"  : @YES,
     //    @"lineHeight"     : @8,

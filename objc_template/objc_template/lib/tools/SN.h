@@ -7,6 +7,7 @@
 //
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+
 @class MBProgressHUD;
 
 typedef void (^SNTaskBlock)(void);
@@ -38,7 +39,8 @@ typedef void (^SNTaskBlock)(void);
 #ifndef kiOS11Later
 #define kiOS11Later (kSystemVersion >= 11)
 #endif
-//====================================/
+//                              /* #screen */
+/************************************************************************************/
 /// 屏幕宽度
 #ifndef kScreenWidth
 #define kScreenWidth [SN SNDeviceScreenSize].width
@@ -57,6 +59,11 @@ typedef void (^SNTaskBlock)(void);
 /// 屏幕Scale
 #ifndef kScreenScale
 #define kScreenScale [UIScreen mainScreen].scale
+#endif
+
+/// 屏幕bounds
+#ifndef kScreenBounds
+#define kScreenBounds [UIScreen mainScreen].bounds
 #endif
 //====================================/
 

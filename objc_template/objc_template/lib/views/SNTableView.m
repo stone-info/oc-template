@@ -28,7 +28,7 @@
 }
 
 + (instancetype)makeTableView {
-  return [self makeTableViewWithOptions:@{@"borderColor": HexRGBA(0xCCCCCC, 1.0), @"borderWidth": @1}];;
+  return [self makeTableViewWithOptions:@{@"borderColor": HexRGBA(@"#CCCCCC", 1.0), @"borderWidth": @1}];;
 }
 
 + (instancetype)makeTableViewWithOptions:(NSDictionary *)options {

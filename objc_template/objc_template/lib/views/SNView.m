@@ -18,7 +18,7 @@
 
 + (instancetype)makeView {
   
-  return [self makeViewWithOptions:@{@"borderColor": HexRGBA(0xCCCCCC, 1.0), @"borderWidth": @1}];;
+  return [self makeViewWithOptions:@{@"borderColor": HexRGBA(@"#CCCCCC", 1.0), @"borderWidth": @1}];;
 }
 
 + (instancetype)makeViewWithOptions:(NSDictionary *)options {

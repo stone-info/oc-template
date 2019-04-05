@@ -20,7 +20,7 @@
 
 + (instancetype)makeImageView {
 
-  return [self makeImageViewWithOptions:@{@"borderColor": HexRGBA(0xCCCCCC, 1.0), @"borderWidth": @1}];
+  return [self makeImageViewWithOptions:@{@"borderColor": HexRGBA(@"#CCCCCC", 1.0), @"borderWidth": @1}];
 }
 
 - (void)tapHandle:(UITapGestureRecognizer *)sender {
@@ -67,7 +67,7 @@
   // // imageView.clipsToBounds = NO; // 裁剪, 和 masksToBounds 一样, 写法不一样
   // // 光栅化
   // imageView.layer.shouldRasterize = YES;
-  // imageView.backgroundColor       = options[@"backgroundColor"] ? options[@"backgroundColor"] : HexRGBA(0xCCCCCC, 1.0);
+  // imageView.backgroundColor       = options[@"backgroundColor"] ? options[@"backgroundColor"] : HexRGBA(@"#CCCCCC", 1.0);
   // // imageView.image                 = options[@"image"] ? options[@"image"] : kImageWithName(@"abc009"); // 默认图片
   //
   // // 重新绘制(核心绘图) drawRect
@@ -160,6 +160,11 @@
 
   NSString *path = [[NSBundle mainBundle] pathForResource:resource ofType:nil];
   self.image = [UIImage imageWithContentsOfFile:path];
+}
+
+- (void)setAction:(void (^)(UITapGestureRecognizer *))action {
+  _action = [action copy];
+  self.userInteractionEnabled = YES;
 }
 
 - (void)layoutSubviews {

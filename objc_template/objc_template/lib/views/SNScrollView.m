@@ -18,7 +18,7 @@
 
 + (instancetype)makeScrollView {
 
-  return [self makeScrollViewWithOptions:@{@"borderColor": HexRGBA(0xCCCCCC, 1.0), @"borderWidth": @1}];;
+  return [self makeScrollViewWithOptions:@{@"borderColor": HexRGBA(@"#CCCCCC", 1.0), @"borderWidth": @1}];;
 }
 
 + (instancetype)makeScrollViewWithOptions:(NSDictionary *)options {

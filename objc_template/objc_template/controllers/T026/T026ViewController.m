@@ -79,7 +79,7 @@
     /**
      * cell xib 注册 & class 注册
      */
-    registerForCellFromNib(tableView, ShoppingCell);
+    registerForCellFromNib(tableView, ShoppingCell.class);
 
     // registerForCellFromeClass(tableView, DiffHeightCell);
   }
@@ -107,9 +107,9 @@
 /** cell */
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  ShoppingCell *cell = DequeueForCell(tableView, ShoppingCell);
+  ShoppingCell *cell = dequeueForCell(tableView, ShoppingCell.class);
 
-  cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(0xF2CDA7, 1.0) : HexRGBA(0xEA9950, 1.0);
+  cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(@"#F2CDA7", 1.0) : HexRGBA(@"#EA9950", 1.0);
   cell.selectionStyle              = tableView.isEditing ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
 
   [self configureCell:cell atIndexPath:indexPath];

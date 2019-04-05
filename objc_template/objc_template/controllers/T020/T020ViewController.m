@@ -53,7 +53,7 @@
   CGRect frame = CGRectMake(x, y, width, height);
   SNScrollView* scrollView = [SNScrollView makeScrollViewWithOptions:@{
     @"backgroundColor" : [UIColor whiteColor],
-    // @"borderColor"                   : HexRGBA(0xCCCCCC, 1.0),
+    // @"borderColor"                   : HexRGBA(@"#CCCCCC", 1.0),
     @"borderWidth" : @1.0,
     @"borderRadius" : @4.f,
     @"masksToBounds" : @YES,
@@ -87,7 +87,7 @@
   {
     SNPageControl* control = [SNPageControl makePageControlWithOptions:@{
       @"hidesForSinglePage" : @(YES),
-      @"backgroundColor" : HexRGBA(0x0, 0.2),
+      @"backgroundColor" : HexRGBA(@"#0", 0.2),
       @"numberOfPages" : @5,
       @"currentPage" : @0,
       @"pageIndicatorTintColor" : [UIColor whiteColor],
@@ -99,8 +99,7 @@
                      scrollView.bottom - 20, scrollView.width * 0.5, 20)),
     }];
 
-    kBorder(control);
-    control.layer.borderColor = HexRGBA(0x000000, 1.0).CGColor;
+    control.layer.borderColor = HexRGBA(@"#000000", 1.0).CGColor;
 
     self.mControl = control;
 

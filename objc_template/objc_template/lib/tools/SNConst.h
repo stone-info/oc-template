@@ -23,10 +23,6 @@ UIKIT_EXTERN CGFloat kStatusNavigationBarHeight;
 UIKIT_EXTERN const CGFloat kNavigationBarHeight;
 UIKIT_EXTERN const CGFloat kTabBarHeight;
 
-
-
-
-
 UIKIT_EXTERN const CGFloat SNhHeaderHeight;
 UIKIT_EXTERN const CGFloat SNhFooterHeight;
 UIKIT_EXTERN const CGFloat SNhFastAnimationDuration;
@@ -36,8 +32,10 @@ UIKIT_EXTERN NSString *const SNhKeyPathContentInset;
 UIKIT_EXTERN NSString *const SNhKeyPathContentSize;
 UIKIT_EXTERN NSString *const SNhKeyPathPanState;
 
-UIKIT_EXTERN UIImage *kImageWithName(NSString *name);
+NS_ASSUME_NONNULL_BEGIN
 
 @interface SNConst : NSObject
 
 @end
+
+NS_ASSUME_NONNULL_END

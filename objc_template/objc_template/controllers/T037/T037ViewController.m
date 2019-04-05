@@ -14,61 +14,29 @@
 
 @implementation T037ViewController
 
+- (void)foo1 {
+  NSLog(@"call method \"%s\"", sel_getName(_cmd));
+}
+
+- (void)foo2 {
+  NSLog(@"call method \"%s\"", sel_getName(_cmd));
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
+  // 根据C标准，用##操作后的结果必须是一个已经预定义过的符号，否则就是未定义的。
+  // 预定义的符号：头文件名, 等式, 预处理数字, 字符常数, 字符串值, 标点符号, 单个非空字符
+  // 在逗号和__VA_ARGS__之间的双井号，除了拼接前后文本之外，还有一个功能，那就是如果后方文本为空，那么它会将前面一个逗号吃掉。
+  // 这个特性当且仅当上面说的条件成立时才会生效，因此可以说是特例。
+#define kMethod(number) [self foo##number]
 
-  SNImageView *imageView = [SNImageView makeImageViewWithOptions:@{
-    // @"borderRadius"   : @4.F,
-    // @"masksToBounds"  : @(YES),
-    // @"backgroundColor": HexRGBA(0xCCCCCC, 1.0),
-    // @"contentMode"    : @(UIViewContentModeScaleToFill),
-    // // imageView需要这步操作, 因为layer.contents
-    // // 光栅化
-    // @"shouldRasterize": @(YES),
-    // // UI优化
-    // // https://www.jianshu.com/p/85837799f3eb
-    // @"opaque"         : @(YES),
-    // @"glass"          : @(YES),
-    @"image": [UIImage imageNamed:@"abc030"],
-    // @"frame"          : [NSValue valueWithCGRect:CGRectMake(0,
-    // kStatusBarHeight + kNavigationBarHeight, kScreenWidth, kScreenHeight -
-    // (kStatusBarHeight + kNavigationBarHeight))],
-  }];
+  kMethod(1);
+  kMethod(2);
 
-  [self.view addSubview:imageView];
 
-  kMasKey(imageView);
-  [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-    // make.edges.insets(UIEdgeInsetsZero);
-    // make.center.mas_equalTo(self.view);
-    make.center;
-
-    /** full */
-    // make.top.mas_equalTo(self.view.mas_top).offset(0);
-    // make.left.mas_equalTo(self.view.mas_left).offset(0);
-    // make.right.mas_equalTo(self.view.mas_right).offset(0);
-    // make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
-
-    /** width & height */
-    make.width.mas_equalTo(100);
-    // make.height.mas_equalTo(100);
-    make.height.mas_equalTo(sn.suggestHeight(100, imageView.image));
-
-    // make.size.mas_equalTo(100);
-  }];
 
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
     

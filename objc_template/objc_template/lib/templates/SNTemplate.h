@@ -11,6 +11,9 @@
 
 UIKIT_EXTERN NSDictionary *kImageViewNormalTemplate;
 UIKIT_EXTERN NSDictionary *kLabelNormalTemplate;
+UIKIT_EXTERN NSDictionary *kButtonNormalTemplate;
+UIKIT_EXTERN NSDictionary *kTableViewNormalTemplate;
+
 //UIKIT_EXTERN CGFloat kStatusNavigationBarHeight;
 //UIKIT_EXTERN const CGFloat SNhSlowAnimationDuration;
 //UIKIT_EXTERN NSString *const SNhKeyPathContentOffset;

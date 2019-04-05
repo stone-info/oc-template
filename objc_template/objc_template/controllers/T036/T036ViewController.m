@@ -19,14 +19,16 @@
   // Do any additional setup after loading the view from its nib.
 
   SNImageView *imageView = [SNImageView makeImageView];
-  self.imageView  = imageView;
-  imageView.image = [UIImage imageNamed:@"abc001"];
+  kBorder(imageView);
 
-  imageView.layer.shadowColor   = HexRGBA(0xCCCCCC, 1.0).CGColor;
-  imageView.layer.shadowOpacity = 1.f;
+  self.imageView  = imageView;
+  imageView.image = [UIImage imageNamed:@"abc003"];
+
+  // imageView.layer.shadowColor   = HexRGBA(@"#CCCCCC", 1.0).CGColor;
+  // imageView.layer.shadowOpacity = 1.f;
   // imageView.layer.shadowOffset  = CGSizeMake(5, 5);
   // imageView.layer.shadowRadius  = 3; // 默认3 // blur
-  imageView.layer.shadowRadius  = 0; // 默认3 // blur
+  // imageView.layer.shadowRadius  = 0; // 默认3 // blur
   // imageView.layer.shadowPath = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, imageView.layer.bounds.size.width, imageView.layer.bounds.size.height)].CGPath;
 
   SNView *mView = [SNView makeView];
@@ -47,9 +49,9 @@
     // make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
 
     /** width & height */
-    make.width.mas_equalTo(300);
+    make.width.mas_equalTo(100);
     // make.size.mas_equalTo(100);
-    make.height.mas_equalTo(sn.suggestHeight(300, imageView.image));
+    make.height.mas_equalTo(sn.suggestHeight(100, imageView.image));
 
   }];
 
@@ -80,6 +82,20 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
 
+  [UIView animateWithDuration:0.5 animations:^{
+    // self.imageView.layer.transform = CATransform3DMakeRotation(kDegreesToRadian(90), 0, 0, 1);
+
+    // [self.imageView rotateMakeWithAngle:60];
+    // [self.imageView scaleMakeWithMultiple:0.5];
+    [self.imageView translationMakeWithTx:100 ty:100 tz:0];
+
+    [self.imageView setAction:^(UITapGestureRecognizer *recognizer) {
+      NSLog(sn.randomString);
+    }];
+
+
+
+  } completion:^(BOOL finished) {}];
 }
 @end
     

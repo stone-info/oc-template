@@ -24,6 +24,7 @@
 #define GLog(FORMAT, ...) do {printf("<%s %s:%d>-:▼\n\033[1;97;42m %s \033[0m\n--------------------------------------------------------------------------------------------------\n", [[NSDate.date dateByAddingTimeInterval:[NSTimeZone.systemTimeZone secondsFromGMTForDate:NSDate.date]].description substringWithRange:NSMakeRange(11, 8)].UTF8String, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String, __LINE__, [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
 #define BLog(FORMAT, ...) do {printf("<%s %s:%d>-:▼\n\033[1;44;97m %s \033[0m\n--------------------------------------------------------------------------------------------------\n", [[NSDate.date dateByAddingTimeInterval:[NSTimeZone.systemTimeZone secondsFromGMTForDate:NSDate.date]].description substringWithRange:NSMakeRange(11, 8)].UTF8String, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String, __LINE__, [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
 #define DLog(FORMAT, ...) do {printf("<%s %s:%d>-:▼\n\033[1;0;0m %s \033[0m\n--------------------------------------------------------------------------------------------------\n", [[NSDate.date dateByAddingTimeInterval:[NSTimeZone.systemTimeZone secondsFromGMTForDate:NSDate.date]].description substringWithRange:NSMakeRange(11, 8)].UTF8String, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String, __LINE__, [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
+#define KLog(FORMAT, ...) do {printf("<%s %s:%d>-: %s\n", [[NSDate.date dateByAddingTimeInterval:[NSTimeZone.systemTimeZone secondsFromGMTForDate:NSDate.date]].description substringWithRange:NSMakeRange(11, 8)].UTF8String, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String, __LINE__, [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
 // #define DLog(FORMAT, ...) do {fprintf(stderr,"\n<%s %s:%d>-:%s\n\n", [[NSDate.date dateByAddingTimeInterval:[NSTimeZone.systemTimeZone secondsFromGMTForDate:NSDate.date]].description substringWithRange:NSMakeRange(11, 8)].UTF8String, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String, __LINE__, [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
 #else
 #define NSLog
@@ -38,32 +39,23 @@
 #define NSLogPoint(point) NSLog(@"%s x:%.4f, y:%.4f", #point, point.x, point.y)
 #define NSLogEdgeInsets(edgeInsets) NSLog(@"%s top:%.4f, right:%.4f, bottom:%.4f, left:%.4f", #edgeInsets, edgeInsets.top, edgeInsets.right,edgeInsets.bottom,edgeInsets.left)
 
-//                              /* UITableView */
+//                              /* 代码块 */
 /************************************************************************************/
-#define registerForCellFromNib(TableViewName, NibClassName) ([TableViewName registerNib:[UINib nibWithNibName:NSStringFromClass([NibClassName class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([NibClassName class])])
-#define registerForHeaderFooterViewFromNib(TableViewName, NibClassName) ([TableViewName registerNib:[UINib nibWithNibName:NSStringFromClass([NibClassName class]) bundle:nil] forHeaderFooterViewReuseIdentifier:NSStringFromClass([NibClassName class])])
-#define registerForCellFromClass(TableViewName, ClassName) ([TableViewName registerClass:[ClassName class] forCellReuseIdentifier:NSStringFromClass([ClassName class])])
-#define registerForHeaderFooterViewFromClass(TableViewName, ClassName) ([TableViewName registerClass:[ClassName class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([ClassName class])])
-#define DequeueForCell(TableViewName, ClassName) ([TableViewName dequeueReusableCellWithIdentifier:NSStringFromClass([ClassName class])])
-#define DequeueForHeaderFooterView(TableViewName, ClassName) ([TableViewName dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([ClassName class])])
-#define CellDifferentColor(CELL) CELL.contentView.backgroundColor = indexPath.row % 2 == 0 ? [UIColor colorWithRed:247 / 255.0 green:206 / 255.0 blue:166 / 255.0 alpha:1.0] : [UIColor colorWithRed:242 / 255.0 green:154 / 255.0 blue:76 / 255.0 alpha:1.0]
+// #define kBorder(view)  view.layer.borderColor  = HexRGBA(@"0xcccccc", 1.0).CGColor; \
+//   view.layer.borderWidth   = 1.0;\
+//   view.layer.masksToBounds = YES;
+#define kBorder(view)  view.layer.borderColor  = HexRGBA(@"0xcccccc", 1.0).CGColor; view.layer.borderWidth   = 1.0; KLog(@"kBorder(%s)", #view);
 
-//                              /* UICollectionView */
-/************************************************************************************/
-#define registerForCollectionCellFromNib(CollectionViewName, NibClassName) ([CollectionViewName registerNib:[UINib nibWithNibName:NSStringFromClass([NibClassName class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([NibClassName class])])
-#define registerForCollectionCellFromClass(CollectionViewName, ClassName) ([CollectionViewName registerClass:[ClassName class] forCellWithReuseIdentifier:NSStringFromClass([ClassName class])])
-#define DequeueForCollectionCell(ClassName) ([collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ClassName class]) forIndexPath:indexPath])
-
-//                              /* Color */
-/************************************************************************************/
-#define HexRGBA(rgbValue, al) [UIColor colorWithRed:((float)((rgbValue&0xFF0000)>>16))/255.0 green:((float)((rgbValue&0xFF00)>>8))/255.0 blue:((float)(rgbValue&0xFF))/255.0 alpha:al]
-#define HexRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue&0xFF0000)>>16))/255.0 green:((float)((rgbValue&0xFF00)>>8))/255.0 blue:((float)(rgbValue&0xFF))/255.0 alpha:1.0]
+#define kShadow(view)  view.layer.shadowColor  = HexRGBA(@"0xa0a0a0", 1.0).CGColor; \
+  view.layer.shadowOffset = CGSizeMake(0, 0);\
+  view.layer.shadowOpacity = 1;\
+  view.layer.shadowRadius  = 1;
 
 //                              /* 设置角度 | 动画 */
 /************************************************************************************/
-#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+// #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 //由角度获取弧度
-#define kDegreesToRadian(angle) (M_PI * (angle) / 180.0)
+// #define kDegreesToRadian(angle) (M_PI * (angle) / 180.0)
 //有弧度获取角度
 #define kRadianToDegrees(radian) (radian*180.0)/(M_PI)
 #define kScale(view, sx, sy) (view.transform = CGAffineTransformScale(view.transform, sx, sy))
@@ -90,26 +82,6 @@
 #define toStringCGPoint(VALUE) NSStringFromCGSize(VALUE)
 #define toStringClass(VALUE) NSStringFromClass(VALUE)
 
-//                              /* font */
-/************************************************************************************/
-#define kPingFangSCRegular(SIZE) [UIFont fontWithName:@"PingFangSC-Regular" size:SIZE]
-#define kPingFangSCMedium(SIZE) [UIFont fontWithName:@"PingFangSC-Medium" size:SIZE]
-#define kSystemFont(SIZE) [UIFont systemFontOfSize:SIZE]
-#define kFont(FontFamily, SIZE) ([UIFont fontWithName:FontFamily size:SIZE])
-
-//                              /* 代码块 */
-/************************************************************************************/
-// #define kBorder(view)  view.layer.borderColor  = HexRGBA(0xcccccc, 1.0).CGColor; \
-//   view.layer.borderWidth   = 1.0;\
-//   view.layer.masksToBounds = YES;
-#define kBorder(view)  view.layer.borderColor  = HexRGBA(0xcccccc, 1.0).CGColor; \
-  view.layer.borderWidth   = 1.0;
-
-#define kShadow(view)  view.layer.shadowColor  = HexRGBA(0xa0a0a0, 1.0).CGColor; \
-  view.layer.shadowOffset = CGSizeMake(0, 0);\
-  view.layer.shadowOpacity = 1;\
-  view.layer.shadowRadius  = 1;
-
 //                              /* 存储路径 */
 /************************************************************************************/
 // parameter1: 搜索的目录
@@ -119,7 +91,7 @@
 // NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)
 
 // 保存应用程序运行时生成的需要持久化的数据, iTunes同步设备时会备份该目录. 例如, 游戏应用可将游戏存档保存在该目录
-#define kDocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
+ #define kDocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
 // 保存应用运行时生成的需要持久化的数据, iTunes同步设备时不会备份该目录, 一般存储体积较大, 不需要备份的非重要数据
 #define kCachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
 #define kLibrary [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject]
@@ -212,12 +184,6 @@
 /************************************************************************************/
 #define keyPath(objc, keyPath) @(((void)objc.keyPath,#keyPath))
 
-//                              /* #screen */
-/************************************************************************************/
-#define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
-#define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
-#define kScreenBounds ([UIScreen mainScreen].bounds)
-
 //                              /* #toast */
 /************************************************************************************/
 // #define kToast(containerView, content) { \
@@ -286,32 +252,43 @@ return self;                                                       \
 
 //                              /* #masonry */
 /************************************************************************************/
-#define kMasKey(VIEW) do {NSString *filename = [[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent];\
-  NSString *result = [NSString stringWithFormat:@"%@:%d", filename, __LINE__];\
-  VIEW.mas_key = [NSString stringWithFormat:@"%@ -> %s", result, #VIEW];}while(0);
+// #define kMasKey(VIEW) ;
+#define kMasKey(VIEW) do { VIEW.mas_key = [NSString stringWithFormat:@"%@ -> %s", [NSString stringWithFormat:@"%@:%d", [[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent], __LINE__], #VIEW]; }while(0);
 //                              /* #import */
 /************************************************************************************/
+// 在pch里面引用头文件时候报错
+// https://www.jianshu.com/p/55b334abed79
+#ifdef __OBJC__
+// foundation
+#import <MJExtension/MJExtension.h>
+#import <Masonry/Masonry.h>
+#import <KVOController/KVOController.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <UITableView_FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <ReactiveObjC/ReactiveObjC.h>
+
+// tools
 #import "SN.h"
 #import "SNConst.h"
 #import "UIView+Common.h"
-#import "Masonry.h"
 #import "NSArray+ArrayExtentsion.h"
 #import "SNConst.h"
-#import "MJExtension.h"
-#import "MBProgressHUD.h"
 #import "NSString+StringExtension.h"
 #import "UIImage+ImageExtension.h"
-#import <KVOController/KVOController.h>
-#import "UITableView+FDTemplateLayoutCell.h"
 #import "NSDate+Time.h"
 #import "SNHTTPManager.h"
 #import "SomeHTTPManager.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+
+// views
 #import "SNView.h"
 #import "SNLabel.h"
 #import "SNButton.h"
 #import "SNImageView.h"
 #import "SNTemplate.h"
-
+#import "UIView+Base.h"
+#import "SNGlobalFunctions.h"
+#import "SNHexColor.h"
+#endif
 //■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 #endif /* SNPrefix0_pch */

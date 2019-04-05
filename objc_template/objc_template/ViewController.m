@@ -22,8 +22,8 @@
   // Do any additional setup after loading the view, typically from a nib.
 
   // 获取info字典
-  NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
-  NSArray  *dataList   = [NSArray arrayWithContentsOfFile:bundlePath];
+  NSString * bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+  NSArray * dataList    = [NSArray arrayWithContentsOfFile:bundlePath];
 
   dataList = (NSMutableArray *) [[dataList reverseObjectEnumerator] allObjects];
   // NSLog(@"dataList = %@", dataList);
@@ -71,30 +71,30 @@
   }
 
   // auto push
-  // {
-  //   NSDictionary<NSString *, NSString *> *dictionary = self.dataList.firstObject;
-  //
-  //   UIViewController *viewController;
-  //   if (dictionary[@"xib"] && [dictionary[@"xib"] boolValue] == YES) {
-  //     /** 根据xib 获取 viewController */
-  //     viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] initWithNibName:dictionary[@"controllerName"] bundle:nil];
-  //   } else if (dictionary[@"storyboard"] && [dictionary[@"storyboard"] boolValue] == YES) {
-  //     /** 根据storyboard 获取 viewController */
-  //     viewController = [[UIStoryboard storyboardWithName:dictionary[@"controllerName"] bundle:nil] instantiateViewControllerWithIdentifier:dictionary[@"controllerName"]];
-  //   } else {
-  //     viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] init];
-  //   }
-  //   if (viewController.view.backgroundColor) {
-  //     // 有颜色
-  //   } else {
-  //     viewController.view.backgroundColor = UIColor.whiteColor;
-  //   }
-  //
-  //   // NSLog(@"viewController = %@", viewController);
-  //
-  //   viewController.title = kStringFormat(@"%03ld-%@", self.dataList.count - 1, dictionary[@"title"]);
-  //   [self.navigationController pushViewController:viewController animated:YES];
-  // }
+  {
+    NSDictionary<NSString *, NSString *> *dictionary = self.dataList.firstObject;
+
+    UIViewController *viewController;
+    if (dictionary[@"xib"] && [dictionary[@"xib"] boolValue] == YES) {
+      /** 根据xib 获取 viewController */
+      viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] initWithNibName:dictionary[@"controllerName"] bundle:nil];
+    } else if (dictionary[@"storyboard"] && [dictionary[@"storyboard"] boolValue] == YES) {
+      /** 根据storyboard 获取 viewController */
+      viewController = [[UIStoryboard storyboardWithName:dictionary[@"controllerName"] bundle:nil] instantiateViewControllerWithIdentifier:dictionary[@"controllerName"]];
+    } else {
+      viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] init];
+    }
+    if (viewController.view.backgroundColor) {
+      // 有颜色
+    } else {
+      viewController.view.backgroundColor = UIColor.whiteColor;
+    }
+
+    // NSLog(@"viewController = %@", viewController);
+
+    viewController.title = kStringFormat(@"%03ld-%@", self.dataList.count - 1, dictionary[@"title"]);
+    [self.navigationController pushViewController:viewController animated:YES];
+  }
 }
 
 #pragma mark - <addRequest>
@@ -150,7 +150,7 @@
      * cell xib 注册 & class 注册
      */
     {// registerForCellFromNib(tableView,UITableViewCell);
-      registerForCellFromClass(tableView, UITableViewCell);
+      registerForCellFromClass(tableView, UITableViewCell.class);
     }
     /**
      * headerSection xib 注册 & class 注册
@@ -205,7 +205,7 @@
 
 /** 自定义section header */
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  UITableViewHeaderFooterView *headerView = DequeueForHeaderFooterView(tableView, UITableViewHeaderFooterView);
+  UITableViewHeaderFooterView *headerView = dequeueForHeaderFooterView(tableView, UITableViewHeaderFooterView.class);
   // SNHeaderView * headerView = [SNHeaderView headerViewWithTableView:tableView];
   return headerView;
 }
@@ -223,11 +223,13 @@
 /** 自定义 cell */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-  UITableViewCell *cell = DequeueForCell(tableView, UITableViewCell);
+  UITableViewCell *cell = dequeueForCell(tableView, UITableViewCell.class);
   // SNOldTableViewCell * cell = [SNOldTableViewCell cellWithTableView:tableView];
 
-  cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(0xF2CDA7, 1.0) : HexRGBA(0xEA9950, 1.0);
-  cell.selectionStyle              = tableView.isEditing ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
+  // cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(@"#F2CDA7", 1.0) : HexRGBA(@"#EA9950", 1.0);
+  cellDifferentColor(cell, indexPath);
+
+  cell.selectionStyle = tableView.isEditing ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
 
   NSUInteger i = self.dataList.count - (NSUInteger) indexPath.row - 1;
 
@@ -237,7 +239,7 @@
   {
     // 关闭选中效果, 一旦关闭系统的选中效果所有失效.
     // // cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    // cell.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(0xF2CDA7, 1.0) : HexRGBA(0xEA9950, 1.0);
+    // cell.backgroundColor = indexPath.row % 2 == 0 ? HexRGBA(@"#F2CDA7", 1.0) : HexRGBA(@"#EA9950", 1.0);
     // UIView *selectedBackgroundView = [[UIView alloc] init];
     // selectedBackgroundView.backgroundColor = [UIColor blueColor];
     // cell.selectedBackgroundView            = selectedBackgroundView;

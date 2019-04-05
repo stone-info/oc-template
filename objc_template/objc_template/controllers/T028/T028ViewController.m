@@ -23,7 +23,7 @@
   // Do any additional setup after loading the view.
 
   self.view.backgroundColor        = [UIColor whiteColor];
-  self.mPickerView.backgroundColor = HexRGBA(0xFFC1C1, 1.0);
+  self.mPickerView.backgroundColor = HexRGBA(@"#FFC1C1", 1.0);
 
   self.mPickerView.dataSource = self;
   self.mPickerView.delegate   = self;

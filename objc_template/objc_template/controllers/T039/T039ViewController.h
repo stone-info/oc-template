@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class SNTextField;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface T039ViewController : UIViewController

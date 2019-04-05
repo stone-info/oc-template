@@ -45,7 +45,7 @@
            "And paced upon the mountains overhead "
            "爱情是怎样逝去，又怎样步上群山，\n"
            "And hid his face amid a crowd of stars. 怎样在繁星之间藏住了脸。",
-      @"borderColor" : HexRGBA(0xcccccc, 1.0),
+      @"borderColor" : HexRGBA(@"#cccccc", 1.0),
       @"borderWidth" : @1.0,
       @"masksToBounds" : @YES,
       @"lineHeight" : @8,

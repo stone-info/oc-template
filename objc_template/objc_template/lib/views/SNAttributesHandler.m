@@ -6,7 +6,7 @@
 //  Copyright © 2019 stone. All rights reserved.
 //
 
-#import <Kiwi/KWValue.h>
+
 #import <UIKit/UIKit.h>
 #import "SNAttributesHandler.h"
 
@@ -34,13 +34,13 @@
       @"shadowRadius"          : ^{ view.layer.shadowRadius = [obj floatValue]; },
 
       @"masksToBounds"         : ^{ view.layer.masksToBounds = [obj boolValue]; },
+      @"clipsToBounds"         : ^{ view.clipsToBounds = [obj boolValue]; },
       @"contentMode"           : ^{ view.contentMode = (UIViewContentMode) [obj integerValue]; },
       @"backgroundColor"       : ^{ view.backgroundColor = obj; },
       // @"frame"                 : ^{
       //   view.frame = [obj CGRectValue];
       // },
       @"userInteractionEnabled": ^{ view.userInteractionEnabled = [obj boolValue]; },
-      @"clipsToBounds"         : ^{ view.clipsToBounds = [obj boolValue]; },
       @"shouldRasterize"       : ^{ /* Defaults to NO. Animatable.*/ view.layer.shouldRasterize = [obj boolValue]; },
       @"opaque"                : ^{ view.opaque = [obj boolValue]; },
       @"action"                : ^{ [view setValue:obj forKey:@"action"]; },

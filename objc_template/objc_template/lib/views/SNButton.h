@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 // typedef void(^SNButtonAction)(SNButton *sender);
 
 @interface SNButton : UIButton
+
 + (instancetype)makeButton;
 
 + (instancetype)makeButtonWithOptions:(NSDictionary *)options;
