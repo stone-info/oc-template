@@ -314,27 +314,27 @@
     <false/>
   </dict>
 
-<!--  <dict>-->
-<!--    <key>title</key>-->
-<!--    <string>multiply edting</string>-->
-<!--    <key>controllerName</key>-->
-<!--    <string>T038ViewController</string>-->
-<!--    <key>xib</key>-->
-<!--    <false/>-->
-<!--    <key>storyboard</key>-->
-<!--    <false/>-->
-<!--  </dict>-->
-
   <dict>
     <key>title</key>
-    <string>noob test</string>
+    <string>multiply edting</string>
     <key>controllerName</key>
-    <string>T041ViewController</string>
+    <string>T038ViewController</string>
     <key>xib</key>
     <false/>
     <key>storyboard</key>
     <false/>
   </dict>
+
+  <!--<dict>-->
+    <!--<key>title</key>-->
+    <!--<string>noob test</string>-->
+    <!--<key>controllerName</key>-->
+    <!--<string>T041ViewController</string>-->
+    <!--<key>xib</key>-->
+    <!--<false/>-->
+    <!--<key>storyboard</key>-->
+    <!--<false/>-->
+  <!--</dict>-->
 
 </array>
 </plist>

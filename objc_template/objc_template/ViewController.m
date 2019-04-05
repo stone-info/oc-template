@@ -79,7 +79,7 @@
       /** 根据xib 获取 viewController */
       viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] initWithNibName:dictionary[@"controllerName"] bundle:nil];
     } else if (dictionary[@"storyboard"] && [dictionary[@"storyboard"] boolValue] == YES) {
-      /** 根据xib 获取 viewController */
+      /** 根据storyboard 获取 viewController */
       viewController = [[UIStoryboard storyboardWithName:dictionary[@"controllerName"] bundle:nil] instantiateViewControllerWithIdentifier:dictionary[@"controllerName"]];
     } else {
       viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] init];

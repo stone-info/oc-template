@@ -8,17 +8,17 @@
 
 #import "T037ViewController.h"
 
-@interface  T037ViewController ()
+@interface T037ViewController ()
 
 @end
 
-@implementation  T037ViewController
+@implementation T037ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
 
-  SNImageView* imageView = [SNImageView makeImageViewWithOptions:@{
+  SNImageView *imageView = [SNImageView makeImageViewWithOptions:@{
     // @"borderRadius"   : @4.F,
     // @"masksToBounds"  : @(YES),
     // @"backgroundColor": HexRGBA(0xCCCCCC, 1.0),
@@ -30,7 +30,7 @@
     // // https://www.jianshu.com/p/85837799f3eb
     // @"opaque"         : @(YES),
     // @"glass"          : @(YES),
-    @"image" : [UIImage imageNamed:@"abc030"],
+    @"image": [UIImage imageNamed:@"abc030"],
     // @"frame"          : [NSValue valueWithCGRect:CGRectMake(0,
     // kStatusBarHeight + kNavigationBarHeight, kScreenWidth, kScreenHeight -
     // (kStatusBarHeight + kNavigationBarHeight))],
@@ -57,6 +57,7 @@
 
     // make.size.mas_equalTo(100);
   }];
+
 }
 
 /*
