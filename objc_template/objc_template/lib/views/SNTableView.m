@@ -9,12 +9,24 @@
 #import "SNTableView.h"
 #import "SNAttributesHandler.h"
 
+
 @interface SNTableView ()
 
 
 @end
 
 @implementation SNTableView
+
+- (UIViewController *)viewController {
+  for (UIView *view = self; view; view = view.superview) {
+    UIResponder *nextResponder = [view nextResponder];
+    if ([nextResponder isKindOfClass:[UIViewController class]]) {
+      return (UIViewController *)nextResponder;
+    }
+  }
+  return nil;
+}
+
 + (instancetype)makeTableView {
   return [self makeTableViewWithOptions:@{@"borderColor": HexRGBA(0xCCCCCC, 1.0), @"borderWidth": @1}];;
 }

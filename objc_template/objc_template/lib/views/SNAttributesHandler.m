@@ -67,9 +67,7 @@
 }
 
 // image view 特性
-+ (void)featureAttributeWithImageView:(__kindof UIImageView *)view
-        key:(NSString *)key
-        obj:(id)obj {
++ (void)featureAttributeWithImageView:(__kindof UIImageView *)view key:(NSString *)key obj:(id)obj {
   // (
   //   (void (^)(void)) @{
   //     @"image": ^{
@@ -109,9 +107,7 @@
 }
 
 // scroll view 特性
-+ (void)featureAttributeWithScrollView:(__kindof UIScrollView *)view
-        key:(NSString *)key
-        obj:(id)obj {
++ (void)featureAttributeWithScrollView:(__kindof UIScrollView *)view key:(NSString *)key obj:(id)obj {
   (
     (void (^)(void)) @{
       @"contentSize"                   : ^{ view.contentSize = [obj CGSizeValue]; },
@@ -130,9 +126,7 @@
 }
 
 // table view 特性
-+ (void)featureAttributeWithTableView:(__kindof UITableView *)view
-        key:(NSString *)key
-        obj:(id)obj {
++ (void)featureAttributeWithTableView:(__kindof UITableView *)view key:(NSString *)key obj:(id)obj {
   (
     (void (^)(void)) @{
       // 数据源
@@ -192,9 +186,7 @@
 }
 
 // page control 特性
-+ (void)featureAttributeWithPageControl:(__kindof UIPageControl *)view
-        key:(NSString *)key
-        obj:(id)obj {
++ (void)featureAttributeWithPageControl:(__kindof UIPageControl *)view key:(NSString *)key obj:(id)obj {
   (
     (void (^)(void)) @{
       @"hidesForSinglePage"           : ^{ view.hidesForSinglePage = [obj boolValue]; },
@@ -210,6 +202,7 @@
   )();
 }
 
+// label 特性
 + (void)featureAttributeWithLabel:(__kindof UILabel *)view key:(NSString *)key obj:(id)obj {
 
   (
@@ -218,6 +211,28 @@
       @"text"         : ^{ view.text = obj; },
       @"font"         : ^{ view.font = obj; },
       @"lineBreakMode": ^{ view.lineBreakMode = (NSLineBreakMode) [obj integerValue]; },
+    }[key] ?: ^{
+      // NSLog(@"default");
+    }
+  )();
+}
+
+// button 特性
++ (void)featureAttributeWithButton:(__kindof UIButton *)view key:(NSString *)key obj:(id)obj {
+  (
+    (void (^)(void)) @{
+      @"adjustsImageWhenHighlighted": ^{ [view setAdjustsImageWhenHighlighted:[obj boolValue]]; },
+      @"titleNormal"                : ^{ [view setTitle:obj forState:UIControlStateNormal]; },
+      @"titleColorNormal"           : ^{ [view setTitleColor:obj forState:UIControlStateNormal]; },
+      @"titleHighlighted"           : ^{ [view setTitle:obj forState:UIControlStateHighlighted]; },
+      @"titleColorHighlighted"      : ^{ [view setTitleColor:obj forState:UIControlStateHighlighted]; },
+      @"font"                       : ^{ view.titleLabel.font = obj; },
+      @"imageNormal"                : ^{ [view setImage:obj forState:UIControlStateNormal]; },
+      @"imageSelected"              : ^{ [view setImage:obj forState:UIControlStateSelected]; },
+      @"imageHighlighted"           : ^{ [view setImage:obj forState:UIControlStateHighlighted]; },
+      @"backgroundImageNormal"      : ^{ [view setBackgroundImage:obj forState:UIControlStateNormal]; },
+      @"backgroundImageSelected"    : ^{ [view setBackgroundImage:obj forState:UIControlStateSelected]; },
+      @"backgroundImageHighlighted" : ^{ [view setBackgroundImage:obj forState:UIControlStateHighlighted]; },
     }[key] ?: ^{
       // NSLog(@"default");
     }
