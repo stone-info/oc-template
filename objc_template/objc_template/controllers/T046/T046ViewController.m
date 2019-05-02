@@ -7,27 +7,20 @@
 //
 
 #import "T046ViewController.h"
-
-@interface  T046ViewController ()
-
+#import "STListController.h"
+@interface T046ViewController ()
 @end
 
-@implementation  T046ViewController
-
+@implementation T046ViewController
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
 }
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
 
-/*
-#pragma mark - Navigation
+  STListController *controller = STListController.new;
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+  [self.navigationController pushViewController:controller animated:YES];
 }
-*/
-
 @end
     

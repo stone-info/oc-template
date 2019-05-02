@@ -68,7 +68,7 @@ static UIColor *navigationBarBackgroundColor = nil;
   // Do any additional setup after loading the view.
   self.delegate = self;
 
-  [self setValue:SNNavigationBar.new forKey:@"navigationBar"];
+  // [self setValue:SNNavigationBar.new forKey:@"navigationBar"];
   //   self.navigationBar.frame = CGRectMake(0, 0, kScreenWidth, NAVIGATION_HEIGHT);
   //
   // #ifdef __IPHONE_11_0
@@ -86,8 +86,8 @@ static UIColor *navigationBarBackgroundColor = nil;
   // UIBarMetricsCompact, 透明的效果...
 
 
-  [self.navigationBar setBackgroundImage:sn.imageWithColor(navigationBarBackgroundColor) forBarMetrics:UIBarMetricsDefault];
-  [self.navigationBar setShadowImage:[[UIImage alloc] init]];
+  // [self.navigationBar setBackgroundImage:sn.imageWithColor(navigationBarBackgroundColor) forBarMetrics:UIBarMetricsDefault];
+  // [self.navigationBar setShadowImage:[[UIImage alloc] init]];
 
 }
 
@@ -114,10 +114,11 @@ static UIColor *navigationBarBackgroundColor = nil;
   if (self.childViewControllers.count > 0) {
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:nil action:NULL];
     [self.navigationBar.topItem setBackBarButtonItem:item];
-  } else {
-    [self.navigationBar setBackgroundImage:sn.imageWithColor(navigationBarBackgroundColor) forBarMetrics:UIBarMetricsDefault];
-    [self.navigationBar setShadowImage:[[UIImage alloc] init]];
   }
+  // else {
+  //   [self.navigationBar setBackgroundImage:sn.imageWithColor(navigationBarBackgroundColor) forBarMetrics:UIBarMetricsDefault];
+  //   [self.navigationBar setShadowImage:[[UIImage alloc] init]];
+  // }
   [super pushViewController:viewController animated:animated];
 }
 
@@ -125,12 +126,13 @@ static UIColor *navigationBarBackgroundColor = nil;
   UIViewController *controller = [super popViewControllerAnimated:animated];
 
   NSLog(@"controller = %@", controller);
-  [self.navigationBar setBackgroundImage:sn.imageWithColor(navigationBarBackgroundColor) forBarMetrics:UIBarMetricsDefault];
-  [self.navigationBar setShadowImage:[[UIImage alloc] init]];
+  // [self.navigationBar setBackgroundImage:sn.imageWithColor(navigationBarBackgroundColor) forBarMetrics:UIBarMetricsDefault];
+  // [self.navigationBar setShadowImage:[[UIImage alloc] init]];
 
   return controller;
 }
 
+//--------------------------------------------
 // - (UIInterfaceOrientationMask)navigationControllerSupportedInterfaceOrientations:(UINavigationController *)navigationController {
 //
 //   // return UIInterfaceOrientationMaskPortrait;

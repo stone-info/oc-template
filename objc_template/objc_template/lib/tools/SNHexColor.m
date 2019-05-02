@@ -10,7 +10,7 @@
 
 @implementation SNHexColor
 
-+ (instancetype)hexColorWithHex:(NSString *)hex alpha:(CGFloat)alpha {
++ (UIColor *)hexColorWithHex:(NSString *)hex alpha:(CGFloat)alpha {
   
   NSDictionary<NSString *, NSNumber *> *dict = [self transformWithHex:hex];
   
@@ -21,7 +21,7 @@
   }
 }
 
-+ (instancetype)hexColorWithHex:(NSString *)hex {
++ (UIColor *)hexColorWithHex:(NSString *)hex {
   
   NSDictionary<NSString *, NSNumber *> *dict = [self transformWithHex:hex];
   if (dict) {

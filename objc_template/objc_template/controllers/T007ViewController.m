@@ -20,7 +20,6 @@ static void* playerContext = &playerContext;
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
-
   // NSString *scale    = [NSString stringWithFormat:@"@%li", (NSInteger)
   // [UIScreen mainScreen].scale];
   NSString* resource = [NSString

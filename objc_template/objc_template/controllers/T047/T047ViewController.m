@@ -7,27 +7,27 @@
 //
 
 #import "T047ViewController.h"
+#import "SNSwipeTableView.h"
 
-@interface  T047ViewController ()
+@interface T047ViewController ()
 
 @end
 
-@implementation  T047ViewController
+@implementation T047ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
+  [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
 
-/*
-#pragma mark - Navigation
+  SNSwipeTableView *tableView = SNSwipeTableView.new;
+  tableView.backgroundColor = UIColor.lightGrayColor;
+  [self.view addSubview:tableView];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+  kMasKey(tableView);
+  [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.edges.insets(UIEdgeInsetsMake(kStatusBarHeight + kNavigationBarHeight, 0, kSafeAreaBottomHeight, 0));
+  }];
 }
-*/
 
 @end
     

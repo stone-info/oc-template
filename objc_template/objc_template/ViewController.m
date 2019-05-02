@@ -68,6 +68,8 @@
       // make.height.mas_equalTo(100);
       // make.size.mas_equalTo(100);
     }];
+
+    // @"frame"                : sn.valueWithCGRect(CGRectMake(0, kStatusNavigationBarHeight, kScreenWidth, kSafeAreaHeight)),
   }
 
   // auto push
@@ -262,6 +264,7 @@
 
   return cell;
 }
+
 
 // sn_note:========= 点击cell ============================ stone 🐳 ===========/
 

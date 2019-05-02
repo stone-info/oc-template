@@ -7,26 +7,47 @@
 //
 
 #import "T041ViewController.h"
+#import "SNCustomTableView.h"
+#import "SNTestOneCell.h"
+#import "SNTestTwoCell.h"
 
 @interface T041ViewController ()
-
+@property (weak, nonatomic) SNCustomTableView *tableView;
 @end
 
 @implementation T041ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+  [super viewDidLoad];
+
+  self.view.backgroundColor = [UIColor whiteColor];
+
+  SNCustomTableView *tableView = [SNCustomTableView makeTableViewWithClasses:@[
+    @{@"class": SNTestOneCell.class},
+    @{@"xib": SNTestTwoCell.class},
+  ]];
+
+  self.tableView = tableView;
+
+  [self.view addSubview:tableView];
+
+  //
+  kMasKey(tableView);
+  [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.top.offset(0);
+    make.bottom.offset(-kSafeAreaBottomHeight);
+    make.left.right;
+  }];
+
+  [tableView setCellForRow:^(__kindof UITableView *tableView, __kindof UITableViewCell *cell, NSIndexPath *path) {
+
+    if ([cell isKindOfClass:[SNTestTwoCell class]]) {
+      SNTestTwoCell *twoCell = (SNTestTwoCell *) cell;
+      twoCell.mTitleLabel.text = @"hello world";
+    }
+  }];
+
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -14,10 +14,11 @@
 
 
 @end
-@interface NSArray<ObjectType> (ES6)
-- (NSMutableArray *)filterWithBlock:(BOOL(^)(ObjectType obj, NSUInteger index))block;
-- (NSMutableArray *)mapWithBlock:(id(^)(ObjectType obj, NSUInteger index))block;
-@end
+
+//@interface NSArray<ObjectType> (ES6)
+//- (NSMutableArray *)filterWithBlock:(BOOL(^)(ObjectType obj, NSUInteger index))block;
+//- (NSMutableArray *)mapWithBlock:(id(^)(ObjectType obj, NSUInteger index))block;
+//@end
 
 @interface NSArray (SNGetObjet)
 - (id)getObjectWithClassName:(NSString *)className;

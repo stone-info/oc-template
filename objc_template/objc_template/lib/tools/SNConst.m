@@ -38,15 +38,6 @@ CGFloat kSafeAreaContainerViewHeight = 0;
 const CGFloat kNavigationBarHeight = 44;
 const CGFloat kTabBarHeight        = 49;
 
-const CGFloat SNhHeaderHeight          = 0;
-const CGFloat SNhFooterHeight          = 0;
-const CGFloat SNhFastAnimationDuration = 0;
-const CGFloat SNhSlowAnimationDuration = 0;
-
-NSString *const SNhKeyPathContentOffset = @"contentOffset";
-NSString *const SNhKeyPathContentInset  = @"contentInset";
-NSString *const SNhKeyPathContentSize   = @"contentSize";
-NSString *const SNhKeyPathPanState      = @"state";
 
 @implementation SNConst
 
@@ -74,6 +65,7 @@ NSString *const SNhKeyPathPanState      = @"state";
     //        kSafeAreaBottomHeight = 0.0;
     //      }
     //    }
+
   });
 }
 @end

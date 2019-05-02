@@ -6,10 +6,7 @@
 //  Copyright © 2019 stone. All rights reserved.
 //
 
-#import <ImageIO/ImageIO.h>
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-#import <CoreData/CoreData.h>
 #import "T039ViewController.h"
 #import "SNTextField.h"
 #import "T039SecondViewController.h"
@@ -32,6 +29,12 @@
   // [self demo4];
   // [self demo5];
   // [self demo6];
+  // [self demo7];
+  NSString *s = @"hello world";
+
+}
+
+- (void)demo7 {
   //遍历 NSArray
   // 这他妈 还是异步的??
   NSArray<NSString *> *numbers = @[@"1", @"2", @"3", @"4"];

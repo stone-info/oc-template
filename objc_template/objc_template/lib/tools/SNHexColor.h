@@ -11,8 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SNHexColor : UIColor
-+ (instancetype)hexColorWithHex:(NSString *)hex;
-+ (instancetype)hexColorWithHex:(NSString *)hex alpha:(CGFloat)alpha;
++ (UIColor *)hexColorWithHex:(NSString *)hex;
++ (UIColor *)hexColorWithHex:(NSString *)hex alpha:(CGFloat)alpha;
 @end
 
 NS_ASSUME_NONNULL_END
+
+//HexRGBA\(0x([0-9a-zA-Z]+),([ 0-9.]+)\);
+
+//HexRGBA\(@"#$1",$2\);

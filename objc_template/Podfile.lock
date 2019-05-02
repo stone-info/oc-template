@@ -14,6 +14,12 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - HMSegmentedControl (1.5.5)
+  - IGListKit (3.4.0):
+    - IGListKit/Default (= 3.4.0)
+  - IGListKit/Default (3.4.0):
+    - IGListKit/Diffing
+  - IGListKit/Diffing (3.4.0)
   - IQKeyboardManager (6.2.0)
   - Kiwi (3.0.0)
   - KVOController (1.2.0)
@@ -29,10 +35,17 @@ PODS:
   - SSZipArchive (2.1.4)
   - Toast (4.0.0)
   - "UITableView+FDTemplateLayoutCell (1.6)"
+  - VTMagic (1.2.4):
+    - VTMagic/Core (= 1.2.4)
+  - VTMagic/Core (1.2.4)
+  - YTKNetwork (2.0.4):
+    - AFNetworking (~> 3.0)
   - YYText (1.0.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - HMSegmentedControl
+  - IGListKit
   - IQKeyboardManager
   - Kiwi
   - KVOController
@@ -45,11 +58,15 @@ DEPENDENCIES:
   - SSZipArchive
   - Toast
   - "UITableView+FDTemplateLayoutCell"
+  - VTMagic
+  - YTKNetwork
   - YYText
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - HMSegmentedControl
+    - IGListKit
     - IQKeyboardManager
     - Kiwi
     - KVOController
@@ -62,10 +79,14 @@ SPEC REPOS:
     - SSZipArchive
     - Toast
     - "UITableView+FDTemplateLayoutCell"
+    - VTMagic
+    - YTKNetwork
     - YYText
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
+  IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
@@ -78,8 +99,10 @@ SPEC CHECKSUMS:
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
+  YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: ca12ace1d2b786d1ab5d8c064c18dda332bc486b
+PODFILE CHECKSUM: 8912ad5cc74b3147efd320da78f4beb3b0e5bc55
 
 COCOAPODS: 1.6.1

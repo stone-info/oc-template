@@ -247,6 +247,8 @@ void setTimeout(id target, void (^handler)(dispatch_source_t timer), uint64_t ti
 
 + (BOOL (^)(NSString *))xibExists;
 
++ (BOOL (^)(NSString *, NSString *))compare;
+
 //====================================/
 #if DEBUG
 #pragma clang diagnostic push

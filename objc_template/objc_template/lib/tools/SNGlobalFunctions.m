@@ -62,6 +62,22 @@ __kindof UICollectionViewCell *dequeueForCollectionCell(__kindof UICollectionVie
   return [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(itemClass) forIndexPath:indexPath];
 }
 
+void registerForCollectionSectionHeaderFromClass(__kindof UICollectionView *collectionView, Class headerClass) {
+  [collectionView registerClass:headerClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(headerClass)];
+}
+
+void registerForCollectionSectionFooterFromClass(__kindof UICollectionView *collectionView, Class footerClass) {
+  [collectionView registerClass:footerClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(footerClass)];
+}
+
+void registerForCollectionSectionHeaderFromNib(__kindof UICollectionView *collectionView, Class headerClass) {
+  [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(headerClass) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(headerClass)];
+}
+
+void registerForCollectionSectionFooterFromNib(__kindof UICollectionView *collectionView, Class footerClass) {
+  [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(footerClass) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(footerClass)];
+}
+
 SNHexColor *HexRGBA(NSString *hex, CGFloat alpha) {
   return [SNHexColor hexColorWithHex:hex alpha:alpha];
 }
@@ -88,6 +104,27 @@ UIFont *kFont(NSString *fontFamily, CGFloat size) {
 
   return [UIFont fontWithName:fontFamily size:size];
 }
+
+id jsonLoads(NSString *jsonString) {
+  if (!jsonString) { return nil; }
+  if ([jsonString isEqualToString:@""]) { return @""; }
+  NSData *data = sn.stringToData(jsonString);
+  return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+}
+
+NSString *toJsonString(id obj) {
+
+  if (!obj) { return nil; }
+
+  if (![NSJSONSerialization isValidJSONObject:obj]) { return @""; }
+
+  NSData *data = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+
+  if (!data) { return @""; }
+
+  return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
+
 
 // 无参和有LOG的不做 全局函数
 

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScrollViewHorizontalLayoutWithMasonryViewController
-    : UIViewController
+@interface ScrollViewHorizontalLayoutWithMasonryViewController : UIViewController
 
 @end

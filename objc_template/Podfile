@@ -21,6 +21,13 @@ target 'objc_template' do
   pod 'MBProgressHUD'
   pod 'AFNetworking', '~> 3.0'
   pod 'ReactiveObjC'
+  pod 'YTKNetwork'
+  pod 'IGListKit'
+  pod 'HMSegmentedControl'
+  # pod 'SwipeTableView', '0.2.5'
+  #
+  # Pager view
+  pod 'VTMagic'
 
   target 'objc_templateTests' do
     inherit! :search_paths

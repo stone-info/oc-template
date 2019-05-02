@@ -109,7 +109,7 @@
 
   return ^BOOL(__kindof NSObject *obj) {
 
-    NSString * type = SN.getClassName(obj);
+    NSString *type = SN.getClassName(obj);
 
     if ([type containsString:@"String"]) {
       NSUInteger length = ((NSUInteger (*)(id, SEL)) (void *) objc_msgSend)(obj, NSSelectorFromString(@"length"));
@@ -122,7 +122,7 @@
     }
 
     if ([type containsString:@"Dictionary"]) {
-      NSArray * keys = ((NSArray *(*)(id, SEL)) (void *) objc_msgSend)(obj, NSSelectorFromString(@"allKeys"));
+      NSArray *keys = ((NSArray *(*)(id, SEL)) (void *) objc_msgSend)(obj, NSSelectorFromString(@"allKeys"));
       if (keys.count == 0) { return YES; } else { return NO; }
     }
 
@@ -159,7 +159,7 @@
 
 + (UIImage *)imageNamedWithBundleName:(NSString *)bundleName imageName:(NSString *)imageName extension:(NSString *__nullable)extension {
 
-  NSString * resource;
+  NSString *resource;
 
   if (extension) {
     resource = [NSString stringWithFormat:@"%@/%@.%@", bundleName, imageName, extension];
@@ -167,7 +167,7 @@
     resource = [NSString stringWithFormat:@"%@/%@", bundleName, imageName];
   }
 
-  NSString * path = [[NSBundle mainBundle] pathForResource:resource ofType:nil];
+  NSString *path = [[NSBundle mainBundle] pathForResource:resource ofType:nil];
 
   return [UIImage imageWithContentsOfFile:path];
 }
@@ -191,11 +191,11 @@
 // }
 + (NSString *)randomString {
 
-  NSString * chars = @"abcdefghijklmnopqrstuvwxzyABCDEFGHIJKLMNOPQRSTUVWXZY0123456789~!@#$%^&*()_+-=<>?,./{}|[]\\";
-  NSString * str   = @"";
-  for (uint32_t i = 32; i > 0; i--) {
-    uint32_t uniform  = arc4random_uniform((uint32_t) chars.length);
-    NSString * string = [chars substringWithRange:NSMakeRange(uniform, 1)];
+  NSString      *chars = @"abcdefghijklmnopqrstuvwxzyABCDEFGHIJKLMNOPQRSTUVWXZY0123456789~!@#$%^&*()_+-=<>?,./{}|[]\\";
+  NSString      *str   = @"";
+  for (uint32_t i      = 32; i > 0; i--) {
+    uint32_t uniform = arc4random_uniform((uint32_t) chars.length);
+    NSString *string = [chars substringWithRange:NSMakeRange(uniform, 1)];
     // str = [NSString stringWithFormat:@"%@%@", str, string];
     str = [str stringByAppendingString:string];
   }
@@ -315,7 +315,7 @@
       // 获取成员变量
       Ivar ivar = ivarList[i];
 
-      NSString * type = nil;
+      NSString *type = nil;
       {
         const char *ivarGetTypeEncoding = ivar_getTypeEncoding(ivar);
         if (strcmp(ivarGetTypeEncoding, @encode(char)) == 0) { type = @"BOOL"; }
@@ -346,8 +346,8 @@
         [strM appendFormat:@" *"];
       }
       // 获取成员变量名字
-      NSString * ivarName  = [NSString stringWithUTF8String:ivar_getName(ivar)];
-      NSString * keyString = [NSString stringWithFormat:@"%-20s%-20s", strM.UTF8String, ivarName.UTF8String];
+      NSString *ivarName  = [NSString stringWithUTF8String:ivar_getName(ivar)];
+      NSString *keyString = [NSString stringWithFormat:@"%-20s%-20s", strM.UTF8String, ivarName.UTF8String];
 
       id o = [obj valueForKey:ivarName];
       if (!o) { o = [NSNull null]; }
@@ -370,9 +370,9 @@
       unsigned int count    = 0;
       Method       *pMethod = class_copyMethodList(pClass, &count);
       for (int     i        = 0; i < count; i++) {
-        Method pObjc_method = pMethod[i];
-        SEL    pSelector    = method_getName(pObjc_method);
-        NSString * methodName = NSStringFromSelector(pSelector);
+        Method     pObjc_method  = pMethod[i];
+        SEL        pSelector     = method_getName(pObjc_method);
+        NSString   *methodName   = NSStringFromSelector(pSelector);
         // IMP        imp_f     = method_getImplementation(pObjc_method);
         int        argumentCount = method_getNumberOfArguments(pObjc_method);
         const char *typeEncoding = method_getTypeEncoding(pObjc_method);
@@ -386,9 +386,9 @@
       unsigned int count    = 0;
       Method       *pMethod = class_copyMethodList(metaClass, &count);
       for (int     i        = 0; i < count; i++) {
-        Method pObjc_method = pMethod[i];
-        SEL    pSelector    = method_getName(pObjc_method);
-        NSString * methodName = NSStringFromSelector(pSelector);
+        Method     pObjc_method  = pMethod[i];
+        SEL        pSelector     = method_getName(pObjc_method);
+        NSString   *methodName   = NSStringFromSelector(pSelector);
         // IMP        imp_f     = method_getImplementation(pObjc_method);
         int        argumentCount = method_getNumberOfArguments(pObjc_method);
         const char *typeEncoding = method_getTypeEncoding(pObjc_method);
@@ -414,9 +414,9 @@
       unsigned int count    = 0;
       Method       *pMethod = class_copyMethodList(cls, &count);
       for (int     i        = 0; i < count; i++) {
-        Method pObjc_method = pMethod[i];
-        SEL    pSelector    = method_getName(pObjc_method);
-        NSString * methodName = NSStringFromSelector(pSelector);
+        Method     pObjc_method  = pMethod[i];
+        SEL        pSelector     = method_getName(pObjc_method);
+        NSString   *methodName   = NSStringFromSelector(pSelector);
         // IMP        imp_f     = method_getImplementation(pObjc_method);
         int        argumentCount = method_getNumberOfArguments(pObjc_method);
         const char *typeEncoding = method_getTypeEncoding(pObjc_method);
@@ -430,9 +430,9 @@
       unsigned int count    = 0;
       Method       *pMethod = class_copyMethodList(metaClass, &count);
       for (int     i        = 0; i < count; i++) {
-        Method pObjc_method = pMethod[i];
-        SEL    pSelector    = method_getName(pObjc_method);
-        NSString * methodName = NSStringFromSelector(pSelector);
+        Method     pObjc_method  = pMethod[i];
+        SEL        pSelector     = method_getName(pObjc_method);
+        NSString   *methodName   = NSStringFromSelector(pSelector);
         // IMP        imp_f     = method_getImplementation(pObjc_method);
         int        argumentCount = method_getNumberOfArguments(pObjc_method);
         const char *typeEncoding = method_getTypeEncoding(pObjc_method);
@@ -645,11 +645,11 @@ void setInterval(id target, void (^handler)(dispatch_source_t timer), uint64_t t
     unsigned int count;
     Ivar         *ivar = class_copyIvarList([obj class], &count);
     for (int     i     = 0; i < count; i++) {
-      Ivar       iv    = ivar[i];
-      const char *name = ivar_getName(iv);
-      NSString * strName = [NSString stringWithUTF8String:name];
+      Ivar       iv       = ivar[i];
+      const char *name    = ivar_getName(iv);
+      NSString   *strName = [NSString stringWithUTF8String:name];
       //利用KVC取值
-      id value = [obj valueForKey:strName];
+      id         value    = [obj valueForKey:strName];
       [encoder encodeObject:value forKey:strName];
     }
     free(ivar);
@@ -663,8 +663,8 @@ void setInterval(id target, void (^handler)(dispatch_source_t timer), uint64_t t
     for (int     i     = 0; i < count; i++) {
       Ivar       var      = ivar[i];
       const char *keyName = ivar_getName(var);
-      NSString * key = [NSString stringWithUTF8String:keyName];
-      id value = [decoder decodeObjectForKey:key];
+      NSString   *key     = [NSString stringWithUTF8String:keyName];
+      id         value    = [decoder decodeObjectForKey:key];
       [self setValue:value forKey:key];
     }
     free(ivar);
@@ -701,10 +701,10 @@ void setInterval(id target, void (^handler)(dispatch_source_t timer), uint64_t t
     NSMutableArray<NSNumber *> *colors = [NSMutableArray arrayWithArray:@[red, green, blue]];
 
     unsigned hexComponent;
-    NSString * colorString = [string uppercaseString];
+    NSString *colorString              = [string uppercaseString];
 
     for (int i = 0; i < colors.count; i++) {
-      NSString * substring = [colorString substringWithRange:NSMakeRange(i * 2, 2)];
+      NSString *substring = [colorString substringWithRange:NSMakeRange(i * 2, 2)];
 
       [[NSScanner scannerWithString:substring] scanHexInt:&hexComponent];
 
@@ -854,9 +854,9 @@ void setInterval(id target, void (^handler)(dispatch_source_t timer), uint64_t t
 
 + (id(^)(NSString *))jsonFileToObject {
   return ^id(NSString *fileName) {
-    NSString * filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
-    NSData *data        = [NSData dataWithContentsOfFile:filePath];
-    id     obj          = self.deserialization(data);
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
+    NSData   *data     = [NSData dataWithContentsOfFile:filePath];
+    id       obj       = self.deserialization(data);
     return obj;
   };
 }
@@ -869,9 +869,9 @@ void setInterval(id target, void (^handler)(dispatch_source_t timer), uint64_t t
 
 + (NSUInteger (^)(NSString *filePath))fileSize {
   return ^NSUInteger(NSString *filePath) {
-    NSDictionary * dictionary = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath
-                                                error:nil];
-    NSNumber *size            = dictionary[@"NSFileSize"];
+    NSDictionary *dictionary = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath
+                                               error:nil];
+    NSNumber     *size       = dictionary[@"NSFileSize"];
     return [size unsignedIntegerValue];
   };
 }
@@ -881,9 +881,9 @@ void setInterval(id target, void (^handler)(dispatch_source_t timer), uint64_t t
   NSMutableURLRequest *(^pFunction)(NSString *, UIImage *) =^NSMutableURLRequest *(NSString *urlString, UIImage *image) {
     // NSString * kBoundary = @"----WebKitFormBoundaryjv0UfA04ED44AhWx"
     // NSString *kBoundary = kConcat(@"----WebKitFormBoundary", [self getMD5WithString:NSDate.new.toTimeStamp]);
-    NSString * kBoundary = [NSString JoinedWithSubStrings:@"----WebKitFormBoundary", [self getMD5WithString:NSDate.new.toTimeStamp], nil];
+    NSString *kBoundary = [NSString JoinedWithSubStrings:@"----WebKitFormBoundary", [self getMD5WithString:NSDate.new.toTimeStamp], nil];
     // NSData *imageData = UIImagePNGRepresentation(image);
-    NSData *imageData    = UIImageJPEGRepresentation(image, 1.0);
+    NSData   *imageData = UIImageJPEGRepresentation(image, 1.0);
 
     NSURL *url = [NSURL URLWithString:urlString];
 
@@ -906,7 +906,7 @@ void setInterval(id target, void (^handler)(dispatch_source_t timer), uint64_t t
       [dataM appendData:self.stringToData(kStringFormat(@"--%@", kBoundary))];
       kNewLine(dataM);
       {
-        NSString * str = [self getMD5WithString:NSDate.new.toTimeStamp];
+        NSString *str = [self getMD5WithString:NSDate.new.toTimeStamp];
         [dataM appendData:self.stringToData(kStringFormat(@"Content-Disposition: form-data; name=\"file\"; filename=\"%@.jpg\"", str))];
         kNewLine(dataM);
         [dataM appendData:self.stringToData(@"Content-Type: image/jpeg")];
@@ -1239,7 +1239,7 @@ static CFStringRef FileMD5HashCreateWithPath(CFStringRef filePath, size_t chunkS
 
 + (BOOL (^)(NSString *))xibExists {
   return ^BOOL(NSString *xibName) {
-    NSString * nibPath = [[NSBundle mainBundle] pathForResource:xibName ofType:@"nib"];
+    NSString *nibPath = [[NSBundle mainBundle] pathForResource:xibName ofType:@"nib"];
 
     if (nibPath) {
       return YES;
@@ -1247,6 +1247,12 @@ static CFStringRef FileMD5HashCreateWithPath(CFStringRef filePath, size_t chunkS
       return NO;
     }
 
+  };
+}
+
++ (BOOL (^)(NSString *, NSString *))compare {
+  return ^BOOL(NSString *l, NSString *r) {
+    return [l isEqualToString:r];
   };
 }
 
