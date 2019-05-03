@@ -232,7 +232,7 @@
 
  */
 - (void)didHighlightItemAtIndex:(NSInteger)index {
-  NSLog(@"%s", __func__);
+  // NSLog(@"%s", __func__);
 }
 
 /**
@@ -248,7 +248,7 @@
   @note默认实现什么都不做。 **不需要拨打超级电话。**
  */
 - (void)didUnhighlightItemAtIndex:(NSInteger)index {
-  NSLog(@"%s", __func__);
+  // NSLog(@"%s", __func__);
 }
 
 /**

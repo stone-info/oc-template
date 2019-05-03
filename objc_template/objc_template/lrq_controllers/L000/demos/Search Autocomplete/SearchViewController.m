@@ -105,7 +105,7 @@
 
   if ([self.filterString isEqualToString:@""]) {
 
-    NSArray *array = [self.words map:^NSString *(NSString *obj) { return obj; }];
+    NSArray *array = [self.words map:^NSString *(NSString *obj,NSUInteger idx) { return obj; }];
 
     [arrM addObjectsFromArray:array];
 
@@ -113,11 +113,11 @@
 
   } else {
 
-    NSArray *array = [self.words filter:^BOOL(NSString *obj) {
+    NSArray *array = [self.words filter:^BOOL(NSString *obj,NSUInteger idx) {
       return [obj.lowercaseString containsString:self.filterString.lowercaseString];
     }];
 
-    NSArray *map = [array map:^NSString *(NSString *obj) {
+    NSArray *map = [array map:^NSString *(NSString *obj,NSUInteger idx) {
       return obj;
     }];
 

@@ -39,9 +39,9 @@ UIKIT_EXTERN __kindof UICollectionViewCell *dequeueForCollectionCell(__kindof UI
 
 //                              /* Color */
 /************************************************************************************/
-UIKIT_EXTERN SNHexColor *HexRGBA(NSString *hex, CGFloat alpha);
+UIKIT_EXTERN UIColor *HexRGBA(NSString *hex, CGFloat alpha);
 
-UIKIT_EXTERN SNHexColor *HexRGB(NSString *hex);
+UIKIT_EXTERN UIColor *HexRGB(NSString *hex);
 
 //                              /* font */
 /************************************************************************************/

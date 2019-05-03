@@ -456,5 +456,16 @@
       <false/>
     </dict>
 
+    <dict>
+      <key>title</key>
+      <string>CGRectDivide 测试</string>
+      <key>controllerName</key>
+      <string>T051ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
   </array>
 </plist>

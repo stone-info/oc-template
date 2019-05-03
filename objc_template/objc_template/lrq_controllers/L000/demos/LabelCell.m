@@ -82,9 +82,6 @@ static CGFloat      singleLineHeight;
   CGFloat height = 0.5;
   CGFloat left   = insets.left;
   self.separator.frame = CGRectMake(left, bounds.size.height - height, bounds.size.width - left, height);
-  // self.separator.frame = CGRectMake(0, bounds.size.height-1, kScreenWidth, 1);
-
-  // NSLogRect(self.separator.frame);
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -92,12 +89,10 @@ static CGFloat      singleLineHeight;
 }
 
 - (void)bindViewModel:(id)viewModel {
-
   if ([viewModel isKindOfClass:[NSString class]]) {
     NSString *object = (NSString *) viewModel;
     self.label.text = object;
   }
-
 }
 
 @end

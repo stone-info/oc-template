@@ -43,16 +43,8 @@
 
 - (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
   CenterLabelCell *cell = [self.collectionContext dequeueReusableCellOfClass:CenterLabelCell.class forSectionController:self atIndex:index];
-  // cell.contentView.backgroundColor = sn.randomColor;
-
-  // NSLog(@"self.object.items = %@", self.object.items);
-
   cell.label.text      = self.object.items[index];
   cell.backgroundColor = self.object.color;
-
-  // NSLog(@"cell.label = %@", cell.label);
-  // NSLog(@"cell.label.text = %@", cell.label.text);
-
   return cell;
 }
 
@@ -81,7 +73,6 @@
 }
 
 - (void)moveObjectFromIndex:(NSInteger)sourceIndex toIndex:(NSInteger)destinationIndex {
-  NSLog(@"%s", __func__);
 
   if (!self.object) { return; }
 

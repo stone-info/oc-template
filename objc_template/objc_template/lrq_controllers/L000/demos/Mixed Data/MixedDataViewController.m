@@ -78,10 +78,47 @@
   return _adapter;
 }
 
+
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  // Do any additional setup after loading the view.
+
+  self.selectedClass = NSNull.class;
+
+  UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:[self.segments map:^NSString *(NSDictionary *obj,NSUInteger idx) {
+    return obj.allKeys[0];
+  }]];
+  control.selectedSegmentIndex = 0;
+  [control addTarget:self action:@selector(onControl:) forControlEvents:UIControlEventValueChanged];
+  self.navigationItem.titleView = control;
+  if (@available(iOS 9.0, *)) {
+    UILongPressGestureRecognizer *longPressGestureRecognizer = [UILongPressGestureRecognizer.alloc initWithTarget:self action:@selector(handleLongGesture:)];
+    [self.collectionView addGestureRecognizer:longPressGestureRecognizer];
+  }
+
+  printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+
+  self.view.backgroundColor = UIColor.whiteColor;
+  // make layout
+  [self.view addSubview:self.collectionView];
+
+  [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.edges.insets(UIEdgeInsetsMake(kStatusBarHeight + kNavigationBarHeight, 0, kSafeAreaBottomHeight, 0));
+  }];
+  self.adapter.collectionView = self.collectionView;
+  self.adapter.dataSource     = self;
+
+  if (@available(iOS 9.0, *)) {
+    self.adapter.moveDelegate = self;
+  }
+}
+
+
 - (void)handleLongGesture:(UILongPressGestureRecognizer *)sender {
   NSLog(@"%s", __func__);
   // UIGestureRecognizerStatePossible,   // the recognizer has not yet recognized its gesture, but may be evaluating touch events. this is the default state
-  //     
+  //
   // UIGestureRecognizerStateBegan,      // the recognizer has received touches recognized as the gesture. the action method will be called at the next turn of the run loop
   // UIGestureRecognizerStateChanged,    // the recognizer has received touches recognized as a change to the gesture. the action method will be called at the next turn of the run loop
   // UIGestureRecognizerStateEnded,      // the recognizer has received touches recognized as the end of the gesture. the action method will be called at the next turn of the run loop and the recognizer will be reset to UIGestureRecognizerStatePossible
@@ -116,40 +153,6 @@
 
 }
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  // Do any additional setup after loading the view.
-
-  self.selectedClass = NSNull.class;
-
-  UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:[self.segments map:^NSString *(NSDictionary *obj) {
-    return obj.allKeys[0];
-  }]];
-  control.selectedSegmentIndex = 0;
-  [control addTarget:self action:@selector(onControl:) forControlEvents:UIControlEventValueChanged];
-  self.navigationItem.titleView = control;
-  if (@available(iOS 9.0, *)) {
-    UILongPressGestureRecognizer *longPressGestureRecognizer = [UILongPressGestureRecognizer.alloc initWithTarget:self action:@selector(handleLongGesture:)];
-    [self.collectionView addGestureRecognizer:longPressGestureRecognizer];
-  }
-
-  printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-
-  self.view.backgroundColor = UIColor.whiteColor;
-  // make layout
-  [self.view addSubview:self.collectionView];
-
-  [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.edges.insets(UIEdgeInsetsMake(kStatusBarHeight + kNavigationBarHeight, 0, kSafeAreaBottomHeight, 0));
-  }];
-  self.adapter.collectionView = self.collectionView;
-  self.adapter.dataSource     = self;
-
-  if (@available(iOS 9.0, *)) {
-    self.adapter.moveDelegate = self;
-  }
-}
-
 - (void)onControl:(UISegmentedControl *)sender {
 
   NSDictionary *dictionary = self.segments[sender.selectedSegmentIndex];
@@ -173,14 +176,12 @@
 - (NSArray<id <IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter {
 
   if (self.selectedClass == NSNull.class) {
-    return [self.data map:^id(id obj) { return obj; }];
+    return [self.data map:^id(id obj,NSUInteger idx) { return obj; }];
   }
 
-  return [self.data filter:^BOOL(id obj) {
+  return [self.data filter:^BOOL(id obj,NSUInteger idx) {
     return [obj isKindOfClass:self.selectedClass];
   }];
-
-  return self.data;
 }
 
 // 绑定 model和cell的 viewModel

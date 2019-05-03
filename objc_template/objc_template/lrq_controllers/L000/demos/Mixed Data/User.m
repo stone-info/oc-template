@@ -7,9 +7,8 @@
 //
 
 #import "User.h"
-#import <IGListKit/IGListDiffable.h>
 
-@interface User () <IGListDiffable>
+@interface User ()
 
 @end
 

@@ -12,28 +12,28 @@
 
 #pragma mark - Map, filter, reduce, flatMap function without class restrictor
 
-- (NSArray *)map:(id (^)(id obj))block {
+- (NSArray *)map:(id (^)(id obj, NSUInteger idx))block {
   NSMutableArray *mutableArray = [NSMutableArray new];
   [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    [mutableArray addObject:block(obj)];
+    [mutableArray addObject:block(obj, idx)];
   }];
   return [mutableArray copy];
 }
 
-- (NSArray *)filter:(BOOL (^)(id obj))block {
+- (NSArray *)filter:(BOOL (^)(id obj, NSUInteger idx))block {
   NSMutableArray *mutableArray = [NSMutableArray new];
   [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    if (block(obj) == YES) {
+    if (block(obj, idx) == YES) {
       [mutableArray addObject:obj];
     }
   }];
   return [mutableArray copy];
 }
 
-- (id)reduce:(id)initial block:(id (^)(id obj1, id obj2))block {
+- (id)reduce:(id)initial block:(id (^)(id obj1, id obj2, NSUInteger idx))block {
   __block id obj = initial;
   [self enumerateObjectsUsingBlock:^(id _obj, NSUInteger idx, BOOL *stop) {
-    obj = block(obj, _obj);
+    obj = block(obj, _obj, idx);
   }];
   return obj;
 }
@@ -63,9 +63,9 @@
   return contains;
 }
 
-- (void)forEach:(void (^)(id obj))block {
+- (void)forEach:(void (^)(id obj, NSUInteger idx))block {
   [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    block(obj);
+    block(obj, idx);
   }];
 }
 @end
@@ -74,34 +74,34 @@
 
 #pragma mark - Map, filter, reduce, flatMap function with class restrictor
 
-- (NSArray *)map:(id (^)(id obj))block class:(Class)aClass {
+- (NSArray *)map:(id (^)(id obj, NSUInteger idx))block class:(Class)aClass {
 
   NSMutableArray *mutableArray = [NSMutableArray new];
   [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
     if ([obj isKindOfClass:aClass]) {
-      [mutableArray addObject:block(obj)];
+      [mutableArray addObject:block(obj, idx)];
     }
   }];
   return [mutableArray copy];
 }
 
-- (NSArray *)filter:(BOOL (^)(id obj))block class:(Class)aClass {
+- (NSArray *)filter:(BOOL (^)(id obj, NSUInteger idx))block class:(Class)aClass {
 
   NSMutableArray *mutableArray = [NSMutableArray new];
   [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    if ([obj isKindOfClass:aClass] && block(obj) == YES) {
+    if ([obj isKindOfClass:aClass] && block(obj, idx) == YES) {
       [mutableArray addObject:obj];
     }
   }];
   return [mutableArray copy];
 }
 
-- (id)reduce:(id)initial block:(id (^)(id obj1, id obj2))block class:(Class)aClass {
+- (id)reduce:(id)initial block:(id (^)(id obj1, id obj2, NSUInteger idx))block class:(Class)aClass {
 
   __block id obj = initial;
   [self enumerateObjectsUsingBlock:^(id _obj, NSUInteger idx, BOOL *stop) {
     if ([obj isKindOfClass:aClass] && [_obj isKindOfClass:aClass]) {
-      obj = block(obj, _obj);
+      obj = block(obj, _obj, idx);
     }
   }];
   return obj;
@@ -139,11 +139,11 @@
   return contains;
 }
 
-- (void)forEach:(void (^)(id obj))block class:(Class)aClass {
+- (void)forEach:(void (^)(id obj, NSUInteger idx))block class:(Class)aClass {
 
   [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
     if (![obj isKindOfClass:aClass]) { return; }
-    block(obj);
+    block(obj, idx);
   }];
 }
 

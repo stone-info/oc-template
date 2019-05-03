@@ -11,21 +11,21 @@
 @implementation SNHexColor
 
 + (UIColor *)hexColorWithHex:(NSString *)hex alpha:(CGFloat)alpha {
-  
+
   NSDictionary<NSString *, NSNumber *> *dict = [self transformWithHex:hex];
-  
+
   if (dict) {
-    return (SNHexColor *) [[self alloc] initWithRed:[dict[@"red"] floatValue] green:[dict[@"green"] floatValue] blue:[dict[@"blue"] floatValue] alpha:alpha];
+    return [[UIColor alloc] initWithRed:[dict[@"red"] floatValue] green:[dict[@"green"] floatValue] blue:[dict[@"blue"] floatValue] alpha:alpha];
   } else {
     return nil;
   }
 }
 
 + (UIColor *)hexColorWithHex:(NSString *)hex {
-  
+
   NSDictionary<NSString *, NSNumber *> *dict = [self transformWithHex:hex];
   if (dict) {
-    return (SNHexColor *) [[self alloc] initWithRed:[dict[@"red"] floatValue] green:[dict[@"green"] floatValue] blue:[dict[@"blue"] floatValue] alpha:[dict[@"alpha"] floatValue]];
+    return [[UIColor alloc] initWithRed:[dict[@"red"] floatValue] green:[dict[@"green"] floatValue] blue:[dict[@"blue"] floatValue] alpha:[dict[@"alpha"] floatValue]];
   } else {
     return nil;
   }
@@ -40,21 +40,21 @@
 }
 
 + (nullable NSDictionary<NSString *, NSNumber *> *)transformWithHex:(NSString *)hex {
-  
+
   hex = [self removeHashIfNecessary:hex];
-  
+
   UInt32 hexValue = 0;
-  
+
   NSScanner *scanner = [NSScanner scannerWithString:hex];
   BOOL      flag     = [scanner scanHexInt:&hexValue];
   if (!flag) { return nil; }
-  
+
   CGFloat r       = 0.f;
   CGFloat g       = 0.f;
   CGFloat b       = 0.f;
   CGFloat a       = 0.f;
   CGFloat divisor = 0.f;
-  
+
   // RGBshort
   if (hex.length == 3) {
     divisor = 15;
@@ -63,7 +63,7 @@
     b       = (hexValue & 0x00F) / divisor;
     a       = 1;
   }
-  
+
   // RGBshortAlpha
   if (hex.length == 4) {
     divisor = 15;
@@ -72,7 +72,7 @@
     b       = ((hexValue & 0x00F0) >> 4) / divisor;
     a       = (hexValue & 0x000F) / divisor;
   }
-  
+
   // RGB
   if (hex.length == 6) {
     divisor = 255;
@@ -81,7 +81,7 @@
     b       = (hexValue & 0x0000FF) / divisor;
     a       = 1;
   }
-  
+
   // RGBA
   if (hex.length == 8) {
     divisor = 255;

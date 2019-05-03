@@ -86,7 +86,7 @@ view.layer.shadowRadius  = 1;
 
 //                              /* alert */
 /************************************************************************************/
-#define kAlert(msg) ([[[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show])
+#define kAlert(title,msg) ([[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show])
 
 
 //                              /* image */

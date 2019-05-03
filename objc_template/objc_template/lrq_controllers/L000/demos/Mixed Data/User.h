@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <IGListKit/IGListDiffable.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface User : NSObject
+@interface User : NSObject <IGListDiffable>
 @property (strong, nonatomic) NSNumber *pk;
 @property (copy, nonatomic) NSString   *name;
 @property (copy, nonatomic) NSString   *handle;

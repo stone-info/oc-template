@@ -78,11 +78,11 @@ void registerForCollectionSectionFooterFromNib(__kindof UICollectionView *collec
   [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(footerClass) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(footerClass)];
 }
 
-SNHexColor *HexRGBA(NSString *hex, CGFloat alpha) {
+UIColor *HexRGBA(NSString *hex, CGFloat alpha) {
   return [SNHexColor hexColorWithHex:hex alpha:alpha];
 }
 
-SNHexColor *HexRGB(NSString *hex) {
+UIColor *HexRGB(NSString *hex) {
   return [SNHexColor hexColorWithHex:hex];
 }
 
