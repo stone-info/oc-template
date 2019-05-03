@@ -6,7 +6,12 @@
 //  Copyright © 2019 stone. All rights reserved.
 //
 
+#ifndef SNLib_h
+#define SNLib_h
+
 //#import "Foundation+Log.h"
+
+#import "SNLog.h"
 #import "SNMacro.h"
 
 #import "SNLabel.h"
@@ -54,10 +59,4 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 
 
-
-
-
-@interface SNLib : NSObject
-
-
-@end
+#endif /* SNLib_h */

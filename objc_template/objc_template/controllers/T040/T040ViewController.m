@@ -42,10 +42,8 @@
       make.right.mas_equalTo(self.view.mas_right).offset(0);
       make.height.mas_equalTo(30);
     }];
-
     [arrM addObject:view];
   }
-
 }
 
 

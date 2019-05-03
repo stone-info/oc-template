@@ -82,12 +82,12 @@
 }
 
 - (void)dealloc {
-  BLog(@"■■■■■■\t%@ is dead ☠☠☠\t■■■■■■", [self class]);
+  WLog(@"■■■■■■\t%@ is dead ☠☠☠\t■■■■■■", [self class]);
 }
 
 - (void)layoutSubviews {
   [super layoutSubviews];
-  BLog(@"%s", __func__);
+  WLog(@"%s", __func__);
 
   dispatch_once(&_onceToken, ^{
     [self commonInit];

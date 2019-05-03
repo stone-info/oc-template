@@ -445,5 +445,16 @@
       <false/>
     </dict>
 
+    <dict>
+      <key>title</key>
+      <string>Color 测试</string>
+      <key>controllerName</key>
+      <string>T050ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
   </array>
 </plist>

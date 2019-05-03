@@ -27,15 +27,17 @@
   [SNConst new];
   [SNInit new];
 
+  kAutoPush = YES;
+
   // key board
   {
     // 控制自动键盘功能启用与否
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
-    manager.enable             = YES;
+    manager.enable                     = YES;
     // 键盘弹出时，点击背景，键盘收回
     manager.shouldResignOnTouchOutside = YES;
     // 隐藏键盘上面的toolBar,默认是开启的
-    manager.enableAutoToolbar = NO;
+    manager.enableAutoToolbar          = NO;
 
     // 如果某一个文本框确实不需要键盘上面的toolBar
     // textField.inputAccessoryView = [[UIView alloc] init];
@@ -64,8 +66,8 @@
   }
 
   // 获取info字典
-  NSDictionary *infoDictionary    = [[NSBundle mainBundle] infoDictionary];
-  NSString *mUIMainStoryboardFile = infoDictionary[@"UIMainStoryboardFile"];
+  NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+  NSString * mUIMainStoryboardFile = infoDictionary[@"UIMainStoryboardFile"];
 
   // NSLog(@"Main.storyboard is %@", mUIMainStoryboardFile);
 
@@ -75,7 +77,7 @@
 
   } else {
     /** 创建 Window */
-    self.window                          = [[SNWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[SNWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     SNTabBarController *tabBarController = [[SNTabBarController alloc] init];
     /** 设置根控制器 */
     [self.window setRootViewController:tabBarController];
@@ -87,7 +89,6 @@
     return YES;
   }
 }
-
 
 // app 将要失去焦点时调用
 - (void)applicationWillResignActive:(UIApplication *)application {

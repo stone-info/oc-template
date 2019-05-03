@@ -16,6 +16,7 @@ UIKIT_EXTERN CGFloat kCurrentSystemVersionFloat;
 UIKIT_EXTERN CGFloat kSafeAreaBottomHeight;
 UIKIT_EXTERN CGFloat kSafeAreaContainerViewHeight;
 UIKIT_EXTERN CGFloat kStatusNavigationBarHeight;
+UIKIT_EXTERN BOOL    kAutoPush;
 
 UIKIT_EXTERN const CGFloat kNavigationBarHeight;
 UIKIT_EXTERN const CGFloat kTabBarHeight;

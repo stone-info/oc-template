@@ -201,7 +201,7 @@
     // 自动累加
     [self.fileHandle writeData:data];
   } @catch (NSException *exception) {
-    DLog(@"%s | exception = %@", __func__, exception);
+    ELog(@"%s | exception = %@", __func__, exception);
   }
 
   self.currentSize += data.length;

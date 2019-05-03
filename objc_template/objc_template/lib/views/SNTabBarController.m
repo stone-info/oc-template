@@ -6,6 +6,7 @@
 //  Copyright © 2019 stone. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "SNTabBarController.h"
 #import "SNNavigationController.h"
 #import "ViewController.h"
@@ -27,10 +28,8 @@ static const UITabBarSystemItem tabBarSystemItems[5] = {
 @implementation SNTabBarController
 - (NSArray *)dataList {
 
-  /** _dataList lazy load */
-
   if (_dataList == nil) {
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+    NSString * bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
     _dataList = [NSArray arrayWithContentsOfFile:bundlePath];
   }
   return _dataList;
@@ -38,10 +37,8 @@ static const UITabBarSystemItem tabBarSystemItems[5] = {
 
 - (NSArray *)lrq_dataList {
 
-  /** _lrq_dataList lazy load */
-
   if (_lrq_dataList == nil) {
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"lrq_data" ofType:@"plist"];
+    NSString * bundlePath = [[NSBundle mainBundle] pathForResource:@"lrq_data" ofType:@"plist"];
     _lrq_dataList = [NSArray arrayWithContentsOfFile:bundlePath];
   }
   return _lrq_dataList;
@@ -58,33 +55,35 @@ static const UITabBarSystemItem tabBarSystemItems[5] = {
 
   {
     SNNavigationController *navigationController = [[SNNavigationController alloc] initWithRootViewController:ViewController.new];
-    UITabBarItem *item = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[0] tag:0];
+    UITabBarItem           *item                 = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[0] tag:0];
     item.badgeValue                 = kStringFormat(@"%ld", self.dataList.count);
     navigationController.tabBarItem = item;
     [self addChildViewController:navigationController];
   }
   {
     SNNavigationController *navigationController = [[SNNavigationController alloc] initWithRootViewController:LRQViewController.new];
-    UITabBarItem *item = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[1] tag:1];
-    item.badgeValue                 = kStringFormat(@"%ld", self.lrq_dataList.count);
-    navigationController.tabBarItem = item;
+    UITabBarItem           *item                 = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[1] tag:1];
+    item.badgeValue                              = kStringFormat(@"%ld", self.lrq_dataList.count);
+    navigationController.tabBarItem              = item;
     [self addChildViewController:navigationController];
   }
 
   {
     SNNavigationController *navigationController = [[SNNavigationController alloc] initWithRootViewController:UIViewController.new];
-    UITabBarItem *item = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[2] tag:2];
+    UITabBarItem           *item                 = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[2] tag:2];
     // item.badgeValue                 = kStringFormat(@"%ld", self.dataList.count);
     navigationController.tabBarItem = item;
     [self addChildViewController:navigationController];
   }
   {
     SNNavigationController *navigationController = [[SNNavigationController alloc] initWithRootViewController:UIViewController.new];
-    UITabBarItem *item = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[3] tag:3];
+    UITabBarItem           *item                 = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[3] tag:3];
     // item.badgeValue                 = kStringFormat(@"%ld", self.dataList.count);
-    navigationController.tabBarItem = item;
+    navigationController.tabBarItem              = item;
     [self addChildViewController:navigationController];
   }
+
+  self.selectedIndex = 1;
 
 }
 

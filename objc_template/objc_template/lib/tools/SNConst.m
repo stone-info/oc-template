@@ -34,10 +34,10 @@ CGFloat kStatusNavigationBarHeight   = 0;
 CGFloat kCurrentSystemVersionFloat   = 0;
 CGFloat kSafeAreaBottomHeight        = 0;
 CGFloat kSafeAreaContainerViewHeight = 0;
+BOOL    kAutoPush                    = YES;
 
 const CGFloat kNavigationBarHeight = 44;
 const CGFloat kTabBarHeight        = 49;
-
 
 @implementation SNConst
 
