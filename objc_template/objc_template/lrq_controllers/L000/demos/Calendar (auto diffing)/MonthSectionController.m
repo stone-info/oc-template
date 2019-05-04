@@ -15,8 +15,6 @@
 
 @interface MonthSectionController () <IGListBindingSectionControllerDataSource, IGListBindingSectionControllerSelectionDelegate>
 
-@property (strong, nonatomic) id object;
-
 @property (strong, nonatomic) NSNumber *selectedDay;
 
 @end

@@ -11,7 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// @protocol MonthSectionControllerDelegate;
 
 /**
  * IGListBindingSectionController
@@ -68,17 +67,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MonthSectionController : IGListBindingSectionController
 
-// @property (nonatomic, weak, nullable) id <MonthSectionControllerDelegate> delegate;
-
 @end
 
 NS_ASSUME_NONNULL_END
 
-// @protocol MonthSectionControllerDelegate <NSObject>
-// @required
-// - (void)sectionControllerWantsRemoved:(MonthSectionController *)sectionController;
-// @optional
-// - (void)sectionController:(MonthSectionController *)sectionController xxx:(id)xxx;
-// @end
 
 

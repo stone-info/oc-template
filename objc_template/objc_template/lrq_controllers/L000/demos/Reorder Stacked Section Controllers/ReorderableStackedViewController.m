@@ -10,7 +10,7 @@
 #import "PrefixedLabelSectionController.h"
 #import <IGListKit/IGListKit.h>
 
-@interface ReorderableStackedViewController () <IGListAdapterDataSource, IGListAdapterMoveDelegate>
+@interface ReorderableStackedViewController () <IGListAdapterDataSource, IGListAdapterMoveDelegate, UIScrollViewDelegate>
 @property (strong, nonatomic) UICollectionView      *collectionView;
 @property (strong, nonatomic) IGListAdapter         *adapter;
 @property (strong, nonatomic) NSArray<LabelsItem *> *data;
@@ -39,12 +39,24 @@
       [LabelsItem.alloc
         initWithColor:[UIColor colorWithRed:56 / 255.0 green:151 / 255.0 blue:240 / 255.0 alpha:1.0]
         labels1:@[@"A", @"B", @"C"]
-        labels2:@[@"1", @"2", @"3"]
+        labels2:@[@"1", @"2", @"3", @"4", @"6", @"7", @"8", @"8", @"9"]
       ],
       [LabelsItem.alloc
         initWithColor:[UIColor colorWithRed:128 / 255.0 green:240 / 255.0 blue:151 / 255.0 alpha:1.0]
         labels1:@[@"D"]
-        labels2:@[@"4"]
+        labels2:@[
+          @"10",
+          @"11",
+          @"12",
+          @"13",
+          @"14",
+          @"15",
+          @"16",
+          @"17",
+          @"18",
+          @"19",
+          @"20",
+        ]
       ],
     ];
   }
@@ -55,6 +67,9 @@
 
   if (_collectionView == nil) {
     UICollectionViewFlowLayout *flowLayout = UICollectionViewFlowLayout.new;
+
+    // section bar 置顶 , table view 可以扔了
+    flowLayout.sectionHeadersPinToVisibleBounds = YES;
     // flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     // flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
@@ -62,6 +77,7 @@
     // _collectionView.alwaysBounceVertical   = YES;
     // _collectionView.alwaysBounceHorizontal = YES;
     // _collectionView.pagingEnabled          = YES;
+
   }
   return _collectionView;
 }
@@ -70,7 +86,8 @@
 
   if (_adapter == nil) {
     _adapter = [[IGListAdapter alloc] initWithUpdater:IGListAdapterUpdater.new viewController:self];
-    _adapter.dataSource = self;
+    _adapter.dataSource         = self;
+    _adapter.scrollViewDelegate = self;
   }
   return _adapter;
 }
@@ -150,5 +167,11 @@
   self.data = objects;
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+  UICollectionView *collectionView = (UICollectionView  *)scrollView;
+
+
+}
 
 @end

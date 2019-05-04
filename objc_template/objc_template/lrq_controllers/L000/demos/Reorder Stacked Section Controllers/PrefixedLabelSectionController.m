@@ -59,6 +59,7 @@
 }
 
 - (void)didUpdateToObject:(id)object {
+  NSParameterAssert([object isKindOfClass:[LabelsItem class]]);
   self.object = object;
 }
 

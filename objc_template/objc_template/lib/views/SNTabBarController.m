@@ -83,7 +83,7 @@ static const UITabBarSystemItem tabBarSystemItems[5] = {
     [self addChildViewController:navigationController];
   }
 
-  self.selectedIndex = 1;
+  self.selectedIndex = 0;
 
 }
 

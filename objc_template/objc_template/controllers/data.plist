@@ -467,5 +467,17 @@
       <false/>
     </dict>
 
+
+    <dict>
+      <key>title</key>
+      <string>IGListBindingSectionController 测试</string>
+      <key>controllerName</key>
+      <string>T052ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <true/>
+    </dict>
+
   </array>
 </plist>
