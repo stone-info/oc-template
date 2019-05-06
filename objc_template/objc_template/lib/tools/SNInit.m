@@ -47,5 +47,19 @@
     categories:nil];
 
   [application registerUserNotificationSettings:settings];
+
+  UICollectionView *collectionView = [UICollectionView appearance];
+  UITableView      *tableView      = [UITableView appearance];
+
+  [collectionView setPrefetchingEnabled:NO];
+
+  if (@available(iOS 11.0, *)) {
+    // 取消自动调整内边距
+    collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    tableView.contentInsetAdjustmentBehavior      = UIScrollViewContentInsetAdjustmentNever;
+  } else {
+    collectionView.viewController.automaticallyAdjustsScrollViewInsets = NO;
+    tableView.viewController.automaticallyAdjustsScrollViewInsets      = NO;
+  }
 }
 @end

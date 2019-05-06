@@ -96,6 +96,13 @@
   }];
   self.adapter.collectionView = self.collectionView;
   self.adapter.dataSource     = self;
+
+  if (@available(iOS 11.0, *)) {
+    // 取消自动调整内边距
+    self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+  } else {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+  }
 }
 
 // - (void)viewDidLayoutSubviews {

@@ -53,20 +53,9 @@
     [self addObserver];
     [self addRequest];
 
+    kMasKey(tableView);
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-      make.edges.insets(UIEdgeInsetsZero);
-      // make.center.mas_equalTo(self.view);
-
-      /** full */
-      // make.top.mas_equalTo(self.view.mas_top).offset(0);
-      // make.left.mas_equalTo(self.view.mas_left).offset(0);
-      // make.right.mas_equalTo(self.view.mas_right).offset(0);
-      // make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
-
-      /** width & height */
-      // make.width.mas_equalTo(100);
-      // make.height.mas_equalTo(100);
-      // make.size.mas_equalTo(100);
+      make.edges.insets(UIEdgeInsetsMake(kStatusBarHeight + kNavigationBarHeight, 0, kSafeAreaBottomHeight+kTabBarHeight, 0));
     }];
   }
   // auto push
