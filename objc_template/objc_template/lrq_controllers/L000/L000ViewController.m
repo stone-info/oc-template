@@ -12,7 +12,7 @@
 #import "MixedDataViewController.h"
 #import "NestedAdapterViewController.h"
 #import "EmptyViewController.h"
-#import "SLSingleSectionViewController.h"
+#import "SingleSectionViewController.h"
 #import "StoryboardViewController.h"
 #import "SingleSectionStoryboardViewController.h"
 #import "WorkingRangeViewController.h"
@@ -46,7 +46,7 @@
       [DemoItem.alloc initWithName:@"Mixed Data" controllerClass:MixedDataViewController.class],
       [DemoItem.alloc initWithName:@"Nested Adapter" controllerClass:NestedAdapterViewController.class],
       [DemoItem.alloc initWithName:@"Empty View" controllerClass:EmptyViewController.class],
-      [DemoItem.alloc initWithName:@"Single Section Controller" controllerClass:SLSingleSectionViewController.class],
+      [DemoItem.alloc initWithName:@"Single Section Controller" controllerClass:SingleSectionViewController.class],
       [DemoItem.alloc initWithName:@"Storyboard" controllerClass:StoryboardViewController.class controllerIdentifier:@"demo"],
       [DemoItem.alloc initWithName:@"Single Section Storyboard" controllerClass:SingleSectionStoryboardViewController.class controllerIdentifier:@"singleSectionDemo"],
       [DemoItem.alloc initWithName:@"Working Range" controllerClass:WorkingRangeViewController.class],

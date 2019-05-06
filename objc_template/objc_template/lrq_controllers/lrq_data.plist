@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>title</key>
-		<string>IGListKit 官方demo OC 重写</string>
-		<key>controllerName</key>
-		<string>L000ViewController</string>
-		<key>xib</key>
-		<false/>
-		<key>storyboard</key>
-		<false/>
-	</dict>
-  <dict>
-  <key>title</key>
-  <string>IGListKit demo Copyright @Maskkk</string>
-  <key>controllerName</key>
-  <string>L001ViewController</string>
-  <key>xib</key>
-  <false/>
-  <key>storyboard</key>
-  <false/>
-  </dict>
-	<!--<dict>-->
-		<!--<key>title</key>-->
-		<!--<string>???</string>-->
-		<!--<key>controllerName</key>-->
-		<!--<string>L001ViewController</string>-->
-		<!--<key>xib</key>-->
-		<!--<false/>-->
-		<!--<key>storyboard</key>-->
-		<!--<false/>-->
-	<!--</dict>-->
-</array>
+  <array>
+    <dict>
+      <key>title</key>
+      <string>IGListKit 官方demo OC 重写</string>
+      <key>controllerName</key>
+      <string>L000ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
+    <!--<dict>-->
+      <!--<key>title</key>-->
+      <!--<string>IGListKit demo Copyright @Maskkk</string>-->
+      <!--<key>controllerName</key>-->
+      <!--<string>L001ViewController</string>-->
+      <!--<key>xib</key>-->
+      <!--<false/>-->
+      <!--<key>storyboard</key>-->
+      <!--<false/>-->
+    <!--</dict>-->
+    <!--<dict>-->
+    <!--<key>title</key>-->
+    <!--<string>???</string>-->
+    <!--<key>controllerName</key>-->
+    <!--<string>L001ViewController</string>-->
+    <!--<key>xib</key>-->
+    <!--<false/>-->
+    <!--<key>storyboard</key>-->
+    <!--<false/>-->
+    <!--</dict>-->
+  </array>
 </plist>
