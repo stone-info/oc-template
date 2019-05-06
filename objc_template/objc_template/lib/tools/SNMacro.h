@@ -15,7 +15,11 @@
 // #define kBorder(view)  view.layer.borderColor  = HexRGBA(@"0xcccccc", 1.0).CGColor; \
 //   view.layer.borderWidth   = 1.0;\
 //   view.layer.masksToBounds = YES;
+#ifdef DEBUG
 #define kBorder(view)  view.layer.borderColor  = HexRGBA(@"#cccccc", 1.0).CGColor; view.layer.borderWidth   = 1.0; KLog(@"kBorder(%s)", #view);
+#else
+#define kBorder(view)
+#endif
 
 #define kShadow(view)  view.layer.shadowColor  = HexRGBA(@"#a0a0a0", 1.0).CGColor; \
 view.layer.shadowOffset = CGSizeMake(0, 0);\

@@ -52,6 +52,8 @@
   NSLog(@"self.likes = %li", self.likes);
   NSLog(@"model.likes = %li", model.likes);
 
+  // return YES; // YES 表示相等 , 不更新
+
   return self.likes == model.likes;
   // return NO;
 
@@ -59,6 +61,5 @@
   // return self.likes.integerValue == model.likes.integerValue;
 
 }
-
 
 @end

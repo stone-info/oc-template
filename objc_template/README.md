@@ -31,3 +31,21 @@ ListBindingSectionController是我们为IGListKit构建的最强大的功能之�
  }
 
 ```
+
+
+## 使用ListBindingSectionController的一个核心要
+现在在Post内部添加一个ListDiffable实现:
+
+// MARK: ListDiffable
+
+func diffIdentifier() -> NSObjectProtocol {
+  // 1
+  return (username + timestamp) as NSObjectProtocol
+}
+
+// 2
+func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+  return true
+}
+为每个帖子派生一个唯一标识符。由于一个帖子永远不应该有相同的username和timestamp组合, 我们可以从这个开始。
+使用ListBindingSectionController的一个核心要求是, 如果两个模型具有相同diffIdentifier标识符, 则它们必须相等, 以便节控制器可以比较视图模型。

@@ -15,7 +15,7 @@
                 <outlet property="contentView" destination="rEW-5H-Voo" id="LT9-kM-swk"/>
                 <outlet property="lastView" destination="D7C-R7-xMY" id="eeb-xe-p8T"/>
                 <outlet property="lastViewBottomLayoutConstraint" destination="g5B-bb-JEe" id="yiu-mr-za3"/>
-                <outlet property="mScrollView" destination="208-O8-J4U" id="8Wq-5b-Ejx"/>
+                <outlet property="scrollView" destination="208-O8-J4U" id="8Wq-5b-Ejx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

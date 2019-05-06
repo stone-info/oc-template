@@ -22,6 +22,8 @@
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.activityIndicator = activityIndicator;
     [self.contentView addSubview:activityIndicator];
+
+    kBorder(self.contentView);
   }
   return self;
 }
@@ -32,7 +34,7 @@
 
   CGRect bounds = self.contentView.bounds;
 
-  NSLogRect(bounds);
+  // NSLogRect(bounds);
 
   self.activityIndicator.center = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
 }

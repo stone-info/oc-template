@@ -13,6 +13,7 @@ target 'objc_template' do
   pod 'SDWebImage'
   pod 'Masonry'
   pod 'MJExtension'
+  pod 'MJRefresh'
   pod 'MBProgressHUD'
   pod 'KVOController'
   pod 'IQKeyboardManager'
@@ -20,11 +21,11 @@ target 'objc_template' do
   pod 'UITableView+FDTemplateLayoutCell'
   pod 'MBProgressHUD'
   pod 'AFNetworking', '~> 3.0'
-  pod 'ReactiveObjC'
+  # pod 'ReactiveObjC'
   pod 'YTKNetwork'
   pod 'IGListKit'
   pod 'HMSegmentedControl'
-  # pod 'SwipeTableView', '0.2.5'
+  pod 'ReactiveObjC', '~> 3.1.0'
   #
   # Pager view
   pod 'VTMagic'

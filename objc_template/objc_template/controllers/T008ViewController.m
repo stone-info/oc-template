@@ -37,21 +37,20 @@
     @"borderRadius"              : @4.f,
     @"action"                    : ^void(SNButton *sender) {
       NSLog(@"sn.randomString = %@", sn.randomString);
-}
-,
-}];
+    },
+  }];
 
-button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+  button.imageView.contentMode = UIViewContentModeScaleAspectFit;
 
-[self.view addSubview:button];
+  [self.view addSubview:button];
 
-[button mas_makeConstraints:^(MASConstraintMaker* make) {
+  [button mas_makeConstraints:^(MASConstraintMaker *make) {
 
-  make.centerY.mas_equalTo(self.view.mas_centerY).offset(0);
-  make.centerX.mas_equalTo(self.view.mas_centerX).offset(0);
+    make.centerY.mas_equalTo(self.view.mas_centerY).offset(0);
+    make.centerX.mas_equalTo(self.view.mas_centerX).offset(0);
 
-  make.width.mas_equalTo(300);
-  make.height.mas_equalTo(100);
-}];
+    make.width.mas_equalTo(300);
+    make.height.mas_equalTo(100);
+  }];
 }
 @end

@@ -61,7 +61,8 @@
 
   UICollectionViewCell *cell = [self.collectionContext dequeueReusableCellFromStoryboardWithIdentifier:identifier forSectionController:self atIndex:index];
 
-  if ([cell isKindOfClass:[ActionCellOC class]]) {
+  BOOL flag = [cell isKindOfClass:[ActionCellOC class]];
+  if (flag) {
     ActionCellOC *actionCell = (ActionCellOC *) cell;
     actionCell.delegate = self;
     cell = actionCell;
@@ -72,11 +73,10 @@
 
 - (CGSize)sectionController:(IGListBindingSectionController *)sectionController sizeForViewModel:(id)viewModel atIndex:(NSInteger)index {
   CGFloat width  = self.collectionContext.containerSize.width;
-  CGFloat height = 55;
+  CGFloat height = 55; // user 高度 , action 高度
   if ([viewModel isKindOfClass:[ImageViewModel class]]) { height = 250; }
-  if ([viewModel isKindOfClass:[CommentOC class]]) { height = 35; }
-  CGSize result = CGSizeMake(width, height);;
-  return result;
+  if ([viewModel isKindOfClass:[CommentOC class]]) { height = 35; };
+  return CGSizeMake(width, height);
 }
 
 - (void)didTapHeart:(ActionCellOC *)cell {
@@ -90,7 +90,6 @@
 
   // NSLog(@"self.localLikes = %li", self.localLikes);
   [self updateAnimated:YES completion:nil];
-
 }
 
 

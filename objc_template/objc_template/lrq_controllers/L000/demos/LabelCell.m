@@ -85,7 +85,8 @@ static CGFloat      singleLineHeight;
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
-  self.contentView.backgroundColor = [UIColor colorWithWhite:highlighted ? 0.9 : 1.0 alpha:1.0];
+  // 点击item时 变白 - - 日,
+  // self.contentView.backgroundColor = [UIColor colorWithWhite:highlighted ? 0.9 : 1.0 alpha:1.0];
 }
 
 - (void)bindViewModel:(id)viewModel {

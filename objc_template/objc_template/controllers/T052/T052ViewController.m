@@ -66,6 +66,51 @@
   // Do any additional setup after loading the view.
   self.adapter.dataSource     = self;
   self.adapter.collectionView = self.collectionView;
+
+  SNButton *button = [SNButton makeButtonWithOptions:@{
+    @"type"            : @(UIButtonTypeCustom),
+    @"font"            : [UIFont fontWithName:@"PingFangSC-Regular" size:16],
+    @"backgroundColor" : [UIColor whiteColor],
+    @"titleNormal"     : @"click me",
+    @"titleColorNormal": UIColor.blackColor,
+
+    @"borderColor"     : HexRGBA(@"#cccccc", 1.0),
+    @"borderWidth"     : @1.0,
+    @"masksToBounds"   : @YES,
+    @"borderRadius"    : @4.f,
+    @"action"          : ^void(SNButton *sender) {
+      NSLog(@"sn.randomString = %@", sn.randomString);
+
+      self.data = @[
+        // [PostOC.alloc initWithUsername:@"@janedoe" timestamp:@"15min" imageURL:[NSURL URLWithString:@"https://placekitten.com/g/375/250"] likes:@384 comments:@[
+        [PostOC.alloc
+          initWithUsername:@"@janedoe"
+          timestamp:@"15min"
+          imageURL:[NSURL URLWithString:@"https://placekitten.com/g/375/250"]
+          likes:(NSInteger) (arc4random_uniform(255) + 300)
+          comments:@[
+            [CommentOC.alloc initWithUsername:@"ryan" text:sn.randomString],
+            [CommentOC.alloc initWithUsername:@"jsq" text:sn.randomString],
+            [CommentOC.alloc initWithUsername:@"caitlin" text:sn.randomString],
+          ]]
+      ];;
+
+      [self.adapter performUpdatesAnimated:YES completion:nil];
+    },
+  }];
+
+  button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
+  [self.view addSubview:button];
+
+  kMasKey(button);
+  [button mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.left.offset(30);
+    make.right.offset(-30);
+    make.bottom.offset(-kSafeAreaBottomHeight - 100);
+    make.height.mas_equalTo(30);
+  }];
+
 }
 
 // - (void)viewDidLayoutSubviews {

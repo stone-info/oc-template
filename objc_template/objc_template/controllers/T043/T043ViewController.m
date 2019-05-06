@@ -1,3 +1,4 @@
+
 //
 //  T043ViewController.m
 //  objc_template
@@ -19,11 +20,6 @@
 #import <objc/runtime.h>// 导入运行时文件
 
 @interface T043ViewController () <YTKRequestDelegate, YTKChainRequestDelegate, YTKRequestAccessory>
-/** mButton */
-@property (weak, nonatomic) UIButton *mButton1;
-@property (weak, nonatomic) UIButton *mButton2;
-@property (weak, nonatomic) UIButton *mButton3;
-@property (weak, nonatomic) UIButton *mButton4;
 
 @property (weak, nonatomic) NSTimer *timer;
 

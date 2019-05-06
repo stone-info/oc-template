@@ -24,13 +24,13 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
-  // [self demo1];
+  [self demo1];
   // [self demo2];
   // [self demo4];
   // [self demo5];
   // [self demo6];
   // [self demo7];
-  NSString *s = @"hello world";
+  // NSString *s = @"hello world";
 
 }
 

@@ -8,26 +8,38 @@
 
 #import "T057ViewController.h"
 
-@interface  T057ViewController ()
+@interface T057ViewController ()
+@property (weak, nonatomic) IBOutlet UISlider    *redSliderBar;
+@property (weak, nonatomic) IBOutlet UISlider    *greenSliderBar;
+@property (weak, nonatomic) IBOutlet UISlider    *blueSliderBar;
+@property (weak, nonatomic) IBOutlet UITextField *redInput;
+@property (weak, nonatomic) IBOutlet UITextField *greenInput;
+@property (weak, nonatomic) IBOutlet UITextField *blueInput;
+@property (weak, nonatomic) IBOutlet UIView      *showView;
 
 @end
 
-@implementation  T057ViewController
+@implementation T057ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
+
+
+
 }
 
-/*
-#pragma mark - Navigation
+- (void)bindSlider:(UISlider *)slider textField:(UITextField *)textField {
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+  RACChannelTerminal *sliderChannelTerminal    = [slider rac_newValueChannelWithNilValue:nil];
+  RACChannelTerminal *textFieldChannelTerminal = [textField rac_newTextChannel];
+
+  [sliderChannelTerminal subscribe:textFieldChannelTerminal];
+  [textFieldChannelTerminal subscribe:sliderChannelTerminal];
+
+
 }
-*/
+
 
 @end
     

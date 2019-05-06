@@ -28,7 +28,6 @@
 
 - (void)layoutSubviews {
   [super layoutSubviews];
-
 }
 
 - (void)bindViewModel:(UserViewModel *)viewModel {
