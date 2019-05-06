@@ -12,7 +12,7 @@
 #import "SNInit.h"
 #import "SNNavigationController.h"
 #import "SNTabBarController.h"
-#import "SDWebImageManager.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface AppDelegate ()
 
@@ -22,7 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
-  [[NSBundle bundleWithPath:@"/Applications/InjectionIII.app/Contents/Resources/iOSInjection10.bundle"] load];
+  // [[NSBundle bundleWithPath:@"/Applications/InjectionIII.app/Contents/Resources/iOSInjection10.bundle"] load];
+  [[NSBundle bundleWithPath:@"/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle"] load];
   // init data
   [SNConst new];
   [SNInit new];

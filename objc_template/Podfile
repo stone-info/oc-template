@@ -9,6 +9,7 @@ target 'objc_template' do
 
   pod 'Toast'
   pod 'YYText'
+  pod 'YYImage'
   pod 'SSZipArchive'
   pod 'SDWebImage'
   pod 'Masonry'
