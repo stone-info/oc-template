@@ -41,6 +41,7 @@
 		68AF8797D6E7D5B120A98B29 /* FeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF88EA08E852DF2322D2B5 /* FeedItem.m */; };
 		68AF87D69C4074057E6ADCD4 /* StoryboardLabelSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF8FC07AA7178540807E53 /* StoryboardLabelSectionController.m */; };
 		68AF87DCD01F952B36823365 /* RemoveSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF822BF05227D0A3CAA023 /* RemoveSectionController.m */; };
+		68AF8840F502F63390673E6F /* T059UsersApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF8422905974F1246469C4 /* T059UsersApi.m */; };
 		68AF8849AFD703EF12341F72 /* ManuallySelfSizingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF82D6A813D9464703C06C /* ManuallySelfSizingCell.m */; };
 		68AF898AF3BAD55D20B81C95 /* default.txt in Resources */ = {isa = PBXBuildFile; fileRef = 68AF8804756104A94D9CC3CE /* default.txt */; };
 		68AF8A27946687A26F6D8853 /* UserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF884A1B6994E8D55F64B2 /* UserViewModel.m */; };
@@ -449,6 +450,7 @@
 		68AF8343684190A4551F6057 /* StoryboardLabelSectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryboardLabelSectionController.h; sourceTree = "<group>"; };
 		68AF8374500BCF07CE393716 /* SelfSizingSectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfSizingSectionController.h; sourceTree = "<group>"; };
 		68AF83CE1D020C9322DA39F8 /* DisplaySectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplaySectionController.m; sourceTree = "<group>"; };
+		68AF8422905974F1246469C4 /* T059UsersApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = T059UsersApi.m; sourceTree = "<group>"; };
 		68AF8464EE72E3D6511A8A9B /* PostOC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostOC.m; sourceTree = "<group>"; };
 		68AF84AF8EB082C1AB7335D1 /* LabelsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelsItem.m; sourceTree = "<group>"; };
 		68AF84DF0135B6E6AB8ADAE1 /* HorizontalSectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalSectionController.m; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 		68AF880D331610977690C538 /* DisplaySectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplaySectionController.h; sourceTree = "<group>"; };
 		68AF884176E229249F9ED0F8 /* CommentOC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentOC.h; sourceTree = "<group>"; };
 		68AF884A1B6994E8D55F64B2 /* UserViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewModel.m; sourceTree = "<group>"; };
+		68AF884D131EB3DAEBFBB6E0 /* T059UsersApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T059UsersApi.h; sourceTree = "<group>"; };
 		68AF88556875C36C498DC188 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		68AF88DC60F4E837C9702105 /* UserSectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSectionController.m; sourceTree = "<group>"; };
 		68AF88E0B2274D678635FF39 /* CommentCellOC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCellOC.h; sourceTree = "<group>"; };
@@ -2732,6 +2735,8 @@
 			children = (
 				8EEE01F62257464A000F91B1 /* T059ViewController.m */,
 				8EEE01F72257464A000F91B1 /* T059ViewController.h */,
+				68AF8422905974F1246469C4 /* T059UsersApi.m */,
+				68AF884D131EB3DAEBFBB6E0 /* T059UsersApi.h */,
 			);
 			path = T059;
 			sourceTree = "<group>";
@@ -3920,6 +3925,7 @@
 				86A16F7325B6F51A3B2920BF /* ChapterBindingSectionController.m in Sources */,
 				86A168C2B26D6761CCDFEFD4 /* SLSingleSectionViewController.m in Sources */,
 				86A16A44638F5B483E350D5E /* SingleSectionCollectionCell.m in Sources */,
+				68AF8840F502F63390673E6F /* T059UsersApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

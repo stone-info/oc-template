@@ -27,15 +27,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8bL-pB-ilV">
-                    <rect key="frame" x="48" y="235" width="313" height="30"/>
+                    <rect key="frame" x="48" y="235" width="283" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="29" id="XrS-ty-bZW"/>
                     </constraints>
                 </slider>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SpW-ot-HAN">
-                    <rect key="frame" x="369" y="235" width="30" height="29"/>
+                    <rect key="frame" x="339" y="235" width="60" height="29"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="ud9-9e-Q51"/>
+                        <constraint firstAttribute="width" constant="60" id="ud9-9e-Q51"/>
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,25 +49,25 @@
                     </constraints>
                 </view>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="a3c-ax-pYF">
-                    <rect key="frame" x="48" y="288" width="313" height="30"/>
+                    <rect key="frame" x="48" y="288" width="283" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="29" id="GBG-Z5-tdf"/>
                     </constraints>
                 </slider>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q5d-ji-SrY">
-                    <rect key="frame" x="48" y="341" width="313" height="30"/>
+                    <rect key="frame" x="48" y="341" width="283" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="29" id="Xr5-5r-cbq"/>
                     </constraints>
                 </slider>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kx8-tX-m6T">
-                    <rect key="frame" x="369" y="288" width="30" height="29"/>
+                    <rect key="frame" x="339" y="288" width="60" height="29"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3J-4P-krp">
-                    <rect key="frame" x="369" y="341" width="30" height="29"/>
+                    <rect key="frame" x="339" y="341" width="60" height="29"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
