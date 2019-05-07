@@ -6,8 +6,8 @@
 //  Copyright © 2019 lirenqiang2. All rights reserved.
 //
 #import "L001ViewController.h"
-//#import "ChapterViewController.h"
-//#import "SLSingleSectionViewController.h"
+ #import "ChapterViewController.h"
+ #import "SLSingleSectionViewController.h"
 @interface L001ViewController ()
 @property (strong, nonatomic) NSDictionary               *options;
 @property (strong, nonatomic) NSMutableArray<SNButton *> *buttons;
@@ -133,25 +133,25 @@
   }
 }
 
-// - (UIColor *)randomColor {
-//   CGFloat hue        = (arc4random() % 256 / 256.0);  //  0.0 to 1.0
-//   CGFloat saturation = (arc4random() % 128 / 256.0) + 0.5;  //  0.5 to 1.0, away from white
-//   CGFloat brightness = (arc4random() % 128 / 256.0) + 0.5;  //  0.5 to 1.0, away from black
-//   return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-// }
+ - (UIColor *)randomColor {
+   CGFloat hue        = (arc4random() % 256 / 256.0);  //  0.0 to 1.0
+   CGFloat saturation = (arc4random() % 128 / 256.0) + 0.5;  //  0.5 to 1.0, away from white
+   CGFloat brightness = (arc4random() % 128 / 256.0) + 0.5;  //  0.5 to 1.0, away from black
+   return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+ }
 
-//- (void)demo1 {
-//  [self makeButtonWithTitle:@"Chapter Section Demo" action:^(SNButton *sender) {
-//    ChapterViewController *controller = [ChapterViewController new];
-//    [self.navigationController pushViewController:controller animated:YES];
-//  }];
-//}
-//
-//- (void)demo2 {
-//  [self makeButtonWithTitle:@"Chapter Single Section Demo" action:^(SNButton *sender) {
-//    SLSingleSectionViewController *controller = [SLSingleSectionViewController new];
-//    [self.navigationController pushViewController:controller animated:YES];
-//  }];
-//}
+- (void)demo1 {
+  [self makeButtonWithTitle:@"Chapter Section Demo" action:^(SNButton *sender) {
+    ChapterViewController *controller = [ChapterViewController new];
+    [self.navigationController pushViewController:controller animated:YES];
+  }];
+}
+
+- (void)demo2 {
+  [self makeButtonWithTitle:@"Chapter Single Section Demo" action:^(SNButton *sender) {
+    SLSingleSectionViewController *controller = [SLSingleSectionViewController new];
+    [self.navigationController pushViewController:controller animated:YES];
+  }];
+}
 
 @end

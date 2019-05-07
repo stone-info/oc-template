@@ -29,16 +29,21 @@
   ];
   [self setupUI];
 
-
   [self adapter];
+  if (@available(iOS 11.0, *)) {
+    // 取消自动调整内边距
+    self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+  } else {
+    self.collectionView.viewController.automaticallyAdjustsScrollViewInsets = NO;
+  }
+
 }
 
 - (void)setupUI {
   [self.view addSubview:self.collectionView];
   MASAttachKeys(self.collectionView);
   [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.left.top.right.mas_equalTo(self.view);
-    make.bottom.mas_equalTo(self.view).mas_offset(-50);
+    make.edges.insets(UIEdgeInsetsMake(kStatusBarHeight + kNavigationBarHeight, 0, kSafeAreaBottomHeight, 0));
   }];
 }
 
@@ -83,17 +88,17 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
   self.chapterData = @[
-                       [[ChapterViewModel alloc] initWithNo:1 name:@"风月无情"],
-                       [[ChapterViewModel alloc] initWithNo:2 name:@"故人之子"],
-                       [[ChapterViewModel alloc] initWithNo:3 name:@"求师终南"],
-                       [[ChapterViewModel alloc] initWithNo:4 name:@"全真门下22"],
-                       [[ChapterViewModel alloc] initWithNo:5 name:@"活死人墓"],
-                       [[ChapterViewModel alloc] initWithNo:6 name:@"玉女心经"],
-                       [[ChapterViewModel alloc] initWithNo:7 name:@"重阳遗篇"],
-                       [[ChapterViewModel alloc] initWithNo:8 name:@"白衣少女"],
-                       [[ChapterViewModel alloc] initWithNo:9 name:@"白衣少女"],
-                       [[ChapterViewModel alloc] initWithNo:10 name:@"白衣少女"],
-                       ];
+    [[ChapterViewModel alloc] initWithNo:1 name:@"风月无情"],
+    [[ChapterViewModel alloc] initWithNo:2 name:@"故人之子"],
+    [[ChapterViewModel alloc] initWithNo:3 name:@"求师终南"],
+    [[ChapterViewModel alloc] initWithNo:4 name:@"全真门下22"],
+    [[ChapterViewModel alloc] initWithNo:5 name:@"活死人墓"],
+    [[ChapterViewModel alloc] initWithNo:6 name:@"玉女心经"],
+    [[ChapterViewModel alloc] initWithNo:7 name:@"重阳遗篇"],
+    [[ChapterViewModel alloc] initWithNo:8 name:@"白衣少女"],
+    [[ChapterViewModel alloc] initWithNo:9 name:@"白衣少女"],
+    [[ChapterViewModel alloc] initWithNo:10 name:@"白衣少女"],
+  ];
   [self.adapter performUpdatesAnimated:YES completion:nil];
 }
 
