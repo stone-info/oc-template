@@ -26,7 +26,10 @@ target 'objc_template' do
   pod 'YTKNetwork'
   pod 'IGListKit'
   pod 'HMSegmentedControl'
-  pod 'ReactiveObjC', '~> 3.1.0'
+  pod 'ReactiveObjC', '~> 3.0.0'
+
+  pod "PYSearch"
+
   #
   # Pager view
   pod 'VTMagic'

@@ -633,5 +633,16 @@
       <false/>
     </dict>
 
+    <dict>
+      <key>title</key>
+      <string>PYSearch 测试 </string>
+      <key>controllerName</key>
+      <string>T067ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
   </array>
 </plist>
