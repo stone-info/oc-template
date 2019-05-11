@@ -28,7 +28,7 @@ target 'objc_template' do
   pod 'HMSegmentedControl'
   pod 'ReactiveObjC', '~> 3.0.0'
 
-  pod "PYSearch"
+  # pod "PYSearch"
 
   #
   # Pager view

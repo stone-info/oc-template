@@ -7,20 +7,25 @@
 //
 
 #import "T067ViewController.h"
+#import "PYSearch.h"
 
-@interface  T067ViewController ()
+@interface T067ViewController () <PYSearchViewControllerDelegate>
 
 @end
 
-@implementation  T067ViewController
+@implementation T067ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
+
 
 
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+  
+}
 
 @end
     

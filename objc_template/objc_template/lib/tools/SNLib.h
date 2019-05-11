@@ -14,6 +14,8 @@
 #import "SNLog.h"
 #import "SNMacro.h"
 
+#import "SNViewFactory.h"
+
 #import "SNLabel.h"
 #import "SNHTTPManager.h"
 #import "UIImage+ImageExtension.h"
