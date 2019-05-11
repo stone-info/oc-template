@@ -4,7 +4,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <IGListKit.h>
+#import <IGListKit/IGListKit.h>
 @interface ChapterCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) SNLabel *chapterLabel;
 @end

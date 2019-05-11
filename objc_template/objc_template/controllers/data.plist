@@ -655,5 +655,16 @@
       <false/>
     </dict>
 
+    <dict>
+      <key>title</key>
+      <string>https 未签名证书信任 并 请求 </string>
+      <key>controllerName</key>
+      <string>T069ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
   </array>
 </plist>

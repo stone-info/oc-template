@@ -9,7 +9,7 @@
 #import "SNTools.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 // 需要SDWebImage
-#import "NSData+ImageContentType.h"
+#import <SDWebImage/NSData+ImageContentType.h>
 #import "NSDate+Time.h"
 #import "NSString+StringExtension.h"
 #import <objc/message.h>

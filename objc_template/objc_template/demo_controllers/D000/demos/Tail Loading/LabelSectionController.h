@@ -7,7 +7,6 @@
 //
 
 #import <IGListKit/IGListSectionController.h>
-#import "IGListSectionController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

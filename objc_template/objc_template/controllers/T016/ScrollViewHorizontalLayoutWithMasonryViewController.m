@@ -7,7 +7,7 @@
 //
 
 #import "ScrollViewHorizontalLayoutWithMasonryViewController.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface ScrollViewHorizontalLayoutWithMasonryViewController ()
 

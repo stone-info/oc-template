@@ -7,7 +7,7 @@
 //
 
 #import "ScrollViewVerticalLayoutWithMasonryViewController.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface ScrollViewVerticalLayoutWithMasonryViewController ()
 

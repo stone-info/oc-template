@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonDigest.h>
-#import "SSZipArchive.h"
+#import <SSZipArchive/SSZipArchive.h>
 //sn_note:========= SNBigFileDownloadConnectionManager ============================ stone 🐳 ===========/
 
 @interface SNBigFileDownloadConnectionManager : NSObject

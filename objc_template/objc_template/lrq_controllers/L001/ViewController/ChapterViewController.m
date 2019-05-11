@@ -4,7 +4,7 @@
 //
 
 #import "ChapterViewController.h"
-#import <IGListKit.h>
+#import <IGListKit/IGListKit.h>
 #import "ChapterSectionController.h"
 #import "ChapterBindingSectionController.h"
 

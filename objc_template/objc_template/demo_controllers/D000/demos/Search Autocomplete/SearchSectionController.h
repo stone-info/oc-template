@@ -7,7 +7,8 @@
 //
 
 #import <IGListKit/IGListSectionController.h>
-#import "IGListSectionController.h"
+// #import "IGListSectionController.h"
+#import <IGListKit/IGListSectionController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol SearchSectionControllerDelegate;

@@ -193,10 +193,24 @@
     UIStoryboard              *storyboard = [UIStoryboard storyboardWithName:@"Demo" bundle:nil];
     __kindof UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:identifier];
     controller.title = self.object.name;
+
+    if (controller.view.backgroundColor) {
+      // 有颜色
+    } else {
+      controller.view.backgroundColor = UIColor.whiteColor;
+    }
+
     [self.viewController.navigationController pushViewController:controller animated:YES];
   } else {
     __kindof UIViewController *controller = (__kindof UIViewController *) [[self.object.controllerClass alloc] init];
     controller.title = self.object.name;
+
+    if (controller.view.backgroundColor) {
+      // 有颜色
+    } else {
+      controller.view.backgroundColor = UIColor.whiteColor;
+    }
+
     [self.viewController.navigationController pushViewController:controller animated:YES];
   }
 }

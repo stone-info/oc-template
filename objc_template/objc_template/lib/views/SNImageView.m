@@ -7,7 +7,7 @@
 //
 
 #import "SNImageView.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 #import "SNAttributesHandler.h"
 
 @interface SNImageView ()

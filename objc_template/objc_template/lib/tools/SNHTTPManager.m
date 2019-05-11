@@ -7,10 +7,10 @@
 //
 
 #import "SNHTTPManager.h"
-#import "AFNetworking.h"
-#import "SDWebImageDownloader.h"
-#import "NSData+ImageContentType.h"
-#import "UIImage+GIF.h"
+#import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/UIImage+GIF.h>
+#import <SDWebImage/SDWebImageDownloader.h>
+#import <SDWebImage/NSData+ImageContentType.h>
 
 @interface SNHTTPManager ()
 

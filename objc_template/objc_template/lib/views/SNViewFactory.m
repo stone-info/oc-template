@@ -44,7 +44,7 @@ UILabel *makeLabel() {
   label.numberOfLines       = 0;
   label.textColor           = [UIColor blackColor];
   label.textAlignment       = NSTextAlignmentCenter;
-  // label.text                = @"";
+  label.text                = @"default text";
   label.font                = [UIFont fontWithName:@"PingFangSC-Regular" size:14];
 
   return label;

@@ -21,6 +21,8 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
 
+  self.view.backgroundColor = UIColor.whiteColor;
+
   // 获取info字典
   NSString * bundlePath = [[NSBundle mainBundle] pathForResource:@"lrq_data" ofType:@"plist"];
   NSArray *dataList = [NSArray arrayWithContentsOfFile:bundlePath];

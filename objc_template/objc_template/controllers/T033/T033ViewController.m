@@ -8,8 +8,8 @@
 
 #import "T033ViewController.h"
 #import "SNImageView.h"
-#import "SDWebImageDownloader.h"
-#import "UIImage+GIF.h"
+#import <SDWebImage/SDWebImageDownloader.h>
+#import <SDWebImage/UIImage+GIF.h>
 
 @interface T033ViewController ()
 @property (strong, nonatomic) SNImageView *imageView;

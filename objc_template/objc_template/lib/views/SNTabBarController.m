@@ -11,6 +11,7 @@
 #import "SNNavigationController.h"
 #import "ViewController.h"
 #import "LRQViewController.h"
+#import "DemoViewController.h"
 
 static const UITabBarSystemItem tabBarSystemItems[5] = {
   UITabBarSystemItemFavorites,
@@ -23,13 +24,14 @@ static const UITabBarSystemItem tabBarSystemItems[5] = {
 @interface SNTabBarController ()
 @property (strong, nonatomic) NSArray *dataList;
 @property (strong, nonatomic) NSArray *lrq_dataList;
+@property (strong, nonatomic) NSArray *demo_dataList;
 @end
 
 @implementation SNTabBarController
 - (NSArray *)dataList {
 
   if (_dataList == nil) {
-    NSString * bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
     _dataList = [NSArray arrayWithContentsOfFile:bundlePath];
   }
   return _dataList;
@@ -38,10 +40,21 @@ static const UITabBarSystemItem tabBarSystemItems[5] = {
 - (NSArray *)lrq_dataList {
 
   if (_lrq_dataList == nil) {
-    NSString * bundlePath = [[NSBundle mainBundle] pathForResource:@"lrq_data" ofType:@"plist"];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"lrq_data" ofType:@"plist"];
     _lrq_dataList = [NSArray arrayWithContentsOfFile:bundlePath];
+
   }
   return _lrq_dataList;
+}
+
+- (NSArray *)demo_dataList {
+
+  if (_demo_dataList == nil) {
+    _demo_dataList = [NSArray new];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"demo_data" ofType:@"plist"];
+    _demo_dataList = [NSArray arrayWithContentsOfFile:bundlePath];
+  }
+  return _demo_dataList;
 }
 
 - (void)viewDidLoad {
@@ -69,9 +82,9 @@ static const UITabBarSystemItem tabBarSystemItems[5] = {
   }
 
   {
-    SNNavigationController *navigationController = [[SNNavigationController alloc] initWithRootViewController:UIViewController.new];
+    SNNavigationController *navigationController = [[SNNavigationController alloc] initWithRootViewController:DemoViewController.new];
     UITabBarItem           *item                 = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[2] tag:2];
-    // item.badgeValue                 = kStringFormat(@"%ld", self.dataList.count);
+    item.badgeValue                 = kStringFormat(@"%ld", self.demo_dataList.count);
     navigationController.tabBarItem = item;
     [self addChildViewController:navigationController];
   }
@@ -83,7 +96,7 @@ static const UITabBarSystemItem tabBarSystemItems[5] = {
     [self addChildViewController:navigationController];
   }
 
-  self.selectedIndex = 0;
+  self.selectedIndex = 2;
 
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "ScrollViewHorizontalLayoutWithXibAndMasonryViewController.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface ScrollViewHorizontalLayoutWithXibAndMasonryViewController ()
 @property(weak, nonatomic)

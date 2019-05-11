@@ -9,7 +9,7 @@
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <UIKit/UIKit.h>
 #import "T032ViewController.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface T032ViewController ()
 

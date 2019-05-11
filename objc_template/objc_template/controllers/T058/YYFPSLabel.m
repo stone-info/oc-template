@@ -8,7 +8,7 @@
 
 #import "YYFPSLabel.h"
 //#import <YYKit/YYKit.h>
-#import "YYText.h"
+#import <YYText/YYText.h>
 #import "YYWeakProxy.h"
 
 #define kSize CGSizeMake(55, 20)

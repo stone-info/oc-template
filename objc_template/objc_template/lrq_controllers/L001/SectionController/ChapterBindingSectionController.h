@@ -4,7 +4,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <IGListKit.h>
+#import <IGListKit/IGListKit.h>
 @interface ChapterBindingSectionController : IGListBindingSectionController
 
 @end

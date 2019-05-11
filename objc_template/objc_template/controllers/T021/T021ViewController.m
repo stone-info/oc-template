@@ -6,8 +6,8 @@
 //  Copyright © 2019 stone. All rights reserved.
 //
 
+#import <SDCycleScrollView/SDCycleScrollView.h>
 #import "T021ViewController.h"
-#import "SDCycleScrollView.h"
 
 @interface T021ViewController () <SDCycleScrollViewDelegate>
 

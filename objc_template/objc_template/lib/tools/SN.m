@@ -804,8 +804,12 @@ void setInterval(id target, void (^handler)(dispatch_source_t timer), uint64_t t
   //  NSJSONReadingMutableLeaves = (1UL << 1), // 内部所有的字符串都是可变的...iOS7之后有问题, 一般不用
   //  NSJSONReadingAllowFragments = (1UL << 2) // 如果服务器返回的JSON数据，不是标准的JSON，那么就必须使用这个值，否则无法解析
   // 注意：什么是不标准的 JSON 呢？
+  // https://stackoverflow.com/questions/16961025/nsjsonserialization-nsjsonreadingallowfragments-reading
+  // NSJSONReadingAllowFragments = (1UL << 2) // 返回允许JSON字符串最外层既不是NSArray也不是NSDictionary，但必须是有效的JSON Fragment.可以是如 "10"
   // 当我们将字符串 json 的值分别设置为，10、10.1、true、false、null的时候，
   // options 必须选择 NSJSONReadingAllowFragments 这种类型，否则就会无法解析出其中的内容。
+
+  // NSJSONWritingSortedKeys //输出的json字符串就是一整行
   // ------------------------------------------------------------------------------
   // NSString *json = @"null";
   // // NSString *json = @"10";

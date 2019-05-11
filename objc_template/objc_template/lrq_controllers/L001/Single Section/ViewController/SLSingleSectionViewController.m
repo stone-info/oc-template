@@ -3,8 +3,10 @@
 // Copyright (c) 2019 stone. All rights reserved.
 //
 
+#import <IGListKit/IGListAdapter.h>
+#import <IGListKit/IGListSingleSectionController.h>
+#import <IGListKit/IGListAdapterUpdater.h>
 #import "SLSingleSectionViewController.h"
-#import <IGListKit.h>
 #import "SingleSectionCollectionCell.h"
 
 @interface SLSingleSectionViewController () <IGListAdapterDataSource, IGListSingleSectionControllerDelegate>
