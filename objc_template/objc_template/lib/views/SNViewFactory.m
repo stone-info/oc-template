@@ -53,6 +53,7 @@ UILabel *makeLabel() {
 UIButton *makeButton() {
 
   UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+  // UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 
   addBoard(button);
 
@@ -62,13 +63,11 @@ UIButton *makeButton() {
   // button.layer.masksToBounds = YES;
 
   [button setAdjustsImageWhenHighlighted:NO];
-
-  [button setTitle:@"Click me" forState:UIControlStateNormal];
-
-  [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
+  // [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
   button.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:14];
 
+  // 竟然还有这么坑爹的bug... setTitle 写在 titleLabel 前面有坑...
+  [button setTitle:@"Click me" forState:UIControlStateNormal];
   return button;
 
 }

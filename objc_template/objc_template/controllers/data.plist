@@ -666,5 +666,16 @@
       <false/>
     </dict>
 
+    <dict>
+      <key>title</key>
+      <string>循环引用 测试 </string>
+      <key>controllerName</key>
+      <string>T070ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
   </array>
 </plist>

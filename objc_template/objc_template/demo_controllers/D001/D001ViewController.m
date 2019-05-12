@@ -6,14 +6,23 @@
 //  Copyright © 2019 stone. All rights reserved.
 //
 
+#import <IGListKit/IGListKit.h>
 #import "D001ViewController.h"
 #import "DemoSectionController.h"
 #import "RACSignalViewController.h"
 #import "RACSubjectViewController.h"
 #import "RACTupleViewController.h"
 #import "RACSchedulerViewController.h"
-
-#import <IGListKit/IGListKit.h>
+#import "RACNetworkViewController.h"
+#import "RACMacroViewController.h"
+#import "RACMulticastConnectionViewController.h"
+#import "RACCommandViewController.h"
+#import "RACBindViewController.h"
+#import "RACMapViewController.h"
+#import "RACConcatViewController.h"
+#import "RACFilterViewController.h"
+#import "RACLoginViewController.h"
+#import "RACMVVMViewController.h"
 
 @interface D001ViewController () <IGListAdapterDataSource>
 @property (strong, nonatomic) UICollectionView    *collectionView;
@@ -32,6 +41,16 @@
     [DemoItem.alloc initWithName:@"RACSubject" controllerClass:RACSubjectViewController.class],
     [DemoItem.alloc initWithName:@"RACTuple & RACSequence" controllerClass:RACTupleViewController.class],
     [DemoItem.alloc initWithName:@"RACScheduler" controllerClass:RACSchedulerViewController.class],
+    [DemoItem.alloc initWithName:@"RAC网络请求 rac_liftSelector" controllerClass:RACNetworkViewController.class],
+    [DemoItem.alloc initWithName:@"RACMacro" controllerClass:RACMacroViewController.class],
+    [DemoItem.alloc initWithName:@"RACMulticastConnection" controllerClass:RACMulticastConnectionViewController.class],
+    [DemoItem.alloc initWithName:@"RACCommand" controllerClass:RACCommandViewController.class],
+    [DemoItem.alloc initWithName:@"bind & RACReturnSignal" controllerClass:RACBindViewController.class],
+    [DemoItem.alloc initWithName:@"Map & flattenMap" controllerClass:RACMapViewController.class],
+    [DemoItem.alloc initWithName:@"concat & then & merge & zipWith" controllerClass:RACConcatViewController.class],
+    [DemoItem.alloc initWithName:@"filter & ignore & take & until & skip" controllerClass:RACFilterViewController.class],
+    [DemoItem.alloc initWithName:@"login" controllerClass:RACLoginViewController.class],
+    [DemoItem.alloc initWithName:@"MVVM" controllerClass:RACMVVMViewController.class],
   ];
 
   return _demos;

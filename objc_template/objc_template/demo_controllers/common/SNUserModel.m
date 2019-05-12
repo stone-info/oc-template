@@ -1,17 +1,14 @@
 //
-// Created by stone on 2019-05-11.
+// Created by stone on 2019-05-12.
 // Copyright (c) 2019 stone. All rights reserved.
 //
 
-#import "SNRACModel.h"
+#import "SNUserModel.h"
 
-@implementation SNRACModel
-
+@implementation SNUserModel
 + (NSDictionary *)mj_replacedKeyFromPropertyName {
   return @{@"ID": @"id"};
 }
-
-
 
 @end
 

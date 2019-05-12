@@ -8,26 +8,34 @@
 
 #import "T070ViewController.h"
 
-@interface  T070ViewController ()
+@interface T070ViewController ()
+@property (nonatomic, copy) void (^reloadData)(void);
 
+// @property (copy, nonatomic) NSString *name;
 @end
 
-@implementation  T070ViewController
+@implementation T070ViewController {
+  NSString *_name;
+}
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
+
+  _name = @"stone";
+
+
+  // 狗屁 下划线 和 self.name 都会引起循环引用... 什么烂结论
+  // !self.reloadData ?: self.reloadData();
+
+  [self setReloadData:^{
+    NSLog(@"self.name = %@", _name);
+  }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)dealloc {
+  NSLog(@"■■■■■■\t%@ is dead ☠☠☠\t■■■■■■", [self class]);
 }
-*/
 
 @end
     

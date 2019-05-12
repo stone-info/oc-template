@@ -37,7 +37,7 @@ target 'objc_template' do
   target 'objc_templateTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Kiwi'
+    # pod 'Kiwi'
   end
 
   target 'objc_templateUITests' do

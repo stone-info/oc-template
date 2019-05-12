@@ -7,8 +7,10 @@
 #import "SNTestThread.h"
 
 @interface RACSchedulerViewController ()
-@property (weak, nonatomic) NSTimer *timer;
-@property (assign, nonatomic) BOOL  finished;
+@property (weak, nonatomic) NSTimer         *timer;
+@property (assign, nonatomic) BOOL          finished;
+@property (assign, nonatomic) NSInteger     time;
+@property (nonatomic, strong) RACDisposable *disposable;
 @end
 
 @implementation RACSchedulerViewController {}
@@ -32,6 +34,55 @@
 }
 
 - (void)entry {
+
+  UIButton *button = makeButton();
+  [self.view addSubview:button];
+  kMasKey(button);
+  [button mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.top.offset(kStatusBarHeight + kNavigationBarHeight + 10);
+    make.left.offset(10);
+    make.right.offset(-10);
+    make.height.mas_greaterThanOrEqualTo(50);
+  }];
+
+  // printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+
+  [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl *x) {
+
+    button.enabled = NO;
+
+    _time = 10;
+
+    self.disposable = [[RACSignal interval:1.0 onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(NSDate *x) {
+
+
+      if (_time >= 0) {
+        button.enabled = NO;
+        [button setTitle:kStringFormat(@"请等待%li秒", _time) forState:UIControlStateDisabled];
+      } else {
+        button.enabled = YES;
+        [button setTitle:@"重新发送" forState:UIControlStateNormal];
+        [_disposable dispose];
+      }
+      _time--;
+    }];
+  }];
+}
+
+- (void)entry2 {
+
+  // [RACScheduler scheduler] 子线程 , 封装 GCD的
+  // [RACScheduler mainThreadScheduler]; 主线程
+
+  // time interval
+  [[RACSignal interval:1.0 onScheduler:[RACScheduler scheduler]] subscribeNext:^(NSDate *x) {
+    NSLog(@"x = %@", x);
+    NSLog(@"[NSThread currentThread] = %@", [NSThread currentThread]);
+  }];
+
+}
+
+- (void)entry1 {
 
   SNTestThread *thread = [SNTestThread.alloc initWithBlock:^{
     [self.timer invalidate];

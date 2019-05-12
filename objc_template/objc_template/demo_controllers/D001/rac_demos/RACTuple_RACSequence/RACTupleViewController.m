@@ -4,7 +4,7 @@
 //
 
 #import "RACTupleViewController.h"
-#import "SNRACModel.h"
+#import "SNUserModel.h"
 
 @interface RACTupleViewController ()
 @property (strong, nonatomic) NSArray *users;
@@ -39,8 +39,8 @@
 - (void)entry {
   NSLog(@"self.users = %@", self.users);
 
-  NSArray *array = [[self.users.rac_sequence map:^SNRACModel *(NSDictionary *value) {
-    SNRACModel *model = [SNRACModel mj_objectWithKeyValues:value];;
+  NSArray *array = [[self.users.rac_sequence map:^SNUserModel *(NSDictionary *value) {
+    SNUserModel *model = [SNUserModel mj_objectWithKeyValues:value];;
     return model;
   }] array];
 
