@@ -49,3 +49,18 @@ func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
 }
 为每个帖子派生一个唯一标识符。由于一个帖子永远不应该有相同的username和timestamp组合, 我们可以从这个开始。
 使用ListBindingSectionController的一个核心要求是, 如果两个模型具有相同diffIdentifier标识符, 则它们必须相等, 以便节控制器可以比较视图模型。
+
+
+## 给模型设置 单独的主键 , 如果模型有ID 那更好 , 如果使用self , 永远不会进入 isEqualToDiffableObject 方法
+
+https://stackoverflow.com/questions/42700448/iglistkit-with-sections-and-multiple-items
+
+您应该为每个对象返回节控制器的唯一实例。不要重复使用它们！
+
+另外需要注意的是，您正在使用self diff标识符，这意味着对象的实例标识其唯一性。这意味着两个DataSource对象永远不会被比较（obj.items.count == items.count永远不会发生）。不是一个交易破坏者，但只是意识到它的行为方式。
+
+您还可能需要查看IGListBindingSectionController哪个采用原始模型并将其分解为驱动该部分中每个单元格的视图模型。
+
+更多细节和拉取请求中的示例。请注意，如果您使用CocoaPods，则需要使用master。
+
+https://github.com/Instagram/IGListKit/pull/494

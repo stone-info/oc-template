@@ -699,17 +699,38 @@
       <false/>
     </dict>
 
-<!--    <dict>-->
-<!--      <key>title</key>-->
-<!--      <string>RAC 实现 </string>-->
-<!--      <key>controllerName</key>-->
-<!--      <string>T073ViewController</string>-->
-<!--      <key>xib</key>-->
-<!--      <false/>-->
-<!--      <key>storyboard</key>-->
-<!--      <false/>-->
-<!--    </dict>-->
+    <dict>
+      <key>title</key>
+      <string>IGListStackedSectionController 实现 </string>
+      <key>controllerName</key>
+      <string>T073ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
 
+    <dict>
+      <key>title</key>
+      <string>IGListDiffable 协议 测试...</string>
+      <key>controllerName</key>
+      <string>T074ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
+    <dict>
+      <key>title</key>
+      <string>IGListDiffable 协议 测试2...</string>
+      <key>controllerName</key>
+      <string>T075ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
 
   </array>
 </plist>
