@@ -17,11 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, nullable) id <ActionCellOCDelegate> delegate;
 @end
 
-NS_ASSUME_NONNULL_END
-
 @protocol ActionCellOCDelegate <NSObject>
 @required
 - (void)didTapHeart:(ActionCellOC *)cell;
 @end
 
-
+NS_ASSUME_NONNULL_END

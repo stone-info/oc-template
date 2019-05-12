@@ -69,6 +69,9 @@ static CGFloat      singleLineHeight;
     // separator.frame           = CGRectMake(0, 0, kScreenWidth, 10);
     [self.contentView.layer addSublayer:separator];
 
+
+
+
   }
   return self;
 }

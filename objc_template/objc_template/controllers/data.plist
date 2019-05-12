@@ -677,5 +677,39 @@
       <false/>
     </dict>
 
+    <dict>
+      <key>title</key>
+      <string>IGListSectionController 实现 </string>
+      <key>controllerName</key>
+      <string>T071ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
+    <dict>
+      <key>title</key>
+      <string>IGListBindingSectionController 实现 </string>
+      <key>controllerName</key>
+      <string>T072ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
+<!--    <dict>-->
+<!--      <key>title</key>-->
+<!--      <string>RAC 实现 </string>-->
+<!--      <key>controllerName</key>-->
+<!--      <string>T073ViewController</string>-->
+<!--      <key>xib</key>-->
+<!--      <false/>-->
+<!--      <key>storyboard</key>-->
+<!--      <false/>-->
+<!--    </dict>-->
+
+
   </array>
 </plist>
