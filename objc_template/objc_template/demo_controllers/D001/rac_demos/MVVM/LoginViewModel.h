@@ -6,5 +6,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewModel : NSObject
-
+@property (strong, nonatomic) RACSignal  *loginEnableSignal;
+@property (copy, nonatomic) NSString     *username;
+@property (copy, nonatomic) NSString     *password;
+@property (strong, nonatomic) RACCommand *loginCommand;
 @end

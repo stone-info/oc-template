@@ -2569,8 +2569,8 @@
 			children = (
 				8E43BA7B228801C7001CBB56 /* RACMVVMViewController.h */,
 				8E43BA7C228801C7001CBB56 /* RACMVVMViewController.m */,
-				68AF800301939B45B7265AC4 /* LoginViewModel.m */,
 				68AF8DE6AC2C1A21A5655FCF /* LoginViewModel.h */,
+				68AF800301939B45B7265AC4 /* LoginViewModel.m */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
