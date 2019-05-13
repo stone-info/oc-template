@@ -9,7 +9,7 @@
 #ifndef SNLog_h
 #define SNLog_h
 
-#define XCODE_CONSOLA 1
+#define XCODE_CONSOLA 0
 
 #if XCODE_CONSOLA
 //                              /* log */

@@ -38,11 +38,9 @@
       [T075TopModel modelWithIdentifier:@"0" dataList:@[]]
     ].mutableCopy;
 
-
   }
   return _data;
 }
-
 
 - (UICollectionView *)collectionView {
 
@@ -88,7 +86,7 @@
 
 - (void)rightBarButtonItem:(UIBarButtonItem *)sender {
 
-  // self.data[0] = [T075TopModel modelWithIdentifier:@"1" dataList:@[
+  // BOOL i = [@[
   //   @"江户川柯南",
   //   @"工藤新一",
   //   @"毛利兰",
@@ -108,7 +106,29 @@
   //   @"工藤优作",
   //   @"工藤有希子",
   //   @"怪盗基德"
-  // ]];
+  // ] isEqualToArray:@[
+  //   @"江户川柯南",
+  //   @"工藤新一",
+  //   @"毛利兰",
+  //   @"毛利小五郎",
+  //   @"阿笠博士",
+  //   @"灰原哀",
+  //   @"吉田步美",
+  //   @"步美的母亲",
+  //   @"圆谷光彦",
+  //   @"小岛元太",
+  //   @"铃木园子",
+  //   @"服部平次",
+  //   @"远山和叶",
+  //   @"世良真纯",
+  //   @"冲矢昴",
+  //   @"安室透",
+  //   @"工藤优作",
+  //   @"工藤有希子",
+  //   @"怪盗基德"
+  // ].mutableCopy];
+  //
+  // NSLog(@"i = %@", i ? @"true" : @"false");
 
   T075TopModel *model = self.data[0].copy;
 
@@ -133,6 +153,8 @@
     @"工藤有希子",
     @"怪盗基德"
   ];
+
+
 
   self.data[0] = model;
 

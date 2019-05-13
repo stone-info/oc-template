@@ -467,7 +467,6 @@
       <false/>
     </dict>
 
-
     <dict>
       <key>title</key>
       <string>IGListBindingSectionController 测试</string>
@@ -481,7 +480,7 @@
 
     <dict>
       <key>title</key>
-      <string>IGListKit YTK  MJRefresh</string>
+      <string>IGListKit YTK MJRefresh</string>
       <key>controllerName</key>
       <string>T053ViewController</string>
       <key>xib</key>
@@ -558,7 +557,7 @@
 
     <dict>
       <key>title</key>
-      <string>RAC push-driven | pull-driven </string>
+      <string>RAC push-driven | pull-driven</string>
       <key>controllerName</key>
       <string>T060ViewController</string>
       <key>xib</key>
@@ -569,7 +568,7 @@
 
     <dict>
       <key>title</key>
-      <string>T061ViewController </string>
+      <string>T061ViewController</string>
       <key>controllerName</key>
       <string>T061ViewController</string>
       <key>xib</key>
@@ -580,7 +579,7 @@
 
     <dict>
       <key>title</key>
-      <string>T062ViewController </string>
+      <string>T062ViewController</string>
       <key>controllerName</key>
       <string>T062ViewController</string>
       <key>xib</key>
@@ -591,7 +590,7 @@
 
     <dict>
       <key>title</key>
-      <string>T063ViewController </string>
+      <string>T063ViewController</string>
       <key>controllerName</key>
       <string>T063ViewController</string>
       <key>xib</key>
@@ -602,7 +601,7 @@
 
     <dict>
       <key>title</key>
-      <string>T064ViewController </string>
+      <string>T064ViewController</string>
       <key>controllerName</key>
       <string>T064ViewController</string>
       <key>xib</key>
@@ -613,7 +612,7 @@
 
     <dict>
       <key>title</key>
-      <string>T065ViewController </string>
+      <string>T065ViewController</string>
       <key>controllerName</key>
       <string>T065ViewController</string>
       <key>xib</key>
@@ -624,7 +623,7 @@
 
     <dict>
       <key>title</key>
-      <string>T066ViewController </string>
+      <string>T066ViewController</string>
       <key>controllerName</key>
       <string>T066ViewController</string>
       <key>xib</key>
@@ -635,7 +634,7 @@
 
     <dict>
       <key>title</key>
-      <string>PYSearch 测试 </string>
+      <string>PYSearch 测试</string>
       <key>controllerName</key>
       <string>T067ViewController</string>
       <key>xib</key>
@@ -646,7 +645,7 @@
 
     <dict>
       <key>title</key>
-      <string>RAC 测试 </string>
+      <string>RAC 测试</string>
       <key>controllerName</key>
       <string>T068ViewController</string>
       <key>xib</key>
@@ -657,7 +656,7 @@
 
     <dict>
       <key>title</key>
-      <string>https 未签名证书信任 并 请求 </string>
+      <string>https 未签名证书信任 并 请求</string>
       <key>controllerName</key>
       <string>T069ViewController</string>
       <key>xib</key>
@@ -668,7 +667,7 @@
 
     <dict>
       <key>title</key>
-      <string>循环引用 测试 </string>
+      <string>循环引用 测试</string>
       <key>controllerName</key>
       <string>T070ViewController</string>
       <key>xib</key>
@@ -679,7 +678,7 @@
 
     <dict>
       <key>title</key>
-      <string>IGListSectionController 实现 </string>
+      <string>IGListSectionController 实现</string>
       <key>controllerName</key>
       <string>T071ViewController</string>
       <key>xib</key>
@@ -690,7 +689,7 @@
 
     <dict>
       <key>title</key>
-      <string>IGListBindingSectionController 实现 </string>
+      <string>IGListBindingSectionController 实现</string>
       <key>controllerName</key>
       <string>T072ViewController</string>
       <key>xib</key>
@@ -701,7 +700,7 @@
 
     <dict>
       <key>title</key>
-      <string>IGListStackedSectionController 实现 </string>
+      <string>IGListStackedSectionController 实现</string>
       <key>controllerName</key>
       <string>T073ViewController</string>
       <key>xib</key>
@@ -726,6 +725,39 @@
       <string>IGListDiffable 协议 测试2...</string>
       <key>controllerName</key>
       <string>T075ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
+    <dict>
+      <key>title</key>
+      <string>IGListBindingSectionController 进阶, 两次机会返回 Diff 数组</string>
+      <key>controllerName</key>
+      <string>T076ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
+    <dict>
+      <key>title</key>
+      <string>测试刷新...</string>
+      <key>controllerName</key>
+      <string>T077ViewController</string>
+      <key>xib</key>
+      <false/>
+      <key>storyboard</key>
+      <false/>
+    </dict>
+
+    <dict>
+      <key>title</key>
+      <string>RAC MVVM</string>
+      <key>controllerName</key>
+      <string>T078ViewController</string>
       <key>xib</key>
       <false/>
       <key>storyboard</key>

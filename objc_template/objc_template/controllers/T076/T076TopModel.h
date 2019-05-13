@@ -1,5 +1,5 @@
 //
-//  T075TopModel.h
+//  T076TopModel.h
 //  objc_template
 //
 //  Created by stone on 2019-05-12.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface T075TopModel : NSObject <IGListDiffable, NSCopying>
+@interface T076TopModel : NSObject <IGListDiffable, NSCopying>
 
 @property (strong, nonatomic) NSArray *dataList;
 

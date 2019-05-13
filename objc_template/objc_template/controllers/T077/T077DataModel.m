@@ -1,44 +1,31 @@
 //
-//  T075TopModel.m
+//  T077DataModel.m
 //  objc_template
 //
-//  Created by stone on 2019-05-12.
+//  Created by stone on 2019-05-13.
 //  Copyright © 2019 stone. All rights reserved.
 //
 
-#import "T075TopModel.h"
+#import "T077DataModel.h"
 
-@interface T075TopModel ()
+@interface T077DataModel ()
 
 @property (copy, nonatomic) NSString *identifier;
 
 @end
 
-@implementation T075TopModel
+@implementation T077DataModel
 
-- (id)copyWithZone:(nullable NSZone *)zone {
-
-  T075TopModel *model = [[[self class] allocWithZone:zone] init];
-
-  model.identifier = self.identifier;
-
-  model.dataList = self.dataList;
-
-  return model;
-}
-
-- (instancetype)initWithIdentifier:(NSString *)identifier dataList:(NSArray *)dataList {
+- (instancetype)initWithIdentifier:(NSString *)identifier {
   self = [super init];
   if (self) {
     self.identifier = identifier;
-    self.dataList   = dataList;
   }
-
   return self;
 }
 
-+ (instancetype)modelWithIdentifier:(NSString *)identifier dataList:(NSArray *)dataList {
-  return [[self alloc] initWithIdentifier:identifier dataList:dataList];
++ (instancetype)modelWithIdentifier:(NSString *)identifier {
+  return [[self alloc] initWithIdentifier:identifier];
 }
 
 - (nonnull id <NSObject>)diffIdentifier {
@@ -53,13 +40,13 @@
   // other 存在 且 全等
   if (self == other) { return YES; }
   // other 存在 且 self.identifier 相同, 使用diff算法
-  T075TopModel *model = (T075TopModel *) other;
+  T077DataModel *model = (T077DataModel *) other;
   // 元素和下标相等就相等
-  return [self.dataList isEqualToArray:model.dataList];
+  return YES;
+  // return [self.name isEqualToString:model.name] && self.age == model.age;
   // return [self isEqual:other];
   // return [self.user isEqualToDiffableObject:other.user] && [self.comments isEqualToArray:other.comments];
   // return [self.name isEqualToString:[other name]] && [self.handle isEqualToString:[other handle]];
 }
 
 @end
-

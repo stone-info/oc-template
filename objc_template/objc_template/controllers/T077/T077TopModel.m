@@ -1,24 +1,24 @@
 //
-//  T075TopModel.m
+//  T077TopModel.m
 //  objc_template
 //
-//  Created by stone on 2019-05-12.
+//  Created by stone on 2019-05-13.
 //  Copyright © 2019 stone. All rights reserved.
 //
 
-#import "T075TopModel.h"
+#import "T077TopModel.h"
 
-@interface T075TopModel ()
+@interface T077TopModel ()
 
 @property (copy, nonatomic) NSString *identifier;
 
 @end
 
-@implementation T075TopModel
+@implementation T077TopModel
 
 - (id)copyWithZone:(nullable NSZone *)zone {
 
-  T075TopModel *model = [[[self class] allocWithZone:zone] init];
+  T077TopModel *model = [[[self class] allocWithZone:zone] init];
 
   model.identifier = self.identifier;
 
@@ -53,7 +53,7 @@
   // other 存在 且 全等
   if (self == other) { return YES; }
   // other 存在 且 self.identifier 相同, 使用diff算法
-  T075TopModel *model = (T075TopModel *) other;
+  T077TopModel *model = (T077TopModel *) other;
   // 元素和下标相等就相等
   return [self.dataList isEqualToArray:model.dataList];
   // return [self isEqual:other];
@@ -62,4 +62,3 @@
 }
 
 @end
-

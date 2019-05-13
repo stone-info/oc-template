@@ -64,3 +64,23 @@ https://stackoverflow.com/questions/42700448/iglistkit-with-sections-and-multipl
 更多细节和拉取请求中的示例。请注意，如果您使用CocoaPods，则需要使用master。
 
 https://github.com/Instagram/IGListKit/pull/494
+
+
+
+## ListBindingSectionController , 中的这段代码 即便顶层model 传 YES 也会 更新section , 如果数据有变化的话, 这就放心了...呼...
+https://github.com/Instagram/IGListKit/issues/1174
+```objectivec
+- (void)didUpdateToObject:(id)object {
+    id oldObject = self.object;
+    self.object = object;
+
+    if (oldObject == nil) {
+        self.viewModels = [[self.dataSource sectionController:self viewModelsForObject:object] copy];
+    } else {
+        IGAssert([oldObject isEqualToDiffableObject:object],
+                 @"Unequal objects %@ and %@ will cause IGListBindingSectionController to reload the entire section",
+                 oldObject, object);
+        [self updateAnimated:YES completion:nil];
+    }
+}
+```
