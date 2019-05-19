@@ -9,8 +9,10 @@
 #import "T072UserCell.h"
 #import "T072TopModel.h"
 #import "T072UserModel.h"
+#import "UserHeaderView.h"
+#import "UserFooterView.h"
 
-@interface T072SectionController () <IGListBindingSectionControllerDataSource, IGListBindingSectionControllerSelectionDelegate>
+@interface T072SectionController () <IGListBindingSectionControllerDataSource, IGListBindingSectionControllerSelectionDelegate, IGListSupplementaryViewSource>
 
 @end
 
@@ -19,8 +21,9 @@
 - (instancetype)init {
   self = [super init];
   if (self) {
-    self.dataSource        = self;
-    self.selectionDelegate = self;
+    self.dataSource              = self;
+    self.selectionDelegate       = self;
+    self.supplementaryViewSource = self;
   }
   return self;
 }
@@ -48,6 +51,47 @@
 
 - (void)sectionController:(IGListBindingSectionController *)sectionController didSelectItemAtIndex:(NSInteger)index viewModel:(id)viewModel {
   NSLog(@"%s", __func__);
+}
+
+#pragma mark - <IGListSupplementaryViewSource>
+
+- (NSArray<NSString *> *)supportedElementKinds {
+  return @[UICollectionElementKindSectionHeader, UICollectionElementKindSectionFooter];
+}
+
+- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind atIndex:(NSInteger)index {
+
+  if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+
+    return [self userHeaderViewAtIndex:index];
+  }
+
+  if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
+
+    return [self userFooterViewAtIndex:index];
+  }
+
+  return nil;
+}
+
+- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind atIndex:(NSInteger)index {
+  return CGSizeMake(self.collectionContext.containerSize.width, 40);
+}
+
+- (__kindof UICollectionReusableView *)userHeaderViewAtIndex:(NSInteger)index {
+
+  UserHeaderView *view = [self.collectionContext dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader forSectionController:self nibName:@"UserHeaderView" bundle:nil atIndex:index];
+
+  view.nameLabel.text   = @"hello name label 111";
+  view.handleLabel.text = @"hello handle label 111";
+  return view;
+}
+
+- (__kindof UICollectionReusableView *)userFooterViewAtIndex:(NSInteger)index {
+  UserFooterView *view = [self.collectionContext dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter forSectionController:self nibName:@"UserFooterView" bundle:nil atIndex:index];
+  view.commentsCountLabel.text = @"hello comment label 111";
+
+  return view;
 }
 
 

@@ -12,6 +12,7 @@
 #import "ViewController.h"
 #import "LRQViewController.h"
 #import "DemoViewController.h"
+#import "StoneViewController.h"
 
 static const UITabBarSystemItem tabBarSystemItems[5] = {
   UITabBarSystemItemFavorites,
@@ -67,7 +68,7 @@ static const UITabBarSystemItem tabBarSystemItems[5] = {
   // SNViewController *viewController = [[SNViewController alloc] initWithNibName:NSStringFromClass([SNViewController class]) bundle:nil];
 
   {
-    SNNavigationController *navigationController = [[SNNavigationController alloc] initWithRootViewController:ViewController.new];
+    SNNavigationController *navigationController = [[SNNavigationController alloc] initWithRootViewController:StoneViewController.new];
     UITabBarItem           *item                 = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItems[0] tag:0];
     item.badgeValue                 = kStringFormat(@"%ld", self.dataList.count);
     navigationController.tabBarItem = item;

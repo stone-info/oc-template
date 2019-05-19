@@ -39,11 +39,11 @@
 ///
 ///  @param request The corresponding request.
 - (void)requestWillStart:(id)request {
-   [self.timer invalidate];
-   self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(dosomething:) userInfo:nil repeats:NO];
-   [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-//  NSLog(@"request class = %@", SN.getClassName(request));
-//  [self performSelector:@selector(dosomething:) withObject:nil afterDelay:2.0];
+  [self.timer invalidate];
+  self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(dosomething:) userInfo:nil repeats:NO];
+  [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+  //  NSLog(@"request class = %@", SN.getClassName(request));
+  //  [self performSelector:@selector(dosomething:) withObject:nil afterDelay:2.0];
 }
 
 - (void)dosomething:(NSTimer *)timer {
@@ -61,8 +61,8 @@
   NSLog(@"%s", __func__);
   NSLog(@"self.hud = %@", self.hud);
   // [self.hud removeFromSuperview];
-//  [self.timer invalidate];
-//  [self.hud hideAnimated:YES];
+  //  [self.timer invalidate];
+  //  [self.hud hideAnimated:YES];
 }
 
 ///  Inform the accessory that the request has already stoped. This method is called

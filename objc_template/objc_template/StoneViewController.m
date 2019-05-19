@@ -5,12 +5,12 @@
 //  Created by stone on 2019-05-11.
 //  Copyright © 2019 stone. All rights reserved.
 //
-#import "DemoViewController.h"
+#import "StoneViewController.h"
 #import <IGListKit/IGListKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoViewModel : NSObject <IGListDiffable>
+@interface StoneViewModel : NSObject <IGListDiffable>
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *controllerName;
 @property (assign, nonatomic) BOOL   xib;
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-@implementation DemoViewModel
+@implementation StoneViewModel
 
 - (instancetype)initWithTitle:(NSString *)title controllerName:(NSString *)controllerName xib:(BOOL)xib storyboard:(BOOL)storyboard {
   self = [super init];
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_END
 - (BOOL)isEqualToDiffableObject:(nullable id <IGListDiffable>)other {
   if (!other) { return NO; }
   if (self == other) { return YES; }
-  DemoViewModel *model = (DemoViewModel *) other;
+  StoneViewModel *model = (StoneViewModel *) other;
   return [self.title isEqualToString:model.title] &&
          [self.controllerName isEqualToString:model.controllerName] &&
          self.xib == model.xib &&
@@ -75,14 +75,14 @@ NS_ASSUME_NONNULL_END
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoViewCell : UICollectionViewCell
+@interface StoneViewCell : UICollectionViewCell
 @property (weak, nonatomic) UILabel *label;
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-@implementation DemoViewCell {
+@implementation StoneViewCell {
   __strong CALayer *_separator;
 }
 
@@ -91,7 +91,10 @@ NS_ASSUME_NONNULL_END
   if (self) {
     UILabel *label = UILabel.new;
     _label         = label;
-    label.font = kPingFangSCRegular(12);
+    label.font = kPingFangSCMedium(12);
+
+    label.textColor = HexRGBA(@"#303030", 1.0);
+
     [self.contentView addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) { make.edges.insets(UIEdgeInsetsMake(8, 8, 8, 8)); }];
 
@@ -116,14 +119,14 @@ NS_ASSUME_NONNULL_END
 
 //sn_note:=========  ============================ stone 🐳 ===========/
 
-@interface DemoViewController () <IGListAdapterDataSource, IGListSingleSectionControllerDelegate>
-@property (strong, nonatomic) UICollectionView         *collectionView;
-@property (strong, nonatomic) IGListAdapter            *adapter;
-@property (strong, nonatomic) UILabel                  *emptyLabel;
-@property (strong, nonatomic) NSArray<DemoViewModel *> *dataList;
+@interface StoneViewController () <IGListAdapterDataSource, IGListSingleSectionControllerDelegate>
+@property (strong, nonatomic) UICollectionView          *collectionView;
+@property (strong, nonatomic) IGListAdapter             *adapter;
+@property (strong, nonatomic) UILabel                   *emptyLabel;
+@property (strong, nonatomic) NSArray<StoneViewModel *> *dataList;
 @end
 
-@implementation DemoViewController
+@implementation StoneViewController
 
 - (UILabel *)emptyLabel {
 
@@ -137,10 +140,10 @@ NS_ASSUME_NONNULL_END
   return _emptyLabel;
 }
 
-- (NSArray<DemoViewModel *> *)dataList {
+- (NSArray<StoneViewModel *> *)dataList {
 
   if (_dataList == nil) {
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"demo_data" ofType:@"plist"];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
 
     NSArray *dataList = [NSArray arrayWithContentsOfFile:bundlePath];
 
@@ -150,7 +153,7 @@ NS_ASSUME_NONNULL_END
 
     for (NSUInteger i = 0; i < dataList.count; ++i) {
       NSDictionary<NSString *, NSString *> *dict  = dataList[i];
-      DemoViewModel                        *model = [DemoViewModel modelWithTitle:dict[@"title"] controllerName:dict[@"controllerName"] xib:[dict[@"xib"] boolValue] storyboard:[dict[@"storyboard"] boolValue]];
+      StoneViewModel                       *model = [StoneViewModel modelWithTitle:dict[@"title"] controllerName:dict[@"controllerName"] xib:[dict[@"xib"] boolValue] storyboard:[dict[@"storyboard"] boolValue]];
       [arrM addObject:model];
       // [arrM insertObject:model atIndex:0];
     }
@@ -192,7 +195,7 @@ NS_ASSUME_NONNULL_END
   [self.view addSubview:self.collectionView];
 
   [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.edges.insets(UIEdgeInsetsMake(kStatusBarHeight + kNavigationBarHeight, 0, kSafeAreaBottomHeight, 0));
+    make.edges.insets(UIEdgeInsetsMake(kStatusBarHeight + kNavigationBarHeight, 0, kSafeAreaBottomHeight + kTabBarHeight, 0));
   }];
   self.adapter.collectionView = self.collectionView;
 
@@ -207,7 +210,7 @@ NS_ASSUME_NONNULL_END
 
   // auto push
   if (kAutoPush) {
-    DemoViewModel *model = self.dataList.firstObject;
+    StoneViewModel *model = self.dataList.firstObject;
 
     UIViewController *viewController;
 
@@ -252,12 +255,14 @@ NS_ASSUME_NONNULL_END
 // 绑定 model和cell的 viewModel
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id)object {
 
-  DemoViewModel *model = (DemoViewModel *) object;
+  StoneViewModel *model = (StoneViewModel *) object;
 
   IGListSingleSectionController *sectionController = [IGListSingleSectionController.alloc
-    initWithCellClass:DemoViewCell.class
-    configureBlock:^(id item, __kindof DemoViewCell *cell) {
+    initWithCellClass:StoneViewCell.class
+    configureBlock:^(id item, __kindof StoneViewCell *cell) {
+
       // cell.contentView.backgroundColor = sn.randomColor;
+
       NSInteger section = [listAdapter sectionForObject:item];
 
       cell.contentView.backgroundColor = section % 2 == 0 ?
@@ -265,9 +270,6 @@ NS_ASSUME_NONNULL_END
         [UIColor colorWithRed:242 / 255.0 green:154 / 255.0 blue:76 / 255.0 alpha:1.0];
 
       cell.label.text = kStringFormat(@"%03li-%@", (self.dataList.count - 1) - section, model.title);
-
-
-
     }
     sizeBlock:^CGSize(id item, id <IGListCollectionContext> collectionContext) {
       if (collectionContext) {
@@ -291,7 +293,7 @@ NS_ASSUME_NONNULL_END
 
 - (void)didSelectSectionController:(IGListSingleSectionController *)sectionController withObject:(id)object {
 
-  DemoViewModel *model = (DemoViewModel *) object;
+  StoneViewModel *model = (StoneViewModel *) object;
 
   UIViewController *viewController;
 

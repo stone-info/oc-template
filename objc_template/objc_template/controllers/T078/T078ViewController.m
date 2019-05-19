@@ -60,9 +60,7 @@
   @weakify(self);
   // 上面是获取更多的Command，下面是刷新页面的Command。
   [[self.viewModel.reloadDataCommand.executing skip:1] subscribeNext:^(NSNumber *executing) {
-
     // NSLog(@"executing = %@", executing);
-
     @strongify(self);
     if (executing.boolValue) {
       // 正在执行中...
@@ -76,9 +74,7 @@
 
   [RACObserve(self.viewModel, dataList) subscribeNext:^(NSArray *array) {
     @strongify(self);
-
     ILog(@"array = %@", array);
-
     [self.tableView reloadData];
   }];
 }

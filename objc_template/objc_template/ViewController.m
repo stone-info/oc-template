@@ -24,8 +24,8 @@
   self.view.backgroundColor = UIColor.whiteColor;
 
   // 获取info字典
-  NSString * bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
-  NSArray * dataList    = [NSArray arrayWithContentsOfFile:bundlePath];
+  NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+  NSArray  *dataList   = [NSArray arrayWithContentsOfFile:bundlePath];
 
   dataList = (NSMutableArray *) [[dataList reverseObjectEnumerator] allObjects];
   // NSLog(@"dataList = %@", dataList);
@@ -57,34 +57,85 @@
 
     kMasKey(tableView);
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-      make.edges.insets(UIEdgeInsetsMake(kStatusBarHeight + kNavigationBarHeight, 0, kSafeAreaBottomHeight+kTabBarHeight, 0));
+      make.edges.insets(UIEdgeInsetsMake(kStatusBarHeight + kNavigationBarHeight, 0, kSafeAreaBottomHeight + kTabBarHeight, 0));
     }];
   }
 
   // auto push
   if (kAutoPush) {
-      NSDictionary<NSString *, NSString *> *dictionary = self.dataList.firstObject;
 
-      UIViewController *viewController;
-      if (dictionary[@"xib"] && [dictionary[@"xib"] boolValue] == YES) {
-        /** 根据xib 获取 viewController */
-        viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] initWithNibName:dictionary[@"controllerName"] bundle:nil];
-      } else if (dictionary[@"storyboard"] && [dictionary[@"storyboard"] boolValue] == YES) {
-        /** 根据storyboard 获取 viewController */
-        viewController = [[UIStoryboard storyboardWithName:dictionary[@"controllerName"] bundle:nil] instantiateViewControllerWithIdentifier:dictionary[@"controllerName"]];
-      } else {
-        viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] init];
-      }
-      if (viewController.view.backgroundColor) {
-        // 有颜色
-      } else {
-        viewController.view.backgroundColor = UIColor.whiteColor;
-      }
 
-      // NSLog(@"viewController = %@", viewController);
+    NSDictionary<NSString *, NSString *> *dictionary = self.dataList.firstObject;
 
-      viewController.title = kStringFormat(@"%03ld-%@", self.dataList.count - 1, dictionary[@"title"]);
-      [self.navigationController pushViewController:viewController animated:YES];
+    UIViewController *viewController;
+    if (dictionary[@"xib"] && [dictionary[@"xib"] boolValue] == YES) {
+      /** 根据xib 获取 viewController */
+      viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] initWithNibName:dictionary[@"controllerName"] bundle:nil];
+    } else if (dictionary[@"storyboard"] && [dictionary[@"storyboard"] boolValue] == YES) {
+      /** 根据storyboard 获取 viewController */
+      viewController = [[UIStoryboard storyboardWithName:dictionary[@"controllerName"] bundle:nil] instantiateViewControllerWithIdentifier:dictionary[@"controllerName"]];
+    } else {
+      viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] init];
+    }
+    if (viewController.view.backgroundColor) {
+      // 有颜色
+    } else {
+      viewController.view.backgroundColor = UIColor.whiteColor;
+    }
+    viewController.title                             = kStringFormat(@"%03ld-%@", self.dataList.count - 1, dictionary[@"title"]);
+    [self.navigationController pushViewController:viewController animated:YES];
+
+
+    // NSInteger       important = -1;
+    // for (NSUInteger i         = 0; i < self.dataList.count; ++i) {
+    //   NSDictionary<NSString *, NSString *> *dict = self.dataList[i];
+    //   if (dict[@"important"] && [dict[@"important"] boolValue] == YES) {
+    //     important = i;
+    //     break;
+    //   }
+    // }
+    //
+    // if (important == -1) {
+    //   NSDictionary<NSString *, NSString *> *dictionary = self.dataList.firstObject;
+    //
+    //   UIViewController *viewController;
+    //   if (dictionary[@"xib"] && [dictionary[@"xib"] boolValue] == YES) {
+    //     /** 根据xib 获取 viewController */
+    //     viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] initWithNibName:dictionary[@"controllerName"] bundle:nil];
+    //   } else if (dictionary[@"storyboard"] && [dictionary[@"storyboard"] boolValue] == YES) {
+    //     /** 根据storyboard 获取 viewController */
+    //     viewController = [[UIStoryboard storyboardWithName:dictionary[@"controllerName"] bundle:nil] instantiateViewControllerWithIdentifier:dictionary[@"controllerName"]];
+    //   } else {
+    //     viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] init];
+    //   }
+    //   if (viewController.view.backgroundColor) {
+    //     // 有颜色
+    //   } else {
+    //     viewController.view.backgroundColor = UIColor.whiteColor;
+    //   }
+    //   viewController.title                             = kStringFormat(@"%03ld-%@", self.dataList.count - 1, dictionary[@"title"]);
+    //   [self.navigationController pushViewController:viewController animated:YES];
+    // } else {
+    //   NSDictionary<NSString *, NSString *> *dictionary = self.dataList[important];
+    //   UIViewController                     *viewController;
+    //   if (dictionary[@"xib"] && [dictionary[@"xib"] boolValue] == YES) {
+    //     /** 根据xib 获取 viewController */
+    //     viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] initWithNibName:dictionary[@"controllerName"] bundle:nil];
+    //   } else if (dictionary[@"storyboard"] && [dictionary[@"storyboard"] boolValue] == YES) {
+    //     /** 根据storyboard 获取 viewController */
+    //     viewController = [[UIStoryboard storyboardWithName:dictionary[@"controllerName"] bundle:nil] instantiateViewControllerWithIdentifier:dictionary[@"controllerName"]];
+    //   } else {
+    //     viewController = [(UIViewController *) [NSClassFromString(dictionary[@"controllerName"]) alloc] init];
+    //   }
+    //   if (viewController.view.backgroundColor) {
+    //     // 有颜色
+    //   } else {
+    //     viewController.view.backgroundColor = UIColor.whiteColor;
+    //   }
+    //
+    //   viewController.title = kStringFormat(@"%03ld-%@", self.dataList.count - 1 - important, dictionary[@"title"]);
+    //   [self.navigationController pushViewController:viewController animated:YES];
+    // }
   }
 }
 

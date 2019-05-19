@@ -99,14 +99,14 @@
 // 绑定 model和cell的 viewModel
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id)object {
 
-  IGListStackedSectionController *sectionController = [IGListStackedSectionController.alloc initWithSectionControllers:@[
+  NSArray *controllers = @[
     WorkingRangeSectionController.new,
     DisplaySectionController.new,
     HorizontalSectionController.new
-  ]];
+  ];
 
+  IGListStackedSectionController *sectionController = [IGListStackedSectionController.alloc initWithSectionControllers:controllers];
   sectionController.inset = UIEdgeInsetsMake(0, 0, 20, 0);
-
   return sectionController;
 }
 

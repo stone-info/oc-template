@@ -62,7 +62,7 @@
 - (IGListAdapter *)adapter {
 
   if (_adapter == nil) {
-    _adapter = [[IGListAdapter alloc] initWithUpdater:IGListAdapterUpdater.new viewController:self];
+    _adapter = [[IGListAdapter alloc] initWithUpdater:IGListAdapterUpdater.new viewController:self workingRangeSize:2];
     _adapter.dataSource = self;
   }
   return _adapter;

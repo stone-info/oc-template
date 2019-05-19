@@ -11,6 +11,7 @@
 #import "SNUserApi.h"
 #import "T072UserModel.h"
 #import "T072TopModel.h"
+#import "T072SectionController.h"
 #import <IGListKit/IGListKit.h>
 
 @interface T073ViewController () <IGListAdapterDataSource>
@@ -38,7 +39,8 @@
 
   if (_data == nil) {
     _data = @[
-      [T073TopModel.alloc initWithTitle:@"users" height:100 dataList:@[]]
+      [T073TopModel.alloc initWithTitle:@"users1" height:100 dataList:@[]],
+      [T073TopModel.alloc initWithTitle:@"users2" height:200 dataList:@[]]
     ];
   }
   return _data;
@@ -116,7 +118,8 @@
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id)object {
 
   IGListStackedSectionController *sectionController = [IGListStackedSectionController.alloc initWithSectionControllers:@[
-    T073SectionController.new
+    T073SectionController.new,
+    T072SectionController.new,
   ]];
 
   sectionController.inset = UIEdgeInsetsMake(0, 0, 20, 0);
@@ -130,3 +133,4 @@
 }
 
 @end
+

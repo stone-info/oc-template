@@ -5,45 +5,46 @@
 //  Created by stone on 2019-05-18.
 //  Copyright © 2019 stone. All rights reserved.
 //
-#import "T080ViewController.h"
+#import "T080ViewControllerBackup.h"
 #import "T80PostTopModel.h"
 #import "T80Comment.h"
 #import "T80PostSectionController.h"
 #import <IGListKit/IGListKit.h>
 
-@interface T080ViewController () <IGListAdapterDataSource>
+@interface T080ViewControllerBackup () <IGListAdapterDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IGListAdapter           *adapter;
 @property (strong, nonatomic) NSMutableArray          *data;
 @end
 
-@implementation T080ViewController
+@implementation T080ViewControllerBackup
 
 - (NSMutableArray *)data {
 
   if (_data == nil) {
-    _data = @[
-      [T80PostTopModel.alloc
-        initWithUsername:@"@janedoe"
-        timestamp:@"15min"
-        imageURL:[NSURL URLWithString:@"https://placekitten.com/g/375/250"]
-        likes:384
-        comments:@[
-          [T80Comment.alloc initWithUsername:@"ryan" text:@"this is beautiful!"],
-          [T80Comment.alloc initWithUsername:@"jsq" text:@"😱"],
-          [T80Comment.alloc initWithUsername:@"caitlin" text:@"#blessed"],
-        ]],
-      [T80PostTopModel.alloc
-        initWithUsername:@"@stone"
-        timestamp:@"25min"
-        imageURL:[NSURL URLWithString:@"https://placekitten.com/g/375/250"]
-        likes:984
-        comments:@[
-          [T80Comment.alloc initWithUsername:@"ryan" text:@"this is beautiful!"],
-          [T80Comment.alloc initWithUsername:@"jsq" text:@"😱"],
-          [T80Comment.alloc initWithUsername:@"caitlin" text:@"#blessed"],
-        ]]
-    ].mutableCopy;
+    _data = [NSMutableArray array];
+
+    [_data addObject:[T80PostTopModel.alloc
+      initWithUsername:@"@janedoe"
+      timestamp:@"15min"
+      imageURL:[NSURL URLWithString:@"https://placekitten.com/g/375/250"]
+      likes:384
+      comments:@[
+        [T80Comment.alloc initWithUsername:@"ryan" text:@"this is beautiful!"],
+        [T80Comment.alloc initWithUsername:@"jsq" text:@"😱"],
+        [T80Comment.alloc initWithUsername:@"caitlin" text:@"#blessed"],
+      ]]];
+
+    [_data addObject:[T80PostTopModel.alloc
+      initWithUsername:@"@stone"
+      timestamp:@"25min"
+      imageURL:[NSURL URLWithString:@"https://placekitten.com/g/375/250"]
+      likes:984
+      comments:@[
+        [T80Comment.alloc initWithUsername:@"ryan" text:@"this is beautiful!"],
+        [T80Comment.alloc initWithUsername:@"jsq" text:@"😱"],
+        [T80Comment.alloc initWithUsername:@"caitlin" text:@"#blessed"],
+      ]]];
   }
   return _data;
 }
