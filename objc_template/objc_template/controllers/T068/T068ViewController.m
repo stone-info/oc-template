@@ -120,7 +120,7 @@
 }
 
 - (void)demo3 {
-  UITextField *field = makeTextField();
+  UITextField *field = makeTextField(YES);
   _field = field;
 
   [self.view addSubview:field];
@@ -132,7 +132,7 @@
     make.height.mas_greaterThanOrEqualTo(50);
   }];
 
-  UILabel *label = makeLabel();
+  UILabel *label = makeLabel(YES);
   _label = label;
 
   [self.view addSubview:label];
@@ -171,7 +171,7 @@
     make.height.mas_greaterThanOrEqualTo(50);
   }];
 
-  UILabel *uiLabel = makeLabel();
+  UILabel *uiLabel = makeLabel(YES);
   [self.view addSubview:uiLabel];
   kMasKey(uiLabel);
   [uiLabel mas_makeConstraints:^(MASConstraintMaker *make) {

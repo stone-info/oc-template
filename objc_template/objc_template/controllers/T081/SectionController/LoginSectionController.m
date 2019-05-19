@@ -6,6 +6,7 @@
 //  Copyright © 2019 stone. All rights reserved.
 
 #import "LoginSectionController.h"
+#import "LoginCell.h"
 
 @interface LoginSectionController () <IGListWorkingRangeDelegate>
 
@@ -30,19 +31,18 @@
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
-  return CGSizeMake(self.collectionContext.containerSize.width, 55);
+  return CGSizeMake(self.collectionContext.containerSize.width, 160);
 }
 
 - (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
-  UICollectionViewCell *cell = [self.collectionContext dequeueReusableCellOfClass:UICollectionViewCell.class forSectionController:self atIndex:index];
-  // T071UserCell *cell = [self.collectionContext dequeueReusableCellWithNibName:@"T071UserCell" bundle:nil forSectionController:self atIndex:index];
-  cell.contentView.backgroundColor = sn.randomColor;
+  LoginCell *cell = [self.collectionContext dequeueReusableCellWithNibName:@"LoginCell" bundle:nil forSectionController:self atIndex:index];
+  // cell.contentView.backgroundColor = sn.randomColor;
+  kBorder(cell.contentView);
   return cell;
 }
 
 - (void)didUpdateToObject:(id)object {
-  // 官方推荐 , 追踪错误宏
-  // NSParameterAssert([object isKindOfClass:[LabelsItem class]]);
+  NSLog(@"obj class = %@", SN.getClassName(object));
   self.object = object;
 }
 
@@ -60,5 +60,7 @@
 - (void)listAdapter:(IGListAdapter *)listAdapter sectionControllerDidExitWorkingRange:(IGListSectionController *)sectionController {
 
 }
+
+#pragma mark - <测试>
 
 @end

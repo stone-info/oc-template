@@ -125,7 +125,7 @@ static UIColor *navigationBarBackgroundColor = nil;
 - (nullable UIViewController *)popViewControllerAnimated:(BOOL)animated {
   UIViewController *controller = [super popViewControllerAnimated:animated];
 
-  NSLog(@"controller = %@", controller);
+  // NSLog(@"controller = %@", controller);
   // [self.navigationBar setBackgroundImage:sn.imageWithColor(navigationBarBackgroundColor) forBarMetrics:UIBarMetricsDefault];
   // [self.navigationBar setShadowImage:[[UIImage alloc] init]];
 

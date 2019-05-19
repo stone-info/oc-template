@@ -8,7 +8,7 @@
 
 #import "LabelCell.h"
 
-static UIEdgeInsets insets;
+static UIEdgeInsets mInsets;
 static UIFont       *font;
 static CGFloat      singleLineHeight;
 
@@ -21,18 +21,18 @@ static CGFloat      singleLineHeight;
 @implementation LabelCell
 
 + (CGFloat)singleLineHeight {
-  return font.lineHeight + insets.top + insets.bottom;
+  return font.lineHeight + mInsets.top + mInsets.bottom;
 }
 
 + (void)load {
-  insets           = UIEdgeInsetsMake(8, 15, 8, 15);
+  mInsets           = UIEdgeInsetsMake(8, 15, 8, 15);
   font             = [UIFont systemFontOfSize:17];
-  singleLineHeight = font.lineHeight + insets.top + insets.bottom;
+  singleLineHeight = font.lineHeight + mInsets.top + mInsets.bottom;
 }
 
 + (CGFloat)textHeightWithText:(NSString *)text width:(CGFloat)width {
 
-  CGSize constrainedSize = CGSizeMake(width - insets.left - insets.right, MAXFLOAT);
+  CGSize constrainedSize = CGSizeMake(width - mInsets.left - mInsets.right, MAXFLOAT);
 
   NSMutableDictionary *dict = [NSMutableDictionary dictionary];
   dict[NSFontAttributeName] = font;
@@ -42,7 +42,7 @@ static CGFloat      singleLineHeight;
                         attributes:dict
                         context:nil];
 
-  return ceil(bounds.size.height) + insets.top + insets.bottom;
+  return ceil(bounds.size.height) + mInsets.top + mInsets.bottom;
 }
 
 - (UILabel *)label {
@@ -80,10 +80,10 @@ static CGFloat      singleLineHeight;
   [super layoutSubviews];
 
   CGRect bounds = self.contentView.bounds;
-  self.label.frame = UIEdgeInsetsInsetRect(bounds, insets);
+  self.label.frame = UIEdgeInsetsInsetRect(bounds, mInsets);
 
   CGFloat height = 0.5;
-  CGFloat left   = insets.left;
+  CGFloat left   = mInsets.left;
   self.separator.frame = CGRectMake(left, bounds.size.height - height, bounds.size.width - left, height);
 }
 

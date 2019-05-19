@@ -15,21 +15,21 @@ static void addBoard(__kindof UIView *view) {
   view.layer.masksToBounds = YES;
 }
 
-UIView *makeView() {
+UIView *makeView(BOOL board) {
 
   UIView *view = UIView.new;
 
-  addBoard(view);
+  !board ?: addBoard(view);
 
   view.backgroundColor = UIColor.whiteColor;
 
   return view;
 }
 
-UILabel *makeLabel() {
+UILabel *makeLabel(BOOL board) {
   UILabel *label = UILabel.new;
 
-  addBoard(label);
+  !board ?: addBoard(label);
   // layer
   // label.layer.borderWidth   = 1.0;
   // label.layer.borderColor   = HexRGBA(@"#C0C0C0", 1.0).CGColor;
@@ -50,13 +50,11 @@ UILabel *makeLabel() {
   return label;
 }
 
-UIButton *makeButton() {
+UIButton *makeButton(BOOL board) {
 
   UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
   // UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-
-  addBoard(button);
-
+  !board ?: addBoard(button);
   // button.layer.borderWidth   = 1.0;
   // button.layer.borderColor   = HexRGBA(@"#C0C0C0", 1.0).CGColor;
   // button.layer.cornerRadius  = 4.0;
@@ -68,14 +66,17 @@ UIButton *makeButton() {
 
   // 竟然还有这么坑爹的bug... setTitle 写在 titleLabel 前面有坑...
   [button setTitle:@"Click me" forState:UIControlStateNormal];
+
+  button.backgroundColor = UIColor.lightTextColor;
+
   return button;
 
 }
 
-UIImageView *makeImageView() {
+UIImageView *makeImageView(BOOL board) {
   UIImageView *imageView = UIImageView.new;
 
-  addBoard(imageView);
+  !board ?: addBoard(imageView);
   // layer
   // imageView.layer.borderWidth   = 1.0;
   // imageView.layer.borderColor   = HexRGBA(@"#C0C0C0", 1.0).CGColor;
@@ -96,18 +97,18 @@ UIImageView *makeImageView() {
   return imageView;
 }
 
-UISlider *makeSlider() {
+UISlider *makeSlider(BOOL board) {
 
   UISlider *slider = UISlider.new;
 
-  addBoard(slider);
+  !board ?: addBoard(slider);
 
   slider.value = 0;
 
   return slider;
 }
 
-UITextField *makeTextField() {
+UITextField *makeTextField(BOOL board) {
 
   UITextField *field = UITextField.new;
   field.placeholder        = @"placeholder";

@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-UIKIT_EXTERN UILabel *makeLabel();
+UIKIT_EXTERN UILabel *makeLabel(BOOL board);
 
-UIKIT_EXTERN UIButton *makeButton();
+UIKIT_EXTERN UIButton *makeButton(BOOL board);
 
-UIKIT_EXTERN UIImageView *makeImageView();
+UIKIT_EXTERN UIImageView *makeImageView(BOOL board);
 
-UIKIT_EXTERN UISlider *makeSlider();
+UIKIT_EXTERN UISlider *makeSlider(BOOL board);
 
-UIKIT_EXTERN UITextField *makeTextField();
+UIKIT_EXTERN UITextField *makeTextField(BOOL board);
 
 NS_ASSUME_NONNULL_BEGIN
 

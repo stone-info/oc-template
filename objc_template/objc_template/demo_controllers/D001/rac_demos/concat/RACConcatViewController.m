@@ -29,7 +29,7 @@
   [[_loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl *x) {
     NSLog(@"%s", __func__);
   }];
-  //
+  // combineLatest:将多个信号合并起来，并且拿到各个信号的最新的值,必须每个合并的signal至少都有过一次sendNext，才会触发合并的信号。
   RACSignal *racSignal       = [RACSignal combineLatest:@[_usernameField.rac_textSignal, _passwordField.rac_textSignal] reduce:^id(NSString *username, NSString *password) {
 
     NSLog(@"username = %@", username);
@@ -98,15 +98,15 @@
   [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
   self.view.backgroundColor = UIColor.whiteColor;
-  _usernameField = makeTextField();
+  _usernameField = makeTextField(YES);
   _usernameField.placeholder = @"账号";
   [self.view addSubview:_usernameField];
 
-  _passwordField = makeTextField();
+  _passwordField = makeTextField(YES);
   _passwordField.placeholder = @"密码";
   [self.view addSubview:_passwordField];
 
-  _loginButton = makeButton();
+  _loginButton = makeButton(YES);
   [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
   [_loginButton setTitleColor:HexRGBA(@"#c0c0c0", 1.0) forState:UIControlStateDisabled];
 
@@ -138,15 +138,15 @@
 
 - (void)entry6 {
 
-  UITextField *usernameField = makeTextField();
+  UITextField *usernameField = makeTextField(YES);
   usernameField.placeholder = @"账号";
   [self.view addSubview:usernameField];
 
-  UITextField *passwordField = makeTextField();
+  UITextField *passwordField = makeTextField(YES);
   passwordField.placeholder = @"密码";
   [self.view addSubview:passwordField];
 
-  UIButton *loginButton = makeButton();
+  UIButton *loginButton = makeButton(YES);
   [loginButton setTitle:@"登录" forState:UIControlStateNormal];
   [loginButton setTitleColor:HexRGBA(@"#c0c0c0", 1.0) forState:UIControlStateDisabled];
 

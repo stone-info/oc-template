@@ -750,5 +750,18 @@
 		<key>important</key>
 		<false/>
 	</dict>
+
+  <dict>
+    <key>title</key>
+    <string>Rac Demo2</string>
+    <key>controllerName</key>
+    <string>T082ViewController</string>
+    <key>xib</key>
+    <false/>
+    <key>storyboard</key>
+    <false/>
+    <key>important</key>
+    <false/>
+  </dict>
 </array>
 </plist>

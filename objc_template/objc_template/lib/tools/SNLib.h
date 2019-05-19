@@ -60,6 +60,6 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <ReactiveObjC/RACReturnSignal.h>
-
+#import <YTKNetwork/YTKNetwork.h>
 
 #endif /* SNLib_h */

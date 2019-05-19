@@ -79,7 +79,7 @@
 
 - (void)addViews {
 
-  _label = makeLabel();
+  _label = makeLabel(YES);
 
   [self.view addSubview:_label];
   [_label mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -22,8 +22,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    UILabel *nameLabel = makeLabel();
-    UILabel *ageLabel  = makeLabel();
+    UILabel *nameLabel = makeLabel(YES);
+    UILabel *ageLabel  = makeLabel(YES);
     _nameLabel         = nameLabel;
     _ageLabel          = ageLabel;
 

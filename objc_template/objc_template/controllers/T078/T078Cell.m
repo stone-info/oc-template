@@ -23,7 +23,7 @@
 
 - (void)addViews {
 
-  UILabel *label = makeLabel();
+  UILabel *label = makeLabel(YES);
   _label = label;
   [self.contentView addSubview:label];
   kMasKey(label);

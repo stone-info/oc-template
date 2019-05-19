@@ -85,6 +85,44 @@
 // #define DLog(FORMAT, ...) do {printf("<%s %s:%d>-:▼\n\033[1;0;0m %s \033[0m\n--------------------------------------------------------------------------------------------------\n", [[NSDate.date dateByAddingTimeInterval:[NSTimeZone.systemTimeZone secondsFromGMTForDate:NSDate.date]].description substringWithRange:NSMakeRange(11, 8)].UTF8String, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String, __LINE__, [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
 // #define KLog(FORMAT, ...) do {printf("<%s %s:%d>-: %s\n", [[NSDate.date dateByAddingTimeInterval:[NSTimeZone.systemTimeZone secondsFromGMTForDate:NSDate.date]].description substringWithRange:NSMakeRange(11, 8)].UTF8String, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String, __LINE__, [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
 // #define DLog(FORMAT, ...) do {fprintf(stderr,"\n<%s %s:%d>-:%s\n\n", [[NSDate.date dateByAddingTimeInterval:[NSTimeZone.systemTimeZone secondsFromGMTForDate:NSDate.date]].description substringWithRange:NSMakeRange(11, 8)].UTF8String, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String, __LINE__, [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
+
+//                              /* #toast */
+/************************************************************************************/
+// #define kToast(containerView, content) { \
+// //   MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:containerView animated:YES]; \
+// //   hud.mode       = MBProgressHUDModeText;\
+// //   hud.label.text = content;\
+// //   hud.label.font = kPingFangSCRegular(14);\
+// //   hud.label.numberOfLines   = 0;\
+// //   hud.offset     = CGPointMake(0.f, MBProgressMaxOffset);\
+// //   [hud hideAnimated:YES afterDelay:3.f];\
+// // }
+
+#define kToast(kContainerView, content) { \
+UIView * containerView;\
+if(containerView == nil){\
+  containerView = [UIApplication sharedApplication].keyWindow;\
+}else{\
+  containerView = kContainerView;\
+}\
+NSString *text          = content;\
+UIFont   *font          = kPingFangSCRegular(14);\
+CGFloat singLineHeight  = [@"single" stringHeightWithMaxWidth:containerView.bounds.size.width - 46.5 font:font];\
+CGFloat h               = [text stringHeightWithMaxWidth:containerView.bounds.size.width - 46.5 font:font];\
+MBProgressHUD *hud      = [MBProgressHUD showHUDAddedTo:containerView animated:YES];\
+hud.mode                = MBProgressHUDModeText;\
+hud.label.text          = text;\
+hud.label.font          = font;\
+if (h > singLineHeight) {\
+hud.label.textAlignment = NSTextAlignmentLeft;\
+} else {\
+hud.label.textAlignment = NSTextAlignmentCenter;\
+}\
+hud.label.numberOfLines = 0;\
+hud.offset              = CGPointMake(0.f, MBProgressMaxOffset);\
+[hud hideAnimated:YES afterDelay:3.f];\
+}
+
 #else
 
 #define NSLog
@@ -97,6 +135,9 @@
 // #define GLog
 // #define BLog
 // #define DLog
+
+#define kToast(kContainerView, content)
+
 #endif
 
 #endif

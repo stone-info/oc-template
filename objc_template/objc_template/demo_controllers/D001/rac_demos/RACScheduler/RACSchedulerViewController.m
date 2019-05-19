@@ -35,7 +35,7 @@
 
 - (void)entry {
 
-  UIButton *button = makeButton();
+  UIButton *button = makeButton(YES);
   [self.view addSubview:button];
   kMasKey(button);
   [button mas_makeConstraints:^(MASConstraintMaker *make) {

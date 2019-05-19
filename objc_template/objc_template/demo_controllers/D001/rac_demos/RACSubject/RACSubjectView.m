@@ -27,7 +27,7 @@
     self.backgroundColor = UIColor.whiteColor;
     kBorder(self);
 
-    UIButton *button = makeButton();
+    UIButton *button = makeButton(YES);
     [self addSubview:button];
     kMasKey(button);
     [button mas_makeConstraints:^(MASConstraintMaker *make) {

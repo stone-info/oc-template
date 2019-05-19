@@ -45,7 +45,7 @@
 
 // 宏: RACTuplePack RACTupleUnpack
 - (void)entry4 {
-  
+
   RACTwoTuple *tuple = RACTuplePack(@1, @2);
   NSLog(@"tuple = %@", tuple);
 
@@ -63,7 +63,7 @@
   // self.view.backgroundColor = UIColor.whiteColor;
 
 
-  UIButton *button = makeButton();
+  UIButton *button = makeButton(YES);
 
   [self.view addSubview:button];
 
@@ -119,7 +119,7 @@
 }
 
 - (void)addViews {
-  _label = makeLabel();
+  _label = makeLabel(YES);
   [self.view addSubview:_label];
   kMasKey(_label);
   [_label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -129,7 +129,7 @@
     make.height.mas_greaterThanOrEqualTo(50);
   }];
 
-  _field = makeTextField();
+  _field = makeTextField(YES);
 
   [self.view addSubview:_field];
 

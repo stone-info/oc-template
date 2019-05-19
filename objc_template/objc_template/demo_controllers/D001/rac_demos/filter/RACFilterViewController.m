@@ -176,7 +176,7 @@
 // filter
 - (void)entry1 {
 
-  UITextField *field = makeTextField();
+  UITextField *field = makeTextField(YES);
   [self.view addSubview:field];
 
   kMasKey(field);
@@ -187,7 +187,7 @@
     make.height.mas_greaterThanOrEqualTo(50);
   }];
 
-  UILabel *label = makeLabel();
+  UILabel *label = makeLabel(YES);
 
   [self.view addSubview:label];
 

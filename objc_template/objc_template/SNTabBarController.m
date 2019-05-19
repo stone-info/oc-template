@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SNTabBarController.h"
 #import "SNNavigationController.h"
-#import "ViewController.h"
 #import "LRQViewController.h"
 #import "DemoViewController.h"
 #import "StoneViewController.h"

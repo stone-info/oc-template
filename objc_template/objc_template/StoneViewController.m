@@ -313,7 +313,7 @@ NS_ASSUME_NONNULL_END
     viewController.view.backgroundColor = UIColor.whiteColor;
   }
 
-  NSLog(@"viewController = %@", viewController);
+  // NSLog(@"viewController = %@", viewController);
   viewController.view.backgroundColor = UIColor.whiteColor;
 
   // NSUInteger i = self.dataList.count - (NSUInteger) indexPath.row - 1;

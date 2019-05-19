@@ -98,7 +98,7 @@
 
 - (void)entry1 {
 
-  UILabel *label = makeLabel();
+  UILabel *label = makeLabel(YES);
   [self.view addSubview:label];
 
   kMasKey(label);

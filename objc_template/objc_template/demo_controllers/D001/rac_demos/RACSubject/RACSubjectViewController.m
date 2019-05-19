@@ -48,7 +48,7 @@
 
 - (void)entry {
 
-  UITextField *field = makeTextField();
+  UITextField *field = makeTextField(YES);
   [self.view addSubview:field];
 
   kMasKey(field);
@@ -76,7 +76,7 @@
 
 // 监听事件
 - (void)entry4 {
-  UITextField *field = makeTextField();
+  UITextField *field = makeTextField(YES);
   [self.view addSubview:field];
 
   kMasKey(field);

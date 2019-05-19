@@ -35,9 +35,9 @@
 
 - (void)entry {
 
-  UITextField *usernameField = makeTextField();
-  UITextField *passwordField = makeTextField();
-  UIButton    *loginButton   = makeButton();
+  UITextField *usernameField = makeTextField(YES);
+  UITextField *passwordField = makeTextField(YES);
+  UIButton    *loginButton   = makeButton(YES);
   loginButton.enabled       = NO;
   usernameField.placeholder = @"username";
   passwordField.placeholder = @"password";

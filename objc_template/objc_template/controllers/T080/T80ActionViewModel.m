@@ -23,7 +23,7 @@
 }
 
 - (nonnull id <NSObject>)diffIdentifier {
-  return @"action"; // 这也是关键...
+  return @"action"; // 这也是关键... // 和topmodel 一样 , 这个section中 只有一个 action , 可以这么写
   // return self;
 }
 

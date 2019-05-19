@@ -46,9 +46,9 @@
 
 - (void)addViews {
 
-  UITextField *usernameField = makeTextField();
-  UITextField *passwordField = makeTextField();
-  UIButton    *loginButton   = makeButton();
+  UITextField *usernameField = makeTextField(YES);
+  UITextField *passwordField = makeTextField(YES);
+  UIButton    *loginButton   = makeButton(YES);
   _usernameField = usernameField;
   _passwordField = passwordField;
   _loginButton   = loginButton;

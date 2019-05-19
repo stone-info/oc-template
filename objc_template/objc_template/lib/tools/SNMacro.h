@@ -90,7 +90,7 @@ view.layer.shadowRadius  = 1;
 
 //                              /* alert */
 /************************************************************************************/
-#define kAlert(title,msg) ([[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show])
+#define kAlert(title, msg) ([[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show])
 
 
 //                              /* image */
@@ -194,36 +194,7 @@ return self;                                                       \
 // #define kMasKey(VIEW) ;
 #define kMasKey(VIEW) do { VIEW.mas_key = [NSString stringWithFormat:@"%@ -> %s", [NSString stringWithFormat:@"%@:%d", [[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent], __LINE__], #VIEW]; }while(0);
 
-//                              /* #toast */
-/************************************************************************************/
-// #define kToast(containerView, content) { \
-// //   MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:containerView animated:YES]; \
-// //   hud.mode       = MBProgressHUDModeText;\
-// //   hud.label.text = content;\
-// //   hud.label.font = kPingFangSCRegular(14);\
-// //   hud.label.numberOfLines   = 0;\
-// //   hud.offset     = CGPointMake(0.f, MBProgressMaxOffset);\
-// //   [hud hideAnimated:YES afterDelay:3.f];\
-// // }
 
-#define kToast(containerView, content) { \
-NSString *text          = content;\
-UIFont   *font          = kPingFangSCRegular(14);\
-CGFloat singLineHeight  = [@"single" stringHeightWithMaxWidth:containerView.bounds.size.width - 46.5 font:font];\
-CGFloat h               = [text stringHeightWithMaxWidth:containerView.bounds.size.width - 46.5 font:font];\
-MBProgressHUD *hud      = [MBProgressHUD showHUDAddedTo:containerView animated:YES];\
-hud.mode                = MBProgressHUDModeText;\
-hud.label.text          = text;\
-hud.label.font          = font;\
-if (h > singLineHeight) {\
-hud.label.textAlignment = NSTextAlignmentLeft;\
-} else {\
-hud.label.textAlignment = NSTextAlignmentCenter;\
-}\
-hud.label.numberOfLines = 0;\
-hud.offset              = CGPointMake(0.f, MBProgressMaxOffset);\
-[hud hideAnimated:YES afterDelay:3.f];\
-}
 
 //                              /* #obj */
 /************************************************************************************/
@@ -284,6 +255,5 @@ hud.offset              = CGPointMake(0.f, MBProgressMaxOffset);\
 #define strongify(object) try{} @finally{} __typeof__(object) strong##_##object = block##_##object;
 #endif
 #endif
-
 
 #endif /* SNMacro_h */
