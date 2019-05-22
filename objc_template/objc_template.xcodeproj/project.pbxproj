@@ -144,6 +144,7 @@
 		68AF8C3DF8C592F784E92A05 /* PostSectionControllerOC.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF814AC16D2C7684F2BA36 /* PostSectionControllerOC.m */; };
 		68AF8C9505FAEBCA4696E860 /* RACSubjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF8254BCF1836E458FD2A4 /* RACSubjectView.m */; };
 		68AF8CDC130A9A9DFBA08AA4 /* DiffTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF8C8C5FE6BB5E97711930 /* DiffTableViewCell.m */; };
+		68AF8CF632985254937F138F /* T082TextFieldTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF86B7943C956468D5711F /* T082TextFieldTestCell.m */; };
 		68AF8D2AD1664BB449BD6FE1 /* PrefixedLabelSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF8197DB7E394AB83AC65C /* PrefixedLabelSectionController.m */; };
 		68AF8D8C71ACAFD2F92D1C53 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF895F86872770B9ED1424 /* Account.m */; };
 		68AF8D9ED7559249767CF13F /* DiffTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF845926D0CFDD7846A4CD /* DiffTableViewController.m */; };
@@ -709,6 +710,7 @@
 		68AF869ABF596B5A795B108D /* T080ViewControllerBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T080ViewControllerBackup.h; sourceTree = "<group>"; };
 		68AF86A5E4E6FAF431D816BB /* EmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyViewController.m; sourceTree = "<group>"; };
 		68AF86B6059A1D299E47EAFD /* GridItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridItem.m; sourceTree = "<group>"; };
+		68AF86B7943C956468D5711F /* T082TextFieldTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = T082TextFieldTestCell.m; sourceTree = "<group>"; };
 		68AF86B7FB9C1BD6F38A91D1 /* HorizontalSectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalSectionController.m; sourceTree = "<group>"; };
 		68AF86CFBD97052FF37334EF /* T077SectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = T077SectionController.m; sourceTree = "<group>"; };
 		68AF86D451A2E369E890524F /* SNPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPostModel.h; sourceTree = "<group>"; };
@@ -867,6 +869,7 @@
 		68AF8F0AD99AB563108891B6 /* T080ViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = T080ViewController.storyboard; sourceTree = "<group>"; };
 		68AF8F2251CA3D0E9228FD5B /* PersonSectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonSectionController.h; sourceTree = "<group>"; };
 		68AF8F260DA0313E35774D56 /* T081UserSectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T081UserSectionController.h; sourceTree = "<group>"; };
+		68AF8F2AA139CBED6CFA4170 /* T082TextFieldTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T082TextFieldTestCell.h; sourceTree = "<group>"; };
 		68AF8F3FB069958A4BD48287 /* ObjcGeneratedModelDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcGeneratedModelDemoViewController.m; sourceTree = "<group>"; };
 		68AF8F4194A23619674CA4C1 /* RACSchedulerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACSchedulerViewController.h; sourceTree = "<group>"; };
 		68AF8F5265F1024C4F9CA4F1 /* T80PostTopModelBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = T80PostTopModelBackup.m; sourceTree = "<group>"; };
@@ -1817,6 +1820,8 @@
 			children = (
 				68AF89C2CCDF23E3F79C8525 /* T082TestCell.m */,
 				68AF85AD3B4B1EA0EB4E3A91 /* T082TestCell.h */,
+				68AF8F2AA139CBED6CFA4170 /* T082TextFieldTestCell.h */,
+				68AF86B7943C956468D5711F /* T082TextFieldTestCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5191,6 +5196,7 @@
 				68AF88655909F54BD116053B /* T082Test00SectionController.m in Sources */,
 				68AF8BDC1BCAC3B7950E7304 /* T082TestCell.m in Sources */,
 				68AF8793A28230AB6F72CADB /* T082TestViewModel.m in Sources */,
+				68AF8CF632985254937F138F /* T082TextFieldTestCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

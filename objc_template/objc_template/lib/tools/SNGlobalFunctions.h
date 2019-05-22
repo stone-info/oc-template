@@ -57,7 +57,7 @@ UIKIT_EXTERN NSString *toJsonString(id obj);
 
 UIKIT_EXTERN id jsonLoads(NSString *jsonString);
 
-#define GroupLog(FORMAT, ...) do {printf("\033[1;7;48m %s \033[0m\n", [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
+#define GLog(FORMAT, ...) do {printf("\033[1;7;48m %s \033[0m\n", [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
 #define STARTLog(FORMAT, ...) do {printf("<%s %s:%d>-:▼\n\033[1;97;42m %s \033[0m\n", [[NSDate.date dateByAddingTimeInterval:[NSTimeZone.systemTimeZone secondsFromGMTForDate:NSDate.date]].description substringWithRange:NSMakeRange(11, 8)].UTF8String, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String, __LINE__, [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
 #define ENDLog(FORMAT, ...) do {printf("\033[1;97;42m %s \033[0m\n", [NSString stringWithFormat:FORMAT, ##__VA_ARGS__].UTF8String);} while (0);
 
@@ -70,7 +70,7 @@ for (int i = 0; i < count; i++) {\
 objc_property_t property = properties[i];\
 const char      *cName   = property_getName(property);\
 NSString        *name    = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];\
-GroupLog(@"%s.%@ = %@", #obj, name, [obj valueForKey:name]);\
+GLog(@"%s.%@ = %@", #obj, name, [obj valueForKey:name]);\
 }\
 ENDLog(@"GROUP END ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")\
 } while (0);

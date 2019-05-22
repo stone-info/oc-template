@@ -763,5 +763,18 @@
     <key>important</key>
     <false/>
   </dict>
+
+<!--  <dict>-->
+<!--    <key>title</key>-->
+<!--    <string>rac_signalForSelector 测试</string>-->
+<!--    <key>controllerName</key>-->
+<!--    <string>T083ViewController</string>-->
+<!--    <key>xib</key>-->
+<!--    <false/>-->
+<!--    <key>storyboard</key>-->
+<!--    <false/>-->
+<!--    <key>important</key>-->
+<!--    <false/>-->
+<!--  </dict>-->
 </array>
 </plist>

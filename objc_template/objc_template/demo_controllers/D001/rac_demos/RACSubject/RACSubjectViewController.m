@@ -122,10 +122,10 @@
     observer:nil
     block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
       STARTLog(@"GROUP START ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
-      GroupLog(@"value = %@", value);
-      GroupLog(@"change = %@", change);
-      GroupLog(@"causedByDealloc = %d", causedByDealloc);
-      GroupLog(@"affectedOnlyLastComponent = %d", affectedOnlyLastComponent);
+      GLog(@"value = %@", value);
+      GLog(@"change = %@", change);
+      GLog(@"causedByDealloc = %d", causedByDealloc);
+      GLog(@"affectedOnlyLastComponent = %d", affectedOnlyLastComponent);
       ENDLog(@"GROUP END ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
     }
   ];

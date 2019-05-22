@@ -26,6 +26,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
+
     UILabel *label = makeLabel(NO);
     self.label = label;
     [self.contentView addSubview:label];

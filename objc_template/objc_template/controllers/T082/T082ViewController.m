@@ -36,14 +36,6 @@
   self.adapter.collectionView = self.collectionView;
 }
 
-// - (void)viewDidLayoutSubviews {
-//   [super viewDidLayoutSubviews];
-//
-//   CGFloat y      = kStatusBarHeight + kNavigationBarHeight;
-//   CGFloat height = kScreenHeight - y - kSafeAreaBottomHeight;
-//   self.collectionView.frame = CGRectMake(0, y, kScreenWidth, height);
-// }
-
 #pragma mark - <IGListAdapterDataSource>
 
 // 返回遵守IGListDiffable协议的 对象数组, @(1) number类型和 字符串 好像默认遵守了该协议, 待研究
@@ -55,12 +47,18 @@
 // 绑定 model和cell的 viewModel
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id)object {
 
-  NSArray *controllers = @[
-    T082Test00SectionController.new
-  ];
+  T082Test00SectionController *t082Test00SectionController = T082Test00SectionController.new;
+
+  NSArray *controllers = @[t082Test00SectionController];
+
+  // 不使用协议 , 代替代理 , 真球方便...
+  [[t082Test00SectionController rac_signalForSelector:@selector(hello:)] subscribeNext:^(RACTuple *x) {
+    NSLog(@"x class = %@ | x = %@", SN.getClassName(x), x);
+  }];
 
   IGListStackedSectionController *sectionController = [IGListStackedSectionController.alloc initWithSectionControllers:controllers];
   sectionController.inset = UIEdgeInsetsMake(0, 0, 0, 0);
+
   return sectionController;
 }
 

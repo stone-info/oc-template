@@ -5,9 +5,12 @@
 //  Created by stone on 2019-05-19.
 //  Copyright © 2019 stone. All rights reserved.
 
+#import <ReactiveObjC/ReactiveObjC-umbrella.h>
+#import <IQKeyboardManager/IQUIView+Hierarchy.h>
 #import "T082Test00SectionController.h"
 #import "LabelCell.h"
 #import "T082TestCell.h"
+#import "T082TextFieldTestCell.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -16,8 +19,9 @@ static NSArray *testList;
 
 @interface T082Test00SectionController () <IGListWorkingRangeDelegate>
 
-@property (strong, nonatomic) id object;
-
+@property (strong, nonatomic) id            object;
+@property (strong, nonatomic) RACSubject    *subject;
+@property (strong, nonatomic) RACDisposable *disposable;
 @end
 
 @implementation T082Test00SectionController
@@ -25,11 +29,74 @@ static NSArray *testList;
 - (instancetype)init {
   self = [super init];
   if (self) {
+
+    [[self rac_signalForSelector:@selector(hello:)] subscribeNext:^(RACTuple *x) {
+      NSLog(@"x class = %@ | x = %@", SN.getClassName(x), x);
+    }];
+
+    // 组合1: 初始化时 也传值
+    // NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+
+    // 组合2: 有新值 才 传值
+    // NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
+    [self
+      rac_observeKeyPath:@"inset"
+      options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+      observer:nil
+      block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
+        STARTLog(@"GROUP START ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
+        GLog(@"value = %@", value);
+        GLog(@"change = %@", change);
+        GLog(@"causedByDealloc = %d", causedByDealloc);
+        GLog(@"affectedOnlyLastComponent = %d", affectedOnlyLastComponent);
+        ENDLog(@"GROUP END ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
+      }
+    ];
+
+    // rac_valuesForKeyPath: 初始化时 也传值
+    // 相当于 NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+    [[self rac_valuesForKeyPath:@"minimumInteritemSpacing" observer:nil] subscribeNext:^(id x) {
+      NSLog(@"x class = %@ | x = %@", SN.getClassName(x), x);
+    }];
+
+    [RACObserve(self, minimumLineSpacing) subscribeNext:^(id x) {
+      NSLog(@"x class = %@ | x = %@", SN.getClassName(x), x);
+    }];
+
+    [[NSNotificationCenter.defaultCenter rac_addObserverForName:@"send-hello" object:nil] subscribeNext:^(NSNotification *x) {
+      NSLog(@"x class = %@ | x = %@", SN.getClassName(x), x);
+    }];
+
     self.inset                   = UIEdgeInsetsMake(0, 0, 0, 0);
     self.minimumInteritemSpacing = 0;
     self.minimumLineSpacing      = 0;
     self.workingRangeDelegate    = self;
+
+    RACSubject *subject = [RACSubject subject];
+    _subject = subject;
+
+    RACScheduler        *scheduler       = [RACScheduler mainThreadScheduler]; // [RACScheduler scheduler]
+    RACSignal<NSDate *> *schedulerSignal = [RACSignal interval:1.0 onScheduler:scheduler];
+
+    @weakify(self)
+    RACDisposable       *disposable      = [[schedulerSignal takeUntil:subject] subscribeNext:^(NSDate *date) {
+      @strongify(self)
+      [self hello:@"hello"];
+
+      NSLog(@"date = %@", date);
+      NSLog(@"[NSThread currentThread] = %@", [NSThread currentThread]);
+    }];
+    // 取消定时器的时候用的
+    _disposable = disposable;
+    // [_disposable dispose];
+
+
+
+
+
+    //strong_tableView
   }
+
   return self;
 }
 
@@ -53,6 +120,10 @@ static NSArray *testList;
     height = 60;
   }
 
+  if (index == 7) {
+    height = 100;
+  }
+
   return CGSizeMake(width, height);
 }
 
@@ -63,6 +134,20 @@ static NSArray *testList;
     // T071UserCell *cell = [self.collectionContext dequeueReusableCellWithNibName:@"T071UserCell" bundle:nil forSectionController:self atIndex:index];
     // cell.contentView.backgroundColor = sn.randomColor;
     cell.label.text = kStringFormat(@"%02li %@", index, testList[index]);;
+
+    return cell;
+  }
+
+  if (index == 7) {
+    T082TextFieldTestCell *cell = [self.collectionContext dequeueReusableCellOfClass:T082TextFieldTestCell.class forSectionController:self atIndex:index];
+    cell.label.text = kStringFormat(@"%02li %@", index, testList[index]);;
+
+    [cell.field.rac_textSignal subscribeNext:^(NSString *x) {
+      NSLog(@"x class = %@ | x = %@", SN.getClassName(x), x);
+    }];
+
+    // RAC(cell.field, text) = cell.field.rac_textSignal;
+
 
     return cell;
   }
@@ -108,6 +193,11 @@ static NSArray *testList;
     @"测试 RACSubject",
     @"测试 ButtonClickSignal",
     @"测试 RACTuple",
+    @"测试 RAC-KVO-通知-代理",
+    @"测试 TextField 信号",
+    @"测试 takeUntil 测试取消定时器",
+    @"测试 RACDisposable 测试取消定时器",
+    @"测试 rac_liftSelector",
   ];
 }
 
@@ -246,13 +336,93 @@ static NSArray *testList;
   [subject sendNext:@"hello 订阅者们..."];
 }
 
+// RACSequence : 用于代替NSArray , NSDictionary 可以使用快速的遍历, 注意是 , NSArray 不是 NSMutableArray
 - (void)entry5 {
   kToast(nil, kStringFormat(@"%s", __func__));
 
+  [@[@1, @"1", @"一"].rac_sequence.signal subscribeNext:^(id x) {
+    NSLog(@"x class = %@ | x = %@", SN.getClassName(x), x);
+  }];
 
+  NSDictionary *dict = @{
+    @"name": @"stone",
+    @"age" : @29
+  };
+
+  [dict.rac_sequence.signal subscribeNext:^(RACTwoTuple *x) {
+    RACTupleUnpack(id key, id value) = x;
+    NSLog(@"%@(%@) : %@(%@)", key, SN.getClassName(key), value, SN.getClassName(value));
+  }];
+
+  NSArray *array = [[@[@1, @2, @3].rac_sequence map:^id(id value) {
+    return value;
+  }] array];
+
+  NSLog(@"array = %@", array);
+}
+
+- (void)entry6 {
+
+  [self hello:@"你好吗 世界"];
+
+  // [[NSNotificationCenter.defaultCenter rac_addObserverForName:@"send-hello" object:nil] subscribeNext:^(NSNotification *x) {
+  //   NSLog(@"x class = %@ | x = %@", SN.getClassName(x), x);
+  // }];
+
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"send-hello" object:nil userInfo:@{@"username": @"stone"}];
 
 }
 
+- (void)hello:(NSString *)content {
+
+  ILog(@"content = %@", content);
+
+}
+
+- (void)entry8 {
+  [_subject sendNext:@"hello 订阅者们..."];
+}
+
+- (void)entry9 {
+  [_disposable dispose];
+}
+
+- (void)entry10 {
+
+  RACSignal *getUsersSignal = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
+
+    YTKRequest *api = (YTKRequest *) [[NSClassFromString(@"SNUserApi") alloc] init];
+    [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
+      [subscriber sendNext:request.responseJSONObject];
+      [subscriber sendCompleted];
+    } failure:^(__kindof YTKBaseRequest *request) {
+      [subscriber sendError:request.error];
+    }];
+    // 默认一个信号发送数据完毕就会主动取消订阅, 只要订阅者在, 就不会自动取消订阅, 比如 property 引用
+    return [RACDisposable disposableWithBlock:^{ /** NSLog(@"销毁 %s", __func__); */ }];
+  }];
+
+  RACSignal *getPostsSignal = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
+
+    YTKRequest *api = (YTKRequest *) [[NSClassFromString(@"SNPostApi") alloc] init];
+    [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
+      [subscriber sendNext:request.responseJSONObject];
+      [subscriber sendCompleted];
+    } failure:^(__kindof YTKBaseRequest *request) {
+      [subscriber sendError:request.error];
+    }];
+    // 默认一个信号发送数据完毕就会主动取消订阅, 只要订阅者在, 就不会自动取消订阅, 比如 property 引用
+    return [RACDisposable disposableWithBlock:^{ /** NSLog(@"销毁 %s", __func__); */ }];
+  }];
+
+  [self rac_liftSelector:@selector(updateUIWithUsers:posts:) withSignalsFromArray:@[getUsersSignal, getPostsSignal]];
+
+}
+
+- (void)updateUIWithUsers:(id)users posts:(id)posts {
+  NSLog(@"users = %@", users);
+  NSLog(@"posts = %@", posts);
+}
 @end
 
 #pragma clang diagnostic pop
